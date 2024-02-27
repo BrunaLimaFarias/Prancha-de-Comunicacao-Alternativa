@@ -6,6 +6,10 @@ Este repositório contém links para documentos no Google Docs que são relevant
 
 - [TCC I - Primeira Entrega](https://docs.google.com/document/d/1IMqdj9ZXrYartJ-7UbRNQyKDqeyjD54SASEhDn8UPts/edit?usp=sharing)
 
+- [Proposta](https://docs.google.com/document/d/1r1RAITgrL3ikzErNjrmy0pIMpD2ENzYN/edit?usp=sharing)
+
+- [Planejamento Trello](https://trello.com/invite/b/O2kPyPZd/ATTI76f081871f3349b5d09c7c702cff0a15EC517948/tccweb)
+
 ## Como Acessar os Documentos
 
 1. Clique nos links acima para acessar os documentos correspondentes.
