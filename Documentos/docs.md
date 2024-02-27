@@ -19,7 +19,7 @@ Este repositório contém links para documentos no Google Docs que são relevant
 
 - [Template Site](https://www.figma.com/file/JHdhzawwPgAlQ5oc4FOL73/templete?type=design&node-id=2%3A5&mode=design&t=ObzDC5dY5CHOgTjz-1)
 
-- [Sprints](tps://docs.google.com/document/d/1Xw9CkikCpf2sFbBi7sNl646z6X_APYKj/edit?usp=sharing)
+- [Sprints](https://docs.google.com/document/d/1Xw9CkikCpf2sFbBi7sNl646z6X_APYKj/edit?usp=sharing)
 
 - [TCC II Ingles](https://docs.google.com/document/d/1Mt_TttFKVnEN5fUuJKtpyrZMf0KwaUtMjmFlS5FX1UQ/edit?usp=sharing)
 
