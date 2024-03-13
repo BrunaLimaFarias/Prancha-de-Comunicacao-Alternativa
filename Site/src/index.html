@@ -5,46 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hortifruti</title>
     <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
 </head>
 <body>
     <header>
-        <h1>Hortifruti</h1>
+        <h2>Hortifruti</h2>
         <nav>
             <ul>
+                <div class="box-busca">
+                    <! –– alterar ––>
+                    <form method="post" action="#">
+                        <input type="text" class="search-box-input" name="busca" placeholder="Pesquisar">
+                        <button class="search-box-button"><i class="search-box-icone icon icon-search"></i></button>
+                    </form>
+                </div>
+
                 <li><a href="#">Início</a></li>
-                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Conta</a></li>
                 <li><a href="#">Carrinho</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Contato</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="banner">
-            <img src="img/banner_hortifruti.png" alt="banner"width="500" height="60">
+            <! –– a ideia era o texto ficar em cima da imagem, mas ainda nao consegui ––>
+            <img src="img/banner_hortifruti.png" alt="banner" width="550" height="100">
             <h2>Bem-vindo à nossa loja de hortifrúti orgânico!</h2>
-            <p>Encontre uma variedade de frutas, legumes, verduras e produtos naturais.</p>
+            <p>Encontre uma variedade de frutas, legumes e verduras</p>
         </section>
-        <section id="featured-products">
+
+        <section id="categoria">
+            <div class="categorias-itens">
+                <h2>Categorias</h2>
+                <a href="#">Frutas</a>
+                <a href="#">Frutas Exoticas</a>
+                <a href="#">Verduras</a>
+                <a href="#">Legumes</a>
+                <a href="#">Frutas</a>
+
+            </div>
+        </section>
+
+        <section id="destaques">
             <h2>Produtos em destaque</h2>
-            <div class="product-card">
-                <img src="img/uva_thompson.jpeg" alt="uva">
-                <h3>Produto 1</h3>
-                <p>Descrição do produto 1...</p>
-                <span class="price">R$ 10,00</span>
-                <a href="#" class="button">Adicionar</a>
+            <div class="classificar">
+                <button class="classifica" onclick="Classificar()"><i>Classificar</i></button>
             </div>
-            <div class="product-card">
-                <img src="img/melao.jpg" alt="melao">
-                <h3>Produto 2</h3>
-                <p>Descrição do produto 2...</p>
-                <span class="price">R$ 15,00</span>
-                <a href="#" class="button">Adicionar</a>
-            </div>
-        </section>
+
+
+            <div class="meio">
+
+                <div class="product-card">
+                    <img src="img/uva_thompson.jpeg" alt="uva" width="51" height="200">
+                    <h3>Produto 1</h3>
+                    <span class="price">R$ 10,00</span>
+
+                    <! –– nao mudar valores ––>
+                    <div class="box-quantidade">
+                        <button class="button-sub" onclick="Sub()">-</button>
+                        1
+                        <button class="button-sum" onclick="Sum()">+</button>
+                    </div>
+
+                    <br>
+                    <button type="button" onclick="Adicionar()" class="button"> Adicionar </button>
+                </div>
+
+            <section id="filtro">
+                <! –– ele deve ficar ao lado esquerdo do corpo do site ––>
+                <div class="filtro">
+                    <h2>Filtro</h2>
+                    <br>
+                    <h3>Preço</h3>
+                    <h3>De __ Até __</h3>
+                    <button type="button" onclick="Aplicar()" class="button"> Aplicar </button>
+                </div>
+            </section>
+    </div>
+
+
     </main>
     <footer>
-        <p>&copy; 2024 Hortifrúti Orgânico. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Arthur | Bruna | Gabriel</p>
     </footer>
 </body>
 </html>
