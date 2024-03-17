@@ -51,19 +51,29 @@
             <div class="meio">
 
                 <div class="product-card">
-                    <img src="img/uva_thompson.jpeg" alt="uva" width="51" height="200">
-                    <h3>Produto 1</h3>
-                    <span class="price">R$ 10,00</span>
+                    <div class="img-produto">
+                        <img src="img/uva_thompson.jpeg" alt="uva" width="51" height="200">
+                    </div>
+                    <div class="nome-produto">
+                        <h3>Produto 1</h3>
+                    </div>
+                    <div class="preco-produto">
+                        <span class="price">R$ 10,00</span>
+                    </div>
+                    
                     <! –– nao mudar valores ––>
                     <div class="box-quantidade">
                         <button class="button-sub" onclick="Sub()">-</button>
-                        1
+                        <input type="tel" id="item-quantidade" min="1">
                         <button class="button-sum" onclick="Sum()">+</button>
                     </div>
                     <br>
-                    <button type="button" onclick="Adicionar()" class="button"> Adicionar </button>
+                    <div class="adiciona-produto">
+                        <button type="button" onclick="Adicionar()" class="button"> Adicionar </button>
+                    </div>
                 </div>
-
+            </div>
+            
             <section id="filtro">
                 <! –– ele deve ficar ao lado esquerdo do corpo do site ––>
                 <div class="filtro">
