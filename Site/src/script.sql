@@ -19,7 +19,8 @@ CREATE TABLE carrinho (
 );
 
 INSERT INTO produtos(titulo, preco, img, tipo, descricao) VALUES
-	('Uva Thompson', 3.9,  '../img/uva_thompson.jpeg', 'fruta', 'Uva Thompson Perboni Bandeja 500G ');
+	('Uva Thompson', 3.9,  '../img/uva_thompson.jpeg', 'fruta', 'Uva Thompson Perboni Bandeja 500G '),
+    ('Abacaxi', 2.99,  '../img/abacaxi.jpg', 'fruta', 'Abacaxi Unidade ');
 
 
 
