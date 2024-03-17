@@ -82,6 +82,14 @@ nav ul li a {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+
+
+    display: inline-block;
+    background-color: #27ae60;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
 .finalizar-compra button:hover {
