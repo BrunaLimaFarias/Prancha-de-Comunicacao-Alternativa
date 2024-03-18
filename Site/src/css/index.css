@@ -12,6 +12,21 @@ header {
 }
 
 
+.box-busca{
+    display:flex;
+    align-items: left;
+    background-color: #25420e;
+    width: 300px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    background-color: #c49c30;
+    width: 300px;
+}
+
+
 nav ul {
     list-style-type: none;
     margin: 0;
