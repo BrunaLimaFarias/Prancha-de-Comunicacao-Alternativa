@@ -8,15 +8,32 @@ body {
 header {
     background-color: #457C17;
     color: #fff;
+    align-items: center;
     padding: 20px;
+    
 }
 
 
 .box-busca{
     display:flex;
-    align-items: left;
+    align-items: center;
     background-color: #25420e;
     width: 300px;
+}
+
+.box-busca .search-box-input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.box-busca button {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 13px 13px;
+    cursor: pointer;
 }
 
 .header-left {
