@@ -1,0 +1,107 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F6F5F5; /* #DCF2F1 */
+    
+}
+
+header {
+    background-color: #378CE7;
+    color: #fff;
+    align-items: center;
+    padding: 7px;
+    
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #5356FF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover{
+    background-color: #47df86;
+}
+
+
+#figuras {
+    margin: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-figura-frase {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.card-figura-frase img {
+    width: 50%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card-figura {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.card-figura img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card-figura h3 {
+    color: #333;
+    font-size: 18px;
+}
+
+.card-figura p {
+    color: #666;
+}
+
+
+footer {
+    background-color: #009DAE;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}
