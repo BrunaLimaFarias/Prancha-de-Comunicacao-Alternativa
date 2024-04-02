@@ -6,9 +6,11 @@ Este repositório contém links para documentos no Google Docs que são relevant
 
 ## TCC I
 
-- [TCC I - Primeira Entrega](https://docs.google.com/document/d/1IMqdj9ZXrYartJ-7UbRNQyKDqeyjD54SASEhDn8UPts/edit?usp=sharing)
+- [Fullstack](https://docs.google.com/document/d/1IMqdj9ZXrYartJ-7UbRNQyKDqeyjD54SASEhDn8UPts/edit?usp=sharing)
 
-- [TCC I - Segunda Entrega](https://docs.google.com/document/d/1JkuIdwKES5MOIk7K063LaCIREAygkkLD/edit?usp=sharing)
+- [TCC I - Primeira Entrega](https://docs.google.com/document/d/1eSBsPuqcu1nRoj5Psci9efpechDaNDS_/edit?usp=drive_link&ouid=103788203872480028238&rtpof=true&sd=true)
+
+- [TCC I - Segunda Entrega](https://docs.google.com/document/d/16iD9TNd9pDmKW4s12XNWHioeDhonFVga/edit?usp=drive_link&ouid=103788203872480028238&rtpof=true&sd=true)
 
 - [Proposta](https://docs.google.com/document/d/1r1RAITgrL3ikzErNjrmy0pIMpD2ENzYN/edit?usp=sharing)
 
@@ -21,7 +23,7 @@ Este repositório contém links para documentos no Google Docs que são relevant
 
 - [Sprints](https://docs.google.com/document/d/1Xw9CkikCpf2sFbBi7sNl646z6X_APYKj/edit?usp=sharing)
 
-- [TCC II Ingles](https://docs.google.com/document/d/1Mt_TttFKVnEN5fUuJKtpyrZMf0KwaUtMjmFlS5FX1UQ/edit?usp=sharing)
+- [TCC II Ingles](https://docs.google.com/document/d/1Mt_TttFKVnEN5fUuJKtpyrZMf0KwaUtMjmFlS5FX1UQ/edit?usp=drive_link)
 
 ## Como Acessar os Documentos
 

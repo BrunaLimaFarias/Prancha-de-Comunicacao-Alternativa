@@ -48,7 +48,7 @@ button {
 }
 
 button:hover{
-    background-color: #47df86;
+    background-color: #3082da;
 }
 
 
@@ -59,26 +59,16 @@ button:hover{
     justify-content: space-between;
 }
 
-.card-figura-frase {
-    background-color: #fff;
+
+.card-figura button {
+    background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px;
-    padding: 20px;
     border-radius: 25px;
 }
 
-.card-figura-frase img {
-    width: 50%;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.card-figura {
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    padding: 20px;
-    border-radius: 25px;
+.card-figura button:hover{
+    background-color: #3082da;
 }
 
 .card-figura img {
@@ -92,9 +82,7 @@ button:hover{
     font-size: 18px;
 }
 
-.card-figura p {
-    color: #666;
-}
+
 
 
 footer {
