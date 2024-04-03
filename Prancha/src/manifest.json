@@ -3,7 +3,7 @@
 {
     "name": "Prancha de Comunicação",
     "short_name": "Prancha Comunicação",
-    "start_url": ".",
+    "start_url": "index.html",
     "background_color": "#ffffff",
     "theme_color": "#808080",
     "display": "standalone",
