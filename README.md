@@ -20,7 +20,7 @@ O objetivo principal deste projeto é desenvolver uma prancha de comunicação d
 - `Categorização de Figuras`: As figuras serão organizadas em categorias para facilitar a navegação e a seleção.
 
 ## Desenvolvimento
-O projeto será desenvolvido principalmente usando HTML, CSS e JavaScript para a interface gráfica e a interação do usuário. O backend será opcional, dependendo das funcionalidades específicas que serão implementadas. O desenvolvimento será iterativo, com testes realizados em diferentes estágios para garantir a qualidade e a usabilidade da prancha de comunicação.
+O projeto será desenvolvido principalmente usando HTML, CSS e JavaScript para a interface gráfica e a interação do usuário. O desenvolvimento será iterativo, com testes realizados em diferentes estágios para garantir a qualidade e a usabilidade da prancha de comunicação.
 
 ## Como Usar
 
