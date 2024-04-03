@@ -9,19 +9,14 @@ O objetivo principal deste projeto é desenvolver uma prancha de comunicação d
 ## Funcionalidades Principais
 
 - `Seleção de Figuras`: Os usuários poderão escolher entre uma ampla variedade de figuras categorizadas para criar suas frases.
+- `Predição de Figuras`O sistema utiliza Cadeias de Markov para prever e sugerir figuras com base no contexto da comunicação.
 - `Visualização de Figuras`: As figuras selecionadas serão exibidas de forma clara e legível na interface da prancha.
 - `Implementação de Aplicativo`: O projeto incluirá a implementação de um aplicativo web responsivo para acessar a prancha de comunicação em diferentes dispositivos.
-
-- **Seleção de Figuras:** Os usuários podem selecionar figuras a partir de uma extensa biblioteca categorizada.
-- **Predição de Figuras:** O sistema utiliza Cadeias de Markov para prever e sugerir figuras com base no contexto da comunicação.
-- **Visualização de Figuras:** As figuras selecionadas são exibidas de forma clara e legível na interface da prancha.
-- **Categorização de Figuras:** As figuras são organizadas em categorias para facilitar a navegação e seleção.
-
 
 ## Recursos
 
 - `Mais de 2000 Figuras`: A prancha de comunicação incluirá uma extensa biblioteca de figuras para atender às necessidades dos usuários.
-- `Predição de Figuras`: Será implementada uma funcionalidade de predição de figuras com base na frequência de uso e no contexto da comunicação, ela será aprimorada com a integração de uma cadeia de Markov para prever as próximas figuras com base no histórico de seleções.
+- `Predição de Figuras`: Será implementada uma funcionalidade de predição de figuras com base na frequência de uso, no contexto da comunicação e ela será aprimorada com a integração de uma cadeia de Markov para prever as próximas figuras com base no histórico de seleções.
 - `Categorização de Figuras`: As figuras serão organizadas em categorias para facilitar a navegação e a seleção.
 
 ## Desenvolvimento
