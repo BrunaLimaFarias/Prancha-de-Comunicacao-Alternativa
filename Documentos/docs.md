@@ -8,7 +8,7 @@ Este repositório contém links para documentos no Google Docs que são relevant
 
 - [Fullstack](https://docs.google.com/document/d/1IMqdj9ZXrYartJ-7UbRNQyKDqeyjD54SASEhDn8UPts/edit?usp=sharing)
 
-- [TCC I - Primeira Entrega](https://docs.google.com/document/d/1eSBsPuqcu1nRoj5Psci9efpechDaNDS_/edit?usp=drive_link&ouid=103788203872480028238&rtpof=true&sd=true)
+- [TCC I - Primeira Entrega](https://docs.google.com/document/d/1k_J3mtI_togPf84ZwobZ6-Mr-si2UdcD/edit?usp=sharing&ouid=103788203872480028238&rtpof=true&sd=true)
 
 - [TCC I - Segunda Entrega](https://docs.google.com/document/d/16iD9TNd9pDmKW4s12XNWHioeDhonFVga/edit?usp=drive_link&ouid=103788203872480028238&rtpof=true&sd=true)
 

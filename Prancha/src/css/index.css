@@ -60,7 +60,8 @@ button:hover{
 }
 
 #figura-frase{
-    
+    display: flex;
+
 }
 
 
