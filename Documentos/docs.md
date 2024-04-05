@@ -10,8 +10,6 @@ Este repositório contém links para documentos no Google Docs que são relevant
 
 - [TCC I - Primeira Entrega](https://docs.google.com/document/d/1k_J3mtI_togPf84ZwobZ6-Mr-si2UdcD/edit?usp=sharing&ouid=103788203872480028238&rtpof=true&sd=true)
 
-(https://docs.google.com/document/d/1eSBsPuqcu1nRoj5Psci9efpechDaNDS_/edit?usp=sharing&ouid=103788203872480028238&rtpof=true&sd=true)
-
 - [TCC I - Segunda Entrega](https://docs.google.com/document/d/16iD9TNd9pDmKW4s12XNWHioeDhonFVga/edit?usp=drive_link&ouid=103788203872480028238&rtpof=true&sd=true)
 
 - [Proposta](https://docs.google.com/document/d/1r1RAITgrL3ikzErNjrmy0pIMpD2ENzYN/edit?usp=sharing)
@@ -26,6 +24,8 @@ Este repositório contém links para documentos no Google Docs que são relevant
 - [Sprints](https://docs.google.com/document/d/1Xw9CkikCpf2sFbBi7sNl646z6X_APYKj/edit?usp=sharing)
 
 - [TCC II Ingles](https://docs.google.com/document/d/1Mt_TttFKVnEN5fUuJKtpyrZMf0KwaUtMjmFlS5FX1UQ/edit?usp=drive_link)
+
+- [Modelo Figuras PDF] (https://drive.google.com/file/d/1fZLDUeK2Cgn6jq-Sf1aaVTGGZusdWJF8/view?usp=drive_link)
 
 ## Como Acessar os Documentos
 
