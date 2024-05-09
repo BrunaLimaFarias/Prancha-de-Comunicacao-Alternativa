@@ -61,6 +61,10 @@ function gerarCardsFiguras() {
         // Adicionar evento de clique para adicionar a figura à frase
         cardDiv.addEventListener('click', () => {
             adicionarFiguraAFrase(figura.word);
+            cardDiv.classList.add('selected');
+            setTimeout(() => {
+                cardDiv.classList.remove('selected');
+            }, 300);
         });
         cardsContainer.appendChild(cardDiv);
     });
