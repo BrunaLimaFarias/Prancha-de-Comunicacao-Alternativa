@@ -1,4 +1,5 @@
 // Dados das figuras
+/*
 const trainingData = [
     { word: "Eu", image: "./teste/outro_teste/logo.png" },
     { word: "quero", image: "./teste/outro_teste/apontador.jpg" },
@@ -11,7 +12,7 @@ const trainingData = [
     { word: "verde", image: "./teste/outro_teste/verde.png" },
     { word: "vermelho", image: "./teste/outro_teste/vermelho.png" }
 ];
-
+*/
 // Lista para armazenar as figuras selecionadas
 let figurasSelecionadas = [];
 
@@ -39,35 +40,42 @@ function atualizarFraseFormada() {
     fraseListaElement.innerHTML = ''; // Limpa a lista antes de atualizar
     figurasSelecionadas.forEach(figura => {
         const li = document.createElement('li');
-        const imagem = trainingData.find(data => data.word === figura).image;
-        li.innerHTML = `<img src="${imagem}" alt="${figura}"> ${figura}`;
+        li.textContent = figura;
         fraseListaElement.appendChild(li);
     });
 }
 
-// Função para gerar os cards das figuras
-function gerarCardsFiguras() {
-    const cardsContainer = document.getElementById('cards-container');
-    trainingData.forEach(figura => {
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card');
-        cardDiv.setAttribute('data-figura', figura.word); // Definir o atributo data-figura
-        cardDiv.innerHTML = `
-            <img src="${figura.image}" alt="${figura.word}">
-            <div class="card-body">
-                <h5 class="card-title">${figura.word}</h5>
-            </div>
-        `;
-        // Adicionar evento de clique para adicionar a figura à frase
-        cardDiv.addEventListener('click', () => {
-            adicionarFiguraAFrase(figura.word);
-            cardDiv.classList.add('selected');
-            setTimeout(() => {
-                cardDiv.classList.remove('selected');
-            }, 300);
+// Função para buscar as figuras do banco de dados e criar os cards
+async function buscarFigurasEGerarCards() {
+    try {
+        const response = await fetch("php/listar.php");
+        const data = await response.json();
+
+        const cardsContainer = document.getElementById('cards-container');
+
+        data.forEach(figura => {
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+            cardDiv.setAttribute('data-figura', figura.titulo); // Definir o atributo data-figura
+            cardDiv.innerHTML = `
+                <img src="${figura.img}" alt="${figura.titulo}">
+                <div class="card-body">
+                    <h5 class="card-title">${figura.titulo}</h5>
+                </div>
+            `;
+            // Adicionar evento de clique para adicionar a figura à frase
+            cardDiv.addEventListener('click', () => {
+                adicionarFiguraAFrase(figura.titulo);
+                cardDiv.classList.add('selected');
+                setTimeout(() => {
+                    cardDiv.classList.remove('selected');
+                }, 300);
+            });
+            cardsContainer.appendChild(cardDiv);
         });
-        cardsContainer.appendChild(cardDiv);
-    });
+    } catch (error) {
+        console.error('Erro ao buscar figuras:', error);
+    }
 }
 
 // Event listener para clicar no botão de exclusão da última figura
@@ -80,5 +88,5 @@ document.getElementById('btn-limpar-frase').addEventListener('click', () => {
     limparFrase();
 });
 
-// Chamada da função para gerar os cards das figuras
-gerarCardsFiguras();
+// Chamada da função para buscar as figuras do banco de dados e gerar os cards
+buscarFigurasEGerarCards();

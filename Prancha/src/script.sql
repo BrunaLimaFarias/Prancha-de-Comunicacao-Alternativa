@@ -9,21 +9,9 @@ CREATE TABLE lista_figuras (
     /*categoria VARCHAR(30) NOT NULL*/
 );
 
+
 INSERT INTO lista_figuras(titulo, img) VALUES
-	('apontador', '../img/apontador.jpg'),
-    ('arbusto', '../img/arbusto.jpg');
-
-/*
-SELECT p.titulo, p.preco, p.img, p.quantidade
-FROM produtos p
-INNER JOIN carrinho c ON c.produtos = p.id
-GROUP BY p.id;
+	('Agito', './img/Agito.jpg'),
+    ('ajudar', './img/ajudar.jpg');
 
 
-CREATE TABLE carrinho (
-	id_carrinho INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	id_produto INT NOT NULL,
-	quantidade INT,
-	FOREIGN KEY (id_produto) REFERENCES produtos(id)
-);
-*/

@@ -1,20 +1,19 @@
 <?php
 require_once("../util/db.php");
 
+function getFiguras() {
+    global $conn;
+    $query = "SELECT * FROM lista_figuras";
+    $resultado = $conn->query($query);
 
-$query = "SELECT * FROM lista_figuras";
+    $figuras = array();
+    while ($row = $resultado->fetch_assoc()) {
+        $figuras[] = $row;
+    }
 
-$resultado = mysqli_query($con,$query);
-
-
-$dados = array();
-
-while($registro = mysqli_fetch_assoc($resultado)){
-    array_push($dados, $registro);
+    return $figuras;
 }
 
-$json = json_encode($dados);
-echo $json;
-
-
+header('Content-Type: application/json'); // Define o tipo de conteúdo como JSON
+echo json_encode(getFiguras());
 ?>

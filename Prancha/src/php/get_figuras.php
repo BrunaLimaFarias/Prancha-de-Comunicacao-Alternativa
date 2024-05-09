@@ -1,3 +1,4 @@
+// get figuras
 <?php
 require_once("../util/db.php");
 
