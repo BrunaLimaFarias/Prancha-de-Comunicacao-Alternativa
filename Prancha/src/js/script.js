@@ -56,13 +56,3 @@ function fazerPredicao() {
 
 // Chamada da função para fazer a predição
 fazerPredicao();
-
-
-
-
-
-
-
-
-
-
