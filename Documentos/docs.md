@@ -25,7 +25,8 @@ Este repositório contém links para documentos no Google Docs que são relevant
 
 - [TCC II Ingles](https://docs.google.com/document/d/1Mt_TttFKVnEN5fUuJKtpyrZMf0KwaUtMjmFlS5FX1UQ/edit?usp=drive_link)
 
-- [Modelo Figuras PDF] (https://drive.google.com/file/d/1fZLDUeK2Cgn6jq-Sf1aaVTGGZusdWJF8/view?usp=drive_link)
+
+- [Modelo Figuras PDF](https://drive.google.com/file/d/1fZLDUeK2Cgn6jq-Sf1aaVTGGZusdWJF8/view?usp=drive_link)
 
 ## Como Acessar os Documentos
 
