@@ -1,18 +1,3 @@
-// Dados das figuras
-/*
-const trainingData = [
-    { word: "Eu", image: "./teste/outro_teste/logo.png" },
-    { word: "quero", image: "./teste/outro_teste/apontador.jpg" },
-    { word: "maçã", image: "./teste/outro_teste/arbusto.jpg" },
-    { word: "laranja", image: "./teste/outro_teste/laranja.png" },
-    { word: "amarelo", image: "./teste/outro_teste/amarelo.png" },
-    { word: "marrom", image: "./teste/outro_teste/marrom.jpg" },
-    { word: "preto", image: "./teste/outro_teste/preto.jpg" },
-    { word: "rosa", image: "./teste/outro_teste/rosa.png" },
-    { word: "verde", image: "./teste/outro_teste/verde.png" },
-    { word: "vermelho", image: "./teste/outro_teste/vermelho.png" }
-];
-*/
 // Lista para armazenar as figuras selecionadas
 let figurasSelecionadas = [];
 
@@ -35,14 +20,25 @@ function limparFrase() {
 }
 
 // Função para atualizar a exibição da lista de figuras selecionadas
-function atualizarFraseFormada() {
-    const fraseListaElement = document.getElementById('frase-lista');
-    fraseListaElement.innerHTML = ''; // Limpa a lista antes de atualizar
-    figurasSelecionadas.forEach(figura => {
-        const li = document.createElement('li');
-        li.textContent = figura;
-        fraseListaElement.appendChild(li);
-    });
+async function atualizarFraseFormada() {
+    try {
+        const fraseListaElement = document.getElementById('frase-lista');
+        fraseListaElement.innerHTML = ''; // Limpa a lista antes de atualizar
+
+        // Percorre a lista de figuras selecionadas e cria elementos para exibir cada uma delas
+        figurasSelecionadas.forEach(figura => {
+            const li = document.createElement('li');
+            
+            li.innerHTML = `
+                        <img src="${figura.img}" alt="${figura}">
+                        <div class="card-body">
+                            <h5 class="card-title">${figura}</h5>
+                        </div>`
+            fraseListaElement.appendChild(li);
+        });
+    }catch (error) {
+        console.error('Erro ao buscar figuras:', error);
+    }
 }
 
 // Função para buscar as figuras do banco de dados e criar os cards
