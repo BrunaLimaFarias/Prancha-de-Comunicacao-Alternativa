@@ -39,20 +39,49 @@ function fazerPredicao() {
 
   getLocalizacaoUsuario()
     .then(localizacao => {
-      console.log(`Usuário está na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais} durante a ${periodoDia}.`);
+      const predicao = `Usuário está na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais} durante a ${periodoDia}.`;
+
+      // Atualizar o conteúdo do elemento HTML com a predição
+      const predicaoTextoElement = document.getElementById('predicao-texto');
+      predicaoTextoElement.textContent = predicao;
+
+      // Limpar o conteúdo anterior das ações comuns
+      const acoesComunsElement = document.getElementById('acoes-comuns');
+      acoesComunsElement.innerHTML = '';
+
 
       if (periodoDia === 'manhã') {
-        console.log('Ações comuns durante a manhã: Café da manhã, preparativos para o dia.');
+
+        // Adicionar mensagem sobre ações comuns durante a manhã
+        const mensagem = document.createElement('p');
+        mensagem.textContent = 'Ações comuns durante a manhã: Café da manhã, preparativos para o dia.';
+        acoesComunsElement.appendChild(mensagem);
+
       } else if (periodoDia === 'tarde') {
-        console.log('Ações comuns durante a tarde: Almoço, trabalho ou estudos.');
+
+        // Adicionar mensagem sobre ações comuns durante a tarde
+        const mensagem = document.createElement('p');
+        mensagem.textContent = 'Ações comuns durante a tarde: Almoço, trabalho ou estudos.';
+        acoesComunsElement.appendChild(mensagem);
+        
       } else {
-        console.log('Ações comuns durante a noite: Jantar, relaxamento, sono.');
+
+        // Adicionar mensagem sobre ações comuns durante a noite
+        const mensagem = document.createElement('p');
+        mensagem.textContent = 'Ações comuns durante a noite: Jantar, relaxamento, sono.';
+        acoesComunsElement.appendChild(mensagem);
       }
-    })
-    .catch(error => {
-      console.error('Erro ao fazer predição:', error);
     });
 }
 
-// Chamada da função para fazer a predição
-fazerPredicao();
+
+// Função para atualizar o texto da predição no HTML
+function atualizarPredicaoTexto(texto) {
+  document.getElementById('predicao-texto').value = texto;
+}
+
+  // Adicionar evento de clique ao botão para fazer a predição manualmente
+  document.getElementById('btn-fazer-predicao').addEventListener('click', function(){
+  fazerPredicao();
+});
+
