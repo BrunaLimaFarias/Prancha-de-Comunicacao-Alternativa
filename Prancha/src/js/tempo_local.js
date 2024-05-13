@@ -1,12 +1,13 @@
 // Função para obter o período do dia com base no horário atual
 function getPeriodoDia() {
   const horaAtual = new Date().getHours();
+  // Verifica o período do dia com base na hora atual
   if (horaAtual >= 5 && horaAtual < 12) {
-    return 'manhã';
+    return 'manhã'; // Retorna 'manhã' se estiver entre 5h e 12h
   } else if (horaAtual >= 12 && horaAtual < 18) {
-    return 'tarde';
+    return 'tarde'; // Retorna 'tarde' se estiver entre 12h e 18h
   } else {
-    return 'noite';
+    return 'noite'; // Retorna 'noite' caso contrário
   }
 }
 
@@ -21,7 +22,25 @@ function getLocalizacaoUsuario() {
           const cidade = data.city.name;
           const estado = data.state.name;
           const pais = data.country.name_native;
-          resolve({ cidade, estado, pais });
+          const latitude = data.location.latitude;
+          const longitude = data.location.longitude;
+
+          // Obter detalhes do local do usuário
+          return fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
+            .then(response => response.json())
+            .then(localData => {
+              // Extrair informações relevantes do endereço detalhado
+              const numeroRua = localData.address.house_number;
+              const rua = localData.address.road;
+              const bairro = localData.address.suburb;
+              const type = localData.type;
+
+              const detalhes = `${numeroRua}, ${rua}, ${bairro}, ${type}`;
+              resolve({ cidade, estado, pais, detalhes, type });
+            })
+            .catch(error => {
+              reject('Erro ao obter detalhes do local:', error);
+            });
         } else {
           reject('Dados de localização incompletos ou inválidos.');
         }
@@ -39,7 +58,8 @@ function fazerPredicao() {
 
   getLocalizacaoUsuario()
     .then(localizacao => {
-      const predicao = `Usuário está na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais} durante a ${periodoDia}.`;
+      // Saída da predição com base no contexto
+      const predicao = `Usuário está numa ${localizacao.type} na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais}; e no local ${localizacao.detalhes} durante a ${periodoDia}.`;
 
       // Atualizar o conteúdo do elemento HTML com a predição
       const predicaoTextoElement = document.getElementById('predicao-texto');
