@@ -11,13 +11,13 @@ CREATE TABLE lista_figuras (
 
 
 INSERT INTO lista_figuras(titulo, img) VALUES
-	('Agito', './img/Agito.jpg'),
-    ('ajudar', './img/ajudar.jpg'),
-    ('bata', './img/bala.jpg'),
-    ('banco', './img/banco.jpg'),
-    ('beber', './img/beber.jpg'),
-    ('beijar', './img/beijar.jpg'),
-    ('beliscar', './img/beliscar.jpg'),
-    ('bengala cor', './img/bengala cor.jpg'),
+	('Agito', './img/figuras/Agito.jpg'),
+    ('ajudar', './img/figuras/ajudar.jpg'),
+    ('bata', './img/figuras/bala.jpg'),
+    ('banco', './img/figuras/banco.jpg'),
+    ('beber', './img/figuras/beber.jpg'),
+    ('beijar', './img/figuras/beijar.jpg'),
+    ('beliscar', './img/figuras/beliscar.jpg'),
+    ('bengala cor', './img/figuras/bengala cor.jpg'),
 
 

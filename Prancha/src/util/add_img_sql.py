@@ -35,6 +35,6 @@ def insert_image_into_database(connection, title, image_path):
 if __name__ == "__main__":
     connection = connect_to_mysql()
     if connection:
-        insert_image_into_database(connection, "./img/imagem.jpg")
+        insert_image_into_database(connection, "./img/figuras/imagem.jpg")
     if connection:
         connection.close()
