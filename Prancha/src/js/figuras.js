@@ -18,26 +18,27 @@ function limparFrase() {
     figurasSelecionadas = [];
     atualizarFraseFormada();
 }
-
 // Função para atualizar a exibição da lista de figuras selecionadas
 async function atualizarFraseFormada() {
     try {
         const fraseListaElement = document.getElementById('frase-lista');
         fraseListaElement.innerHTML = ''; // Limpa a lista antes de atualizar
 
-        // Percorre a lista de figuras selecionadas e cria elementos para exibir cada uma delas
-        figurasSelecionadas.forEach(figura => {
+        // Cria elementos para cada figura selecionada e adiciona à lista
+        const elementosLista = figurasSelecionadas.map(figura => {
             const li = document.createElement('li');
-            
             li.innerHTML = `
-                        <img src="${figura.img}" alt="${figura}">
-                        <div class="card-body">
-                            <h5 class="card-title">${figura}</h5>
-                        </div>`
-            fraseListaElement.appendChild(li);
+                <img src="${figura.img}" alt="${figura}">
+                <div class="card-body">
+                    <h5 class="card-title">${figura}</h5>
+                </div>`;
+            return li;
         });
-    }catch (error) {
-        console.error('Erro ao buscar figuras:', error);
+
+        // Adiciona os elementos à lista
+        elementosLista.forEach(elemento => fraseListaElement.appendChild(elemento));
+    } catch (error) {
+        console.error('Erro ao atualizar a frase formada:', error);
     }
 }
 
@@ -49,17 +50,21 @@ async function buscarFigurasEGerarCards() {
 
         const cardsContainer = document.getElementById('cards-container');
 
+        // Limpa o container de cards antes de gerar os novos cards
+        cardsContainer.innerHTML = '';
+
+        // Cria os cards e adiciona ao container
         data.forEach(figura => {
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
-            cardDiv.setAttribute('data-figura', figura.titulo); // Definir o atributo data-figura
+            cardDiv.setAttribute('data-figura', figura.titulo);
             cardDiv.innerHTML = `
                 <img src="${figura.img}" alt="${figura.titulo}">
                 <div class="card-body">
                     <h5 class="card-title">${figura.titulo}</h5>
-                </div>
-            `;
-            // Adicionar evento de clique para adicionar a figura à frase
+                </div>`;
+
+            // Adiciona evento de clique para adicionar a figura à frase
             cardDiv.addEventListener('click', () => {
                 adicionarFiguraAFrase(figura.titulo);
                 cardDiv.classList.add('selected');
@@ -67,12 +72,17 @@ async function buscarFigurasEGerarCards() {
                     cardDiv.classList.remove('selected');
                 }, 300);
             });
+
             cardsContainer.appendChild(cardDiv);
         });
+
+        // Após gerar os cards, atualiza a frase formada
+        atualizarFraseFormada();
     } catch (error) {
         console.error('Erro ao buscar figuras:', error);
     }
 }
+
 
 // Event listener para clicar no botão de exclusão da última figura
 document.getElementById('btn-excluir-ultima').addEventListener('click', () => {

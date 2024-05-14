@@ -1,3 +1,5 @@
+# script para automatizar o adicionar o titulo e caminho das figuras para o banco de dados
+
 import os
 import mysql.connector
 from mysql.connector import Error
