@@ -1,42 +1,41 @@
-# script para automatizar o adicionar o titulo e caminho das figuras para o banco de dados
-
 import os
 import mysql.connector
-from mysql.connector import Error
 
-def connect_to_mysql():
-    try:
-        connection = mysql.connector.connect(
-            host='localhost:3306',
-            database='prancha_comunicacao',
-            user='root',
-            password='root'
-        )
-        if connection.is_connected():
-            print('Conectado ao MySQL!')
-            return connection
-    except Error as e:
-        print(f"Erro ao conectar ao MySQL: {e}")
-        return None
+# Configurações do banco de dados
+db_config = {
+    'user': 'root',
+    'password': 'root',
+    'host': 'localhost:3306',
+    'database': 'prancha_comunicacao'
+}
 
-def insert_image_into_database(connection, title, image_path):
-    try:
-        cursor = connection.cursor()
-        title = os.path.basename(image_path).split('.')[0]  # Extrai o título do nome do arquivo
-        sql_insert_query = """INSERT INTO lista_figuras
-                          (titulo, img) VALUES (%s, %s)"""
+# Diretório onde as imagens estão armazenadas
+diretorio = './img/figuras/'
 
-        insert_tuple = (title, image_path)
-        cursor.execute(sql_insert_query, insert_tuple)
-        connection.commit()
-        print("Imagem inserida com sucesso no banco de dados!")
-    except Error as e:
-        print(f"Erro ao inserir imagem no banco de dados: {e}")
+def inserir_figuras(diretorio):
+    # Conectar ao banco de dados
+    conn = mysql.connector.connect(**db_config)
+    cursor = conn.cursor()
 
+    # Preparar a query de inserção
+    query = "INSERT INTO lista_figuras (titulo, img) VALUES (%s, %s)"
+
+    # Percorrer o diretório e inserir as figuras
+    for nome_arquivo in os.listdir(diretorio):
+        if nome_arquivo.endswith('jpg'):
+            caminho_arquivo = os.path.join(diretorio, nome_arquivo)
+            titulo = os.path.splitext(nome_arquivo)[0]  # Remover a extensão do nome do arquivo
+
+            try:
+                cursor.execute(query, (titulo, caminho_arquivo))
+                print(f"Figura '{titulo}' inserida com sucesso!")
+            except mysql.connector.Error as err:
+                print(f"Erro ao inserir a figura '{titulo}': {err}")
+
+    # Confirmar as alterações e fechar a conexão
+    conn.commit()
+    cursor.close()
+    conn.close()
 
 if __name__ == "__main__":
-    connection = connect_to_mysql()
-    if connection:
-        insert_image_into_database(connection, "./img/figuras/imagem.jpg")
-    if connection:
-        connection.close()
+    inserir_figuras(diretorio)
