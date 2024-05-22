@@ -1,7 +1,6 @@
 import os
 import mysql.connector
 
-# Configurações do banco de dados
 db_config = {
     'user': 'root',
     'password': 'root',
@@ -9,7 +8,7 @@ db_config = {
     'database': 'prancha_comunicacao'
 }
 
-# Diretório onde as imagens estão armazenadas
+# dir onde as imagens estão armazenadas
 diretorio = './img/figuras/'
 
 def inserir_figuras(diretorio):

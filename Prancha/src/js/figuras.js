@@ -43,9 +43,9 @@ async function atualizarFraseFormada() {
 }
 
 // Função para buscar as figuras do banco de dados e criar os cards
-async function buscarFigurasEGerarCards() {
+async function buscarFigurasEGerarCards(categoria = '') {
     try {
-        const response = await fetch("php/listar.php");
+        const response = await fetch(`php/listar.php?categoria=${encodeURIComponent(categoria)}`); // Adicione a categoria à URL da requisição
         const data = await response.json();
 
         const cardsContainer = document.getElementById('cards-container');
@@ -82,6 +82,24 @@ async function buscarFigurasEGerarCards() {
         console.error('Erro ao buscar figuras:', error);
     }
 }
+
+
+// Adiciona eventos de clique aos botões de selecionar categoria
+window.onload = function() {
+    // Adicionar evento de clique aos botões de categoria
+    document.querySelectorAll('.category-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const selectedCategory = this.getAttribute('data-category');
+            console.log('Categoria selecionada:', selectedCategory); // Debug: verifique se a categoria está sendo capturada
+            buscarFigurasEGerarCards(selectedCategory); // Chamada da função modificada com a categoria selecionada
+        });
+    });
+
+    // Chamada inicial para buscar as figuras do banco de dados e gerar os cards
+    buscarFigurasEGerarCards();
+};
+
+
 
 
 // Event listener para clicar no botão de exclusão da última figura

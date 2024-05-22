@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prancha de Comunicação com Predição de Figuras</title>
+    <title>Prancha de Comunicação com Predição de Figurasa</title>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="manifest" href="manifest.json" />    <!-- PWA -->
+    
+    
 </head>
 <body>
     <header>
@@ -21,30 +23,28 @@
             <h2>Frase Formada:</h2>
             <ul id="frase-lista"></ul>
         </div>
-
-        <div class="category-selector">
-            <button class="category-btn" data-category="Verbo">Verbo</button>
-            <button class="category-btn" data-category="Objeto">Objeto</button>
-            <button class="category-btn" data-category="Lugar">Lugar</button>
+        <div class="cards-container" id="cards-container">
         </div>
-
-        <div class="cards-container" id="cards-container"></div>
         
         <div class="btn-container">
-            <button id="btn-limpar-frase"><img src="./img/assets/LimparTudo.png" alt="LimparTudo" border="0" /></button>
+            <button id="btn-excluir-ultima">Excluir Última Figura</button>
+            <button id="btn-limpar-frase">Limpar Frase</button>
+            <!--
             <button id="btn-excluir-ultima"><img src="./img/assets/ApagarUltima.png" alt="ApagarUltima" border="0" /></button>
+            <button id="btn-limpar-frase"><img src="./img/assets/LimparTudo.png" alt="LimparTudo" border="0" /></button>
+            -->
         </div>
-
         <div id="predicao-container">
             <h2>Predição Tempo e Local:</h2>
             <p id="predicao-texto"></p>
             <div id="acoes-comuns"></div>
             <button id="btn-fazer-predicao">Fazer Predição</button>
         </div>
+        
     </div>
 
-    <script src="./js/figuras.js"></script>
-    <script src="./js/listar.js"></script>
-    <script src="./js/tempo_local.js"></script>
+     <script src="./js/figuras.js"></script>
+     <script src="./js/tempo_local.js"></script>
+
 </body>
 </html>
