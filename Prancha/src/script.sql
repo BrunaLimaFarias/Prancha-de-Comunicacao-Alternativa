@@ -9,14 +9,14 @@ CREATE TABLE lista_figuras (
     categoria VARCHAR(20)
 );
 
-INSERT INTO lista_figuras(titulo, img) VALUES
-    ('banco', './img/figuras/banco.jpg'),
-    ('beber', './img/figuras/beber.jpg'),
-    ('beijar', './img/figuras/beijar.jpg'),
-    ('beliscar', './img/figuras/beliscar.jpg'),
-    ('bengala cor', './img/figuras/bengala cor.jpg');
-    
+/*
 INSERT INTO lista_figuras(titulo, img, categoria) VALUES
-    ('ajudar', './img/figuras/ajudar.jpg', 'Verbo'),
-    ('bala', './img/figuras//bala.jpg', 'Objeto');
-
+	('ajudar', './img/figuras/ajudar.jpg', 'Verbo'),
+    ('bala', './img/figuras//bala.jpg', 'Objeto'),
+    ('banco', './img/figuras/banco.jpg', 'Lugar'),
+    ('beber', './img/figuras/beber.jpg', 'Verbo'),
+    ('beijar', './img/figuras/beijar.jpg', 'Verbo'),
+    ('beliscar', './img/figuras/beliscar.jpg', 'Verbo'),
+    ('bengala cor', './img/figuras/bengala cor.jpg', 'Objeto');
+    
+*/

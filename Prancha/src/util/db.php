@@ -1,6 +1,6 @@
 <?php
 
-$servername = "localhost:3306";
+$servername = "localhost";
 $username = "root";
 $password = "root";
 $database = "prancha_comunicacao";
