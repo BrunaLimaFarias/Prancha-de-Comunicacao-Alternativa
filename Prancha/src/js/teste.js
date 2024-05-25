@@ -1,4 +1,3 @@
-
 // Lista para armazenar as figuras selecionadas
 let figurasSelecionadas = [];
 
@@ -42,57 +41,60 @@ function atualizarFraseFormada() {
 }
 
 // Função para buscar as figuras do banco de dados e criar os cards
-async function loadFigures(categoriaDesejada = '') {
+async function buscarFigurasEGerarCards(categoria = '') {
     try {
-        console.log('Buscando figuras para a categoria:', categoriaDesejada); // Debug: verificar a categoria antes da requisição
+        console.log('Buscando figuras para a categoria:', categoria); // Debug: verificar a categoria
 
-        const response = await fetch(`php/listar.php?categoria=${encodeURIComponent(categoriaDesejada)}`);
+        const response = await fetch(`php/listar.php?categoria=${encodeURIComponent(categoria)}`);
         const data = await response.json();
-        console.log('Dados recebidos:', data); // Debug: verifique se os dados estão sendo recebidos corretamente
+        console.log('Dados retornados:', data); // Debug: verificar os dados retornados
 
         const cardsContainer = document.getElementById('cards-container');
-        cardsContainer.innerHTML = ''; // Limpar figuras anteriores
+        cardsContainer.innerHTML = '';
 
-        // Exibir figuras da categoria selecionada
+        // Cria os cards e adiciona ao container
         data.forEach(figura => {
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
-            // cardDiv.setAttribute('data-figura', figura.titulo);
+            cardDiv.setAttribute('data-figura', figura.titulo);
             cardDiv.innerHTML = `
                 <img src="${figura.img}" alt="${figura.titulo}">
                 <div class="card-body">
                     <h5 class="card-title">${figura.titulo}</h5>
                 </div>`;
-            
+
             // Adiciona evento de clique para adicionar a figura à frase
             cardDiv.addEventListener('click', () => {
                 adicionarFiguraAFrase(figura);
                 cardDiv.classList.add('selected');
                 setTimeout(() => {
-                    cardDiv.classList.remove('selected');   // Cria efeito visual temporário para indicar que o card foi selecionado
+                    cardDiv.classList.remove('selected');
                 }, 300);
             });
 
             cardsContainer.appendChild(cardDiv);
         });
+
+        // Após gerar os cards, atualiza a frase formada
+        atualizarFraseFormada();
     } catch (error) {
-        console.error('Erro ao carregar as figuras:', error);
+        console.error('Erro ao buscar figuras:', error);
     }
 }
 
 // Adiciona eventos de clique aos botões de selecionar categoria
 window.onload = function() {
-    console.log('JavaScript carregado'); // Verifique se o JavaScript está carregando
+    // Adicionar evento de clique aos botões de categoria
     document.querySelectorAll('.category-btn').forEach(button => {
         button.addEventListener('click', function() {
             const selectedCategory = this.getAttribute('data-category');
-            console.log('Categoria selecionada:', selectedCategory); // Debug: verificar a categoria selecionada
-            loadFigures(selectedCategory);
+            console.log('Categoria selecionada:', selectedCategory); // Debug: verifique se a categoria está sendo capturada
+            buscarFigurasEGerarCards(selectedCategory); // Chamada da função modificada com a categoria selecionada
         });
     });
 
     // Chamada inicial para buscar as figuras do banco de dados e gerar os cards
-    loadFigures();
+    buscarFigurasEGerarCards();
 };
 
 // Event listener para clicar no botão de exclusão da última figura

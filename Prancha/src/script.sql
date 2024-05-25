@@ -3,20 +3,31 @@ CREATE DATABASE prancha_comunicacao;
 USE prancha_comunicacao;
 
 CREATE TABLE lista_figuras (
-	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(45) NOT NULL,
-    img TEXT NOT NULL,
-    categoria VARCHAR(20)
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    img VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE categorias (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE figura_categoria (
+    figura_id INT,
+    categoria_id INT,
+    PRIMARY KEY (figura_id, categoria_id),
+    FOREIGN KEY (figura_id) REFERENCES lista_figuras(id),
+    FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 );
 
 /*
-INSERT INTO lista_figuras(titulo, img, categoria) VALUES
-	('ajudar', './img/figuras/ajudar.jpg', 'Verbo'),
-    ('bala', './img/figuras//bala.jpg', 'Objeto'),
-    ('banco', './img/figuras/banco.jpg', 'Lugar'),
-    ('beber', './img/figuras/beber.jpg', 'Verbo'),
-    ('beijar', './img/figuras/beijar.jpg', 'Verbo'),
-    ('beliscar', './img/figuras/beliscar.jpg', 'Verbo'),
-    ('bengala cor', './img/figuras/bengala cor.jpg', 'Objeto');
-    
+INSERT INTO lista_figuras(titulo, img) VALUES
+	('ajudar', './img/figuras/ajudar.jpg'),
+    ('bala', './img/figuras//bala.jpg'),
+    ('banco', './img/figuras/banco.jpg'),
+    ('beber', './img/figuras/beber.jpg'),
+    ('beijar', './img/figuras/beijar.jpg'),
+    ('beliscar', './img/figuras/beliscar.jpg'),
+    ('bengala cor', './img/figuras/bengala cor.jpg');
 */

@@ -5,13 +5,18 @@ function getFiguras($categoria = '') {
     global $conn;
 
     if ($categoria) {
-        $query = "SELECT * FROM lista_figuras WHERE categoria = ?";
+        $query = "
+            SELECT lista_figuras.titulo, lista_figuras.img 
+            FROM lista_figuras 
+            JOIN figura_categoria ON lista_figuras.id = figura_categoria.figura_id 
+            JOIN categorias ON figura_categoria.categoria_id = categorias.id 
+            WHERE categorias.nome = ?";
         $stmt = $conn->prepare($query);
         $stmt->bind_param("s", $categoria);
         $stmt->execute();
         $resultado = $stmt->get_result();
     } else {
-        $query = "SELECT * FROM lista_figuras";
+        $query = "SELECT titulo, img FROM lista_figuras";
         $resultado = $conn->query($query);
     }
 
@@ -30,6 +35,10 @@ function getFiguras($categoria = '') {
 $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
 $figuras = getFiguras($categoria);
 
-header('Content-Type: application/json'); // Define o tipo de conteúdo como JSON
+// Adiciona logs de depuração
+error_log("Categoria: $categoria");
+error_log("Figuras retornadas: " . json_encode($figuras));
+
+header('Content-Type: application/json');
 echo json_encode($figuras);
 ?>

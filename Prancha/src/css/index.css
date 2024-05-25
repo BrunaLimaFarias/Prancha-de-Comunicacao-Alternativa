@@ -24,12 +24,21 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
 }
 
 button:hover{
     background-color: #3082da;
+    transform: scale(1.02);
 }
 
+
+button img {
+    max-width: 50px;
+    max-height: 50px;
+    display: flex;
+    justify-content: center;
+}
 
 .container {
     max-width: 800px;
@@ -106,7 +115,6 @@ h1 {
     text-align: center;
     margin-top: 20px;
 }
-
 
 
 footer {
