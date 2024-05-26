@@ -1,5 +1,7 @@
 <?php
 
+require_once("../util/db.php");
+
 // Função para conectar ao banco de dados
 function conectar_bd() {
     $servername = "localhost";
@@ -71,5 +73,12 @@ function adicionarFiguraACategorias($titulo, $img, $categorias) {
     }
 }
 
-adicionarFiguraACategorias($titulo, $img, $categorias);
+// Adicione um bloco de teste para validar a função
+if (isset($argv) && count($argv) > 1) {
+    $titulo = $argv[1];
+    $img = $argv[2];
+    $categorias = array_slice($argv, 3);
+
+    adicionarFiguraACategorias($titulo, $img, $categorias);
+}
 ?>
