@@ -1,5 +1,4 @@
 <?php
-// add_figuras.php
 
 require_once("../util/add_figure_to_category.php");
 

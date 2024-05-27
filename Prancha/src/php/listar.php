@@ -2,7 +2,8 @@
 require_once("../util/db.php");
 
 function getFiguras($categoria = '') {
-    global $conn;
+    // Conecta ao banco de dados
+    $conn = conectar_bd();
 
     if ($categoria) {
         $query = "
