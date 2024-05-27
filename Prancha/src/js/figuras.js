@@ -42,7 +42,7 @@ function atualizarFraseFormada() {
 }
 
 // Função para buscar as figuras do banco de dados e criar os cards
-async function loadFigures(categoriaDesejada = '') {
+async function buscaFigura(categoriaDesejada = '') {
     try {
         
         const response = await fetch(`php/listar.php?categoria=${encodeURIComponent(categoriaDesejada)}`);
@@ -62,7 +62,7 @@ async function loadFigures(categoriaDesejada = '') {
                     <h5 class="card-title">${figura.titulo}</h5>
                 </div>`;
             
-            // Adiciona evento para adicionar a figura à frase
+            // Adiciona evento para chamar a funcao de adicionar a figura à frase
             cardDiv.addEventListener('click', () => {
                 adicionarFiguraAFrase(figura);
                 cardDiv.classList.add('selected');
@@ -84,12 +84,12 @@ window.onload = function() {
     document.querySelectorAll('.category-btn').forEach(button => {
         button.addEventListener('click', function() {
             const selectedCategory = this.getAttribute('data-category');
-            loadFigures(selectedCategory);
+            buscaFigura(selectedCategory);
         });
     });
 
     // Chamada inicial para buscar as figuras do banco de dados e gerar os cards
-    loadFigures();
+    buscaFigura();
 };
 
 // Event listener para clicar no botão de exclusão da última figura

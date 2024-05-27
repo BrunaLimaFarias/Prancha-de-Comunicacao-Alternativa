@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtém os dados do formulário
     if (isset($_POST["titulo"]) && isset($_POST["categorias"])) {
         $titulo = $_POST["titulo"];
+        //$titulo = explode(",", $_POST["titulo"]); // Varias figuras
         $categorias = explode(",", $_POST["categorias"]);
 
         // Constrói o caminho da imagem com base no título da figura
