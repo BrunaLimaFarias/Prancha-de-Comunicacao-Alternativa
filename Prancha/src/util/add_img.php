@@ -37,7 +37,7 @@ $stmt->bind_param("ss", $titulo, $img);
 // Faz uma solicitação HTTP para o diretório de imagens
 $conteudo = @file_get_contents($url_diretorio_imagens);
 
-// Verifica se a solicitação foi bem-sucedida
+// Verifica se a solicitação foi bem sucedida
 if ($conteudo !== false) {
     // Extrai os links das imagens do conteúdo HTML
     preg_match_all('/<a[^>]+href=([\'"])(?<url>.+?)\1[^>]*>/i', $conteudo, $matches);
@@ -45,7 +45,7 @@ if ($conteudo !== false) {
     // Loop pelos links encontrados
     foreach ($matches['url'] as $url) {
         // Verifica se o link aponta para uma imagem
-        if (preg_match('/\.(jpg|jpeg|png|gif)$/', $url)) {
+        if (preg_match('/\.(jpg)$/', $url)) {
             // Define os parâmetros da query
             $nome_arquivo = basename(urldecode($url)); // Nome do arquivo é o título
             $titulo = pathinfo($nome_arquivo, PATHINFO_FILENAME); // Remove a extensão do nome do arquivo
@@ -58,7 +58,7 @@ if ($conteudo !== false) {
             echo "Caminho da imagem: $img\n"; // Debug
         }
     }
-    
+
     echo "Figuras inseridas com sucesso!\n";
 } else {
     echo "Erro ao fazer a solicitação HTTP.\n";

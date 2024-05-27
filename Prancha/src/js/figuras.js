@@ -44,11 +44,9 @@ function atualizarFraseFormada() {
 // Função para buscar as figuras do banco de dados e criar os cards
 async function loadFigures(categoriaDesejada = '') {
     try {
-        console.log('Buscando figuras para a categoria:', categoriaDesejada); // Debug: verificar a categoria antes da requisição
-
+        
         const response = await fetch(`php/listar.php?categoria=${encodeURIComponent(categoriaDesejada)}`);
         const data = await response.json();
-        console.log('Dados recebidos:', data); // Debug: verifique se os dados estão sendo recebidos corretamente
 
         const cardsContainer = document.getElementById('cards-container');
         cardsContainer.innerHTML = ''; // Limpar figuras anteriores
@@ -64,12 +62,12 @@ async function loadFigures(categoriaDesejada = '') {
                     <h5 class="card-title">${figura.titulo}</h5>
                 </div>`;
             
-            // Adiciona evento de clique para adicionar a figura à frase
+            // Adiciona evento para adicionar a figura à frase
             cardDiv.addEventListener('click', () => {
                 adicionarFiguraAFrase(figura);
                 cardDiv.classList.add('selected');
                 setTimeout(() => {
-                    cardDiv.classList.remove('selected');   // Cria efeito visual temporário para indicar que o card foi selecionado
+                    cardDiv.classList.remove('selected');   // Cria efeito visual para indicar que o card foi selecionado
                 }, 300);
             });
 
@@ -82,11 +80,10 @@ async function loadFigures(categoriaDesejada = '') {
 
 // Adiciona eventos de clique aos botões de selecionar categoria
 window.onload = function() {
-    console.log('JavaScript carregado'); // Verifique se o JavaScript está carregando
+    console.log('JavaScript carregado'); // Verifique se o JavaScript está ok
     document.querySelectorAll('.category-btn').forEach(button => {
         button.addEventListener('click', function() {
             const selectedCategory = this.getAttribute('data-category');
-            console.log('Categoria selecionada:', selectedCategory); // Debug: verificar a categoria selecionada
             loadFigures(selectedCategory);
         });
     });

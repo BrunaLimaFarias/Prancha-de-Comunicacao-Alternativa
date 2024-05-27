@@ -35,7 +35,7 @@ function getFiguras($categoria = '') {
 $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
 $figuras = getFiguras($categoria);
 
-// Adiciona logs de depuração
+// Logs de depuração
 error_log("Categoria: $categoria");
 error_log("Figuras retornadas: " . json_encode($figuras));
 

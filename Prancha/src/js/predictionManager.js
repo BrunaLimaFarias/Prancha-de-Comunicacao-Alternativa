@@ -80,14 +80,3 @@ const predictionManager = new PredictionManager('afaaa54c319a4dba81f57014b11ffb5
 
 // Chamada do método para fazer a predição
 predictionManager.fazerPredicao();
-
-
-
-
-
-
-
-
-
-
-

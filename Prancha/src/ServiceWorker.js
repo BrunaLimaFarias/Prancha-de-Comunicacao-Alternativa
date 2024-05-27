@@ -4,10 +4,11 @@ const staticPrancha = "tcc_prancha_caa";
 
 const assets = [
     "./",
-    "./prancha.html",
+    "./index.html",
     "./css/index.css",
-    "./js/adiciona-item.js",
-    "./img/logo.png"
+    "./js",
+    "./php",
+    "./img"
 ]
 
 
