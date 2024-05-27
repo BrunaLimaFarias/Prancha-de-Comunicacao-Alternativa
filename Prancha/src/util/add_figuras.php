@@ -2,6 +2,8 @@
 
 require_once("../util/add_figure_to_category.php");
 
+// Relacionamento de figura com palavras
+
 // Verifica se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtém os dados do formulário
