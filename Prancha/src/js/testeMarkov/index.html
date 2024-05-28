@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="markov.js"></script>
+    <title>Markov</title>
+</head>
+<body>
+    <h1>Markov</h1>
+    <textarea id="inputText" rows="10" cols="50"></textarea>
+    <br><br>
+    <button onclick="testeMarkovChain()">Gerar</button>
+    <pre id="output"></pre>
+    
+    <script> // função para rodar 
+        function testeMarkovChain() {
+            // pega o texto
+            let text = document.getElementById('inputText').value;
+
+            // cria instância da classe e carrega texto
+            let markov = new MarkovChain(); // classe vinda do markov.js
+            markov.Load(text);
+
+            // mostra resultados
+            let output = document.getElementById('output');
+            output.textContent = JSON.stringify([...markov.Words], null, 2);
+        }
+    </script>
+</body>
+</html>
