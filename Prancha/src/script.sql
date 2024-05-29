@@ -21,6 +21,19 @@ CREATE TABLE figura_categoria (
     FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 );
 
+CREATE TABLE palavras (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    palavra VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE figura_palavra (
+    figura_id INT,
+    palavra_id INT,
+    PRIMARY KEY (figura_id, palavra_id),
+    FOREIGN KEY (figura_id) REFERENCES lista_figuras(id),
+    FOREIGN KEY (palavra_id) REFERENCES palavras(id)
+);
+
 /*
 INSERT INTO lista_figuras(titulo, img) VALUES
 	('ajudar', './img/figuras/ajudar.jpg'),

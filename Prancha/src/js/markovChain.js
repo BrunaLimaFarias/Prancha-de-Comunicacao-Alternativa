@@ -96,8 +96,3 @@ class MarkovChain {
 }
 
 export { MarkovChain };
-
-// Exemplo de uso da classe
-let markov = new MarkovChain();
-markov.Load("Nosso grupo vai conseguir entregar o trabalho. Nosso grupo está motivado.");
-console.log(markov.Words);

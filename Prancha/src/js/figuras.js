@@ -64,13 +64,14 @@ async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
         data.forEach(figura => {
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
-            // cardDiv.setAttribute('data-figura', figura.titulo);
             cardDiv.innerHTML = `
                 <img src="${figura.img}" alt="${figura.titulo}">
                 <div class="card-body">
                     <h5 class="card-title">${figura.titulo}</h5>
+                    <p>Categorias: ${figura.categorias || 'Nenhuma'}</p>
+                    <p>Palavras: ${figura.palavras || 'Nenhuma'}</p>
                 </div>`;
-            
+                
             // Adiciona evento para chamar a funcao de adicionar a figura à frase
             cardDiv.addEventListener('click', () => {
                 adicionarFiguraAFrase(figura);
