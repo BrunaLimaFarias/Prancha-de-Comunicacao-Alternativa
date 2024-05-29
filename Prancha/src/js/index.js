@@ -1,7 +1,7 @@
 // js/index.js
 
 import { MarkovChain } from './markovChain.js';
-import { adicionarFiguraAFrase, removerUltimaFigura, limparFrase, buscaFigura } from './figuras.js';
+import {removerUltimaFigura, limparFrase, buscaFigura } from './figuras.js';
 
 let markovChain = new MarkovChain();
 let wordImageMap = {};

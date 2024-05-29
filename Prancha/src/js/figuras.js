@@ -87,7 +87,7 @@ async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
     }
 }
 
-export { adicionarFiguraAFrase, removerUltimaFigura, limparFrase, buscaFigura };
+export {removerUltimaFigura, limparFrase, buscaFigura };
 
 /*
 // Adiciona eventos de clique aos botões de selecionar categoria
