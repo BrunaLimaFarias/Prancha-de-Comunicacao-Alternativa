@@ -1,3 +1,5 @@
+//SQLDatabaseConfig.js
+
 // Classe responsável por configurar a conexão com o banco de dados SQL
 class SQLDatabaseConfig {
     // Propriedades estáticas para armazenar a instância e a plataforma do banco de dados

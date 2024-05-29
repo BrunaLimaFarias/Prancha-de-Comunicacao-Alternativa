@@ -7,13 +7,14 @@ class Child {
 }
 
 class RootWord {
-    constructor(word = '') {
+    constructor(word = '', imagePath = '') {
         this.StartWord = false; // Indica se a palavra é o início de uma sentença
         this.EndWord = false; // Indica se a palavra é o final de uma sentença
         this.Word = word; // A própria palavra
         this.Occurrence = 0; // Número de ocorrências da palavra na cadeia de Markov
         this.ChildCount = 0; // Número de filhos da palavra na cadeia de Markov
         this.Childs = new Map(); // Mapa de filhos da palavra, onde as chaves são as palavras e os valores são instâncias da classe Child
+        this.ImagePath = imagePath;
     }
 }
 
@@ -40,7 +41,7 @@ class MarkovChain {
     }
 
     // Método para carregar o texto na cadeia de Markov
-    Load(text) {
+    Load(text, wordImageMap = {}) {
         this.Words.clear();
         this.Tokens = this.getListTokens(text); // Divide o texto em tokens
 
@@ -49,20 +50,22 @@ class MarkovChain {
             let s1 = this.Tokens[i];
             if (s1 === "") continue; // Verificação se o token é vazio
 
-            // Verificação se a palavra já existe no mapa de palavras
+            // Verificação se a imagem já existe no mapa de imagens
+            let imagePath = wordImageMap[s1] || '';
             if (!this.Words.has(s1)) {
-                this.Words.set(s1, new RootWord(s1));
+                this.Words.set(s1, new RootWord(s1, imagePath));
             }
 
             let w = this.Words.get(s1);
-            w.Occurrence += 1; // Atualização da ocorrência da palavra
+            w.Occurrence += 1; // Atualização da ocorrência da img
 
-            // Se houver uma próxima palavra
+            // Se houver uma próxima imagem
             if (i < this.Tokens.length - 1) {
                 
                 let nextToken = this.Tokens[i + 1];
+                let nextImagePath = wordImageMap[nextToken] || '';
                 if (!w.Childs.has(nextToken)) {
-                    w.Childs.set(nextToken, new Child(nextToken, 0)); // Adiciona o próximo token como um novo filho
+                    w.Childs.set(nextToken, new Child(nextToken, 0, nextImagePath)); // Adiciona o próximo token como um novo filho
                 }
                 let c = w.Childs.get(nextToken);
                 c.Occurrence += 1; // Incrementa a ocorrência do filho
@@ -91,6 +94,8 @@ class MarkovChain {
         }
     }
 }
+
+export { MarkovChain };
 
 // Exemplo de uso da classe
 let markov = new MarkovChain();

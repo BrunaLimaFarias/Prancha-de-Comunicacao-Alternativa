@@ -42,7 +42,7 @@ function atualizarFraseFormada() {
 }
 
 // Função para buscar as figuras do banco de dados e criar os cards
-async function buscaFigura(categoriaDesejada = '') {
+async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
     try {
         
         const response = await fetch(`php/listar.php?categoria=${encodeURIComponent(categoriaDesejada)}`);
@@ -50,6 +50,15 @@ async function buscaFigura(categoriaDesejada = '') {
 
         const cardsContainer = document.getElementById('cards-container');
         cardsContainer.innerHTML = ''; // Limpar figuras anteriores
+
+        ///////////////////MARKOV/////////////////////
+        data.forEach(figura => {
+            wordImageMap[figura.titulo] = figura.img;
+        });
+
+        let text = data.map(figura => figura.titulo).join(' ');
+        markovChain.Load(text, wordImageMap);
+        ////////////////////////////////////////
 
         // Exibir figuras da categoria selecionada
         data.forEach(figura => {
@@ -78,6 +87,9 @@ async function buscaFigura(categoriaDesejada = '') {
     }
 }
 
+export { adicionarFiguraAFrase, removerUltimaFigura, limparFrase, buscaFigura };
+
+/*
 // Adiciona eventos de clique aos botões de selecionar categoria
 window.onload = function() {
     console.log('JavaScript carregado'); // Verifique se o JavaScript está ok
@@ -101,3 +113,4 @@ document.getElementById('btn-excluir-ultima').addEventListener('click', () => {
 document.getElementById('btn-limpar-frase').addEventListener('click', () => {
     limparFrase();
 });
+ */

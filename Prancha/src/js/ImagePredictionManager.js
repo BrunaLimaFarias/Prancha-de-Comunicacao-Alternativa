@@ -1,3 +1,5 @@
+// ImagePredictionManager.js
+
 import { PredictionManager } from './predictionManager.js'; // Importar a classe PredictionManager
 class ImagePredictionManager extends PredictionManager {
     constructor(apiKey) {
