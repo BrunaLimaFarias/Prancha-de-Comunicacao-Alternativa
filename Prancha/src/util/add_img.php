@@ -5,6 +5,7 @@ require_once("../util/db.php");
 $diretorio_imagens = './img/figuras/';
 
 // URL do diretório onde as imagens estão hospedadas online
+// sempre deixar o caminho https://
 $url_diretorio_imagens = 'http://localhost/tcc/tcc_prancha_caa/Prancha/src/img/figuras/';
 
 // Conecta ao banco de dados
