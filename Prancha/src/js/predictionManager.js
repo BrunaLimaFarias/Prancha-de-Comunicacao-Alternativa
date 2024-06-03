@@ -1,19 +1,35 @@
 class PredictionManager {
     constructor(apiKey) {
         this.apiKey = apiKey;
+        this.cityToStateMap = {
+            "Curitiba": "Paraná",
+            // Adicionar mais mapeamentos de cidade para estado conforme necessário
+        };
     }
 
     // Método para obter o período do dia com base no horário atual
-    async getPeriodoDia() {
+    getPeriodoDia() {
         const horaAtual = new Date().getHours();
-        // Verifica o período do dia com base na hora atual
         if (horaAtual >= 5 && horaAtual < 12) {
-            return 'manhã'; // Retorna 'manhã' se estiver entre 5h e 12h
+            return 'manhã';
         } else if (horaAtual >= 12 && horaAtual < 18) {
-            return 'tarde'; // Retorna 'tarde' se estiver entre 12h e 18h
+            return 'tarde';
         } else {
-            return 'noite'; // Retorna 'noite' caso contrário
+            return 'noite';
         }
+    }
+
+    // Método provisório para traduzir termos para português
+    traduzirTermo(termo) {
+        const translations = {
+            house: 'casa',
+            apartment: 'apartamento',
+            'Federal District': 'Distrito Federal',
+            'New York': 'Nova Iorque',
+            'United States': 'Estados Unidos',
+            // Adicionar outras traduções conforme necessário
+        };
+        return translations[termo] || termo;
     }
 
     // Método para obter a localização do usuário com base no endereço IP usando a API do Geoapify
@@ -22,26 +38,24 @@ class PredictionManager {
             const response = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${this.apiKey}`);
             const data = await response.json();
 
-            // Verifica se os dados de localização foram retornados corretamente
             if (data && data.city && data.city.name && data.country && data.country.name_native) {
-                const cidade = data.city.name;
-                const estado = data.state.name;
-                const pais = data.country.name_native;
+                const cidade = this.traduzirTermo(data.city.name);
+                let estado = this.traduzirTermo(data.state.name);
+                const pais = this.traduzirTermo(data.country.name_native);
                 const latitude = data.location.latitude;
                 const longitude = data.location.longitude;
 
-                // Obter detalhes do local do usuário
+                // Correção do estado com base no mapeamento de cidades
+                if (this.cityToStateMap[cidade]) {
+                    estado = this.cityToStateMap[cidade];
+                }
+
                 const localData = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`);
                 const localJson = await localData.json();
 
-                // Extrair informações relevantes do endereço detalhado
-                const numeroRua = localJson.address.house_number;
-                const rua = localJson.address.road;
-                const bairro = localJson.address.suburb;
-                const type = localJson.type;
+                const type = this.traduzirTermo(localJson.type);
 
-                const detalhes = `${numeroRua}, ${rua}, ${bairro}`;
-                return { cidade, estado, pais, detalhes, type };
+                return { cidade, estado, pais, type };
             } else {
                 throw new Error('Dados de localização incompletos ou inválidos.');
             }
@@ -54,11 +68,11 @@ class PredictionManager {
     // Método para fazer a predição com base no contexto de tempo e geolocalização
     async fazerPredicao() {
         try {
-            const periodoDia = await this.getPeriodoDia();
+            const periodoDia = this.getPeriodoDia();
             const localizacao = await this.getLocalizacaoUsuario();
 
-            // Saída da predição com base no contexto
-            console.log(`Usuário está numa ${localizacao.type} na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais}; e no local ${localizacao.detalhes} durante a ${periodoDia}.`);
+            // Saída da predição com base no contexto, removendo o endereço
+            console.log(`Usuário está numa ${localizacao.type} na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais} durante a ${periodoDia}.`);
 
             // Implementação da lógica para a predição com base em contexto
             if (periodoDia === 'manhã') {
