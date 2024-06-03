@@ -71,7 +71,7 @@ class PredictionManager {
             const periodoDia = this.getPeriodoDia();
             const localizacao = await this.getLocalizacaoUsuario();
 
-            // Saída da predição com base no contexto, removendo o endereço
+            // Saída da predição com base no contexto
             console.log(`Usuário está numa ${localizacao.type} na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais} durante a ${periodoDia}.`);
 
             // Implementação da lógica para a predição com base em contexto
