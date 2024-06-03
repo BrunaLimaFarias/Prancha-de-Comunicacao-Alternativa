@@ -1,5 +1,3 @@
-// js/index.js
-
 import { MarkovChain } from './markovChain.js';
 import { removerUltimaFigura, limparFrase, buscaFigura, criarBotoesDeCategoria } from './figuras.js';
 
@@ -13,12 +11,19 @@ window.onload = async function() {
         // Fetch para obter as categorias disponíveis
         const response = await fetch('php/obter_categorias.php');
         const categorias = await response.json();
+        console.log('Categorias recebidas:', categorias);
 
         // Chama a função para criar os botões de categoria dinamicamente
         criarBotoesDeCategoria(categorias, markovChain, wordImageMap);
 
-        // Chamada inicial para buscar as figuras do banco de dados e gerar os cards
-        buscaFigura('', markovChain, wordImageMap);
+        // Chamada inicial para buscar as figuras da primeira categoria se houver
+        if (categorias.length > 0) {
+            const primeiraCategoria = categorias[0];
+            console.log(`Buscando figuras para a categoria inicial: ${primeiraCategoria}`);
+            await buscaFigura(primeiraCategoria, markovChain, wordImageMap);
+        } else {
+            console.warn('Nenhuma categoria disponível.');
+        }
     } catch (error) {
         console.error('Erro ao carregar as categorias:', error);
     }

@@ -91,34 +91,27 @@ async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
         let prediction = markovChain.Predict('palavra_anterior');
         console.log('Predição com base na palavra anterior:', prediction);
 
-        predictions.forEach(async palavra => {
-            const response = await fetch(`php/listar.php?palavra=${encodeURIComponent(palavra)}`);
-            const data = await response.json();
-            console.log('Dados recebidos para a palavra', palavra, ':', data);
-
-            // Exibir figuras da categoria selecionada
-            data.forEach(figura => {
-                const cardDiv = document.createElement('div');
-                cardDiv.classList.add('card');
-                cardDiv.innerHTML = `
+        data.forEach(figura => {
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
+            cardDiv.innerHTML = `
                 <img src="${figura.img}" alt="${figura.palavra}">
                 <div class="card-body">
                     <h5 class="card-title">${figura.palavra}</h5>
                     <p>Categorias: ${figura.categorias || 'Nenhuma'}</p>
                     <p>Predição: ${prediction.join(', ')}</p> <!-- Exibir as predições -->
                 </div>`;
-                    
-                // Adiciona evento para chamar a função de adicionar a figura à frase
-                cardDiv.addEventListener('click', () => {
-                    adicionarFiguraAFrase(figura);
-                    cardDiv.classList.add('selected');
-                    setTimeout(() => {
-                        cardDiv.classList.remove('selected');   // Cria efeito visual para indicar que o card foi selecionado
-                    }, 300);
-                });
 
-                cardsContainer.appendChild(cardDiv);
+            // Adiciona evento para chamar a funcao de adicionar a figura à frase
+            cardDiv.addEventListener('click', () => {
+                adicionarFiguraAFrase(figura);
+                cardDiv.classList.add('selected');
+                setTimeout(() => {
+                    cardDiv.classList.remove('selected'); // Cria efeito visual para indicar que o card foi selecionado
+                }, 300);
             });
+
+            cardsContainer.appendChild(cardDiv);
         });
     } catch (error) {
         console.error('Erro ao carregar as figuras:', error);
