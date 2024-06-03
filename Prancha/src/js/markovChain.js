@@ -102,8 +102,8 @@ class MarkovChain {
         }
 
         const rootWord = this.Words.get(previousWord);
-        if (rootWord.ChildCount === 0) {
-            // Se a palavra anterior não tiver filhos, retornar uma lista vazia
+        if (!rootWord || rootWord.ChildCount === 0) {
+            // Se a palavra anterior não existir ou não tiver filhos, retornar uma lista vazia
             return [];
         }
 
@@ -120,6 +120,7 @@ class MarkovChain {
 
         return predictions;
     }
+
 }
 
 export { MarkovChain };

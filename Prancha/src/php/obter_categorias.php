@@ -20,6 +20,7 @@ function obterCategorias() {
     return $categorias;
 }
 
+
 // Obtém as categorias
 $categorias = obterCategorias();
 

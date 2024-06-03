@@ -64,10 +64,24 @@ function criarBotoesDeCategoria(categorias, markovChain, wordImageMap) {
 // Função para buscar as figuras do banco de dados e criar os cards
 async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
     try {
+        console.log('Iniciando busca de figuras para a categoria:', categoriaDesejada);
         
+        // Verificando se categoriaDesejada está vazia
+        if (categoriaDesejada === '') {
+            console.warn('A categoria desejada está vazia. Verifique se a categoria está sendo passada corretamente.');
+        }
+
         const response = await fetch(`php/listar.php?categoria=${encodeURIComponent(categoriaDesejada)}`);
         const data = await response.json();
+        console.log('Dados recebidos:', data);
+
         const predictions = markovChain.Predict(categoriaDesejada); // Obter previsões com base na categoria desejada
+        console.log('Previsões com base na categoria:', predictions);
+
+        // Verificando se as previsões retornaram vazias
+        if (predictions.length === 0) {
+            console.warn('As previsões com base na categoria estão vazias. Verifique se a categoria está presente na cadeia de Markov.');
+        }
 
         const cardsContainer = document.getElementById('cards-container');
         cardsContainer.innerHTML = ''; // Limpar figuras anteriores
@@ -75,16 +89,18 @@ async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
         ///////////////////MARKOV/////////////////////
         // Treina a cadeia de Markov com os títulos das figuras
         let text = data.map(figura => figura.palavra).join(' ');
+        console.log('Texto para treinar MarkovChain:', text);
         markovChain.Load(text);
 
         // Fazer predições com base nas palavras anteriores na sequência
         let prediction = markovChain.Predict('palavra_anterior');
-
+        console.log('Predição com base na palavra anterior:', prediction);
         ////////////////////////////////////////
 
         predictions.forEach(async palavra => {
             const response = await fetch(`php/listar.php?palavra=${encodeURIComponent(palavra)}`);
             const data = await response.json();
+            console.log('Dados recebidos para a palavra', palavra, ':', data);
 
             // Exibir figuras da categoria selecionada
             data.forEach(figura => {
