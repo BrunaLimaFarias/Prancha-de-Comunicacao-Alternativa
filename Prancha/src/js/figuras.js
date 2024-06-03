@@ -40,6 +40,19 @@ function atualizarFraseFormada() {
     }
 }
 
+// Função para carregar as categorias do servidor
+async function carregarCategorias() {
+    try {
+        const response = await fetch('php/obter_categorias.php');
+        const categorias = await response.json();
+        console.log('Categorias carregadas:', categorias);
+        return categorias;
+    } catch (error) {
+        console.error('Erro ao carregar categorias:', error);
+        return [];
+    }
+}
+
 function criarBotoesDeCategoria(categorias, markovChain, wordImageMap) {
     const categorySelector = document.querySelector('.category-selector');
     categorySelector.innerHTML = ''; // Limpa os botões existentes
@@ -60,6 +73,16 @@ function criarBotoesDeCategoria(categorias, markovChain, wordImageMap) {
     });
 }
 
+// Função para carregar imagens com fallback
+function loadImage(src, fallbackSrc) {
+    const img = new Image();
+    img.src = src;
+    img.onerror = () => {
+        img.src = fallbackSrc;
+    };
+    return img;
+}
+
 // Função para buscar as figuras do banco de dados e criar os cards
 async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
     try {
@@ -73,56 +96,60 @@ async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
         const data = await response.json();
         console.log('Dados recebidos:', data);
 
-        const predictions = markovChain.Predict(categoriaDesejada);
-        console.log('Previsões com base na categoria:', predictions);
-        if (predictions.length === 0) {
-            console.warn('As previsões com base na categoria estão vazias. Verifique se a categoria está presente na cadeia de Markov.');
-        }
-
         const cardsContainer = document.getElementById('cards-container');
         cardsContainer.innerHTML = ''; // Limpar figuras anteriores
 
         // Treina a cadeia de Markov com os títulos das figuras
         let text = data.map(figura => figura.palavra).join(' ');
         console.log('Texto para treinar MarkovChain:', text);
-        markovChain.Load(text);
+        markovChain.Load(text, wordImageMap);
 
-        // Fazer predições com base nas palavras anteriores na sequência
-        let prediction = markovChain.Predict('palavra_anterior');
-        console.log('Predição com base na palavra anterior:', prediction);
+        // Fazer predições com base na última palavra adicionada à frase
+        let ultimaPalavra = figurasSelecionadas.length > 0 ? figurasSelecionadas[figurasSelecionadas.length - 1].palavra : '';
+        let prediction = markovChain.Predict(ultimaPalavra);
+        console.log('Predição com base na última palavra:', prediction);
 
-        predictions.forEach(async palavra => {
-            const response = await fetch(`php/listar.php?palavra=${encodeURIComponent(palavra)}`);
-            const data = await response.json();
-            console.log('Dados recebidos para a palavra', palavra, ':', data);
+        // Exibir figuras da categoria selecionada
+        data.forEach(figura => {
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card');
 
-            // Exibir figuras da categoria selecionada
-            data.forEach(figura => {
-                const cardDiv = document.createElement('div');
-                cardDiv.classList.add('card');
-                cardDiv.innerHTML = `
-                <img src="${figura.img}" alt="${figura.palavra}">
-                <div class="card-body">
-                    <h5 class="card-title">${figura.palavra}</h5>
-                    <p>Categorias: ${figura.categorias || 'Nenhuma'}</p>
-                    <p>Predição: ${prediction.join(', ')}</p> <!-- Exibir as predições -->
-                </div>`;
-                    
-                // Adiciona evento para chamar a função de adicionar a figura à frase
-                cardDiv.addEventListener('click', () => {
-                    adicionarFiguraAFrase(figura);
-                    cardDiv.classList.add('selected');
-                    setTimeout(() => {
-                        cardDiv.classList.remove('selected');   // Cria efeito visual para indicar que o card foi selecionado
-                    }, 300);
-                });
+            const imagePath = `./img/figuras/${encodeURIComponent(figura.imageFileName)}`;
+            const fallbackImage = './img/figuras/'; // Caminho da imagem padrão para fallback
 
-                cardsContainer.appendChild(cardDiv);
+            const imgElement = loadImage(imagePath, fallbackImage);
+            cardDiv.appendChild(imgElement);
+
+            cardDiv.innerHTML += `
+            <div class="card-body">
+                <h5 class="card-title">${figura.palavra}</h5>
+                <p>Categorias: ${figura.categorias || 'Nenhuma'}</p>
+                <p>Predição: ${prediction.join(', ')}</p> <!-- Exibir as predições -->
+            </div>`;
+                
+            // Adiciona evento para chamar a função de adicionar a figura à frase
+            cardDiv.addEventListener('click', () => {
+                adicionarFiguraAFrase(figura);
+                cardDiv.classList.add('selected');
+                setTimeout(() => {
+                    cardDiv.classList.remove('selected');   // Cria efeito visual para indicar que o card foi selecionado
+                }, 300);
             });
+
+            cardsContainer.appendChild(cardDiv);
         });
     } catch (error) {
         console.error('Erro ao carregar as figuras:', error);
     }
 }
+
+async function init() {
+    const markovChain = new markovChain();
+    const wordImageMap = {};
+    const categorias = await carregarCategorias();
+    criarBotoesDeCategoria(categorias, markovChain, wordImageMap);
+}
+
+document.addEventListener('DOMContentLoaded', init);
 
 export { removerUltimaFigura, limparFrase, buscaFigura, criarBotoesDeCategoria };
