@@ -93,6 +93,33 @@ class MarkovChain {
             this.Words.set(s1, w);
         }
     }
+
+    // Método para prever a próxima palavra com base na palavra anterior
+    Predict(previousWord) {
+        if (!this.Words.has(previousWord)) {
+            // Se a palavra anterior não estiver na cadeia de Markov, retornar uma lista vazia
+            return [];
+        }
+
+        const rootWord = this.Words.get(previousWord);
+        if (rootWord.ChildCount === 0) {
+            // Se a palavra anterior não tiver filhos, retornar uma lista vazia
+            return [];
+        }
+
+        // Obter os filhos da palavra anterior
+        const childs = this.getChilds(rootWord);
+        
+        // Criar uma lista para armazenar as previsões
+        const predictions = [];
+
+        // Adicionar os filhos à lista de previsões
+        for (const child of childs) {
+            predictions.push(child.Word);
+        }
+
+        return predictions;
+    }
 }
 
 export { MarkovChain };

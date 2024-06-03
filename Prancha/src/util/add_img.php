@@ -1,5 +1,6 @@
 <?php
 require_once("../util/db.php");
+require_once("../util/processa_figuras.php");
 
 // Caminho do diretório onde as imagens estão hospedadas localmente
 $diretorio_imagens = './img/figuras/';
@@ -12,11 +13,11 @@ $url_diretorio_imagens = 'http://localhost/tcc/tcc_prancha_caa/Prancha/src/img/f
 $conn = conectar_bd();
 
 // Prepara a query de inserção
-$query = "INSERT INTO lista_figuras (titulo, img) VALUES (?, ?)";
+$query = "INSERT INTO lista_figuras (palavra, img) VALUES (?, ?)";
 
 // Prepara a declaração
 $stmt = $conn->prepare($query);
-$stmt->bind_param("ss", $titulo, $img);
+$stmt->bind_param("ss", $palavra, $img);
 
 // Faz uma solicitação HTTP para o diretório de imagens
 $conteudo = @file_get_contents($url_diretorio_imagens);
@@ -32,14 +33,17 @@ if ($conteudo !== false) {
         if (preg_match('/\.(jpg)$/', $url)) {
             // Define os parâmetros da query
             $nome_arquivo = basename(urldecode($url)); // Nome do arquivo é o título
-            $titulo = pathinfo($nome_arquivo, PATHINFO_FILENAME); // Remove a extensão do nome do arquivo
+            $palavra = pathinfo($nome_arquivo, PATHINFO_FILENAME); // Remove a extensão do nome do arquivo
             $img = $diretorio_imagens . $nome_arquivo; // Caminho completo da imagem local
             
-            // Executa a query
-            $stmt->execute();
+            // Verifica se a figura já existe
+            if (!verificarFiguraExiste($conn, $palavra)) {
+                // Executa a query
+                $stmt->execute();
+            }
             
-            echo "Nome do arquivo: $titulo\n"; // Debug
-            echo "Caminho da imagem: $img\n"; // Debug
+            echo "Nome do arquivo: $palavra\n";
+            echo "Caminho da imagem: $img\n";
         }
     }
 

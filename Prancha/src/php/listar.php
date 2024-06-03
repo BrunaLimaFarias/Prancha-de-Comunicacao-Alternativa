@@ -7,21 +7,19 @@ function getFiguras($categoria = '') {
 
     if ($categoria) {
         $query = "
-            SELECT lista_figuras.titulo, lista_figuras.img 
+            SELECT lista_figuras.palavra, lista_figuras.img 
             FROM lista_figuras 
             JOIN figura_categoria ON lista_figuras.id = figura_categoria.figura_id 
             JOIN categorias ON figura_categoria.categoria_id = categorias.id 
             WHERE categorias.nome = ?";
-        /*
+         /*
         $query = "
-            SELECT lf.id, lf.titulo, lf.img, GROUP_CONCAT(c.nome SEPARATOR ', ') AS categorias, GROUP_CONCAT(p.palavra SEPARATOR ', ') AS palavras
+            SELECT lf.id, lf.palavra, lf.img, GROUP_CONCAT(c.nome SEPARATOR ', ') AS categorias
             FROM lista_figuras lf
             JOIN figura_categoria fc ON lf.id = fc.figura_id
             JOIN categorias c ON fc.categoria_id = c.id
-            LEFT JOIN figura_palavra fp ON lf.id = fp.figura_id
-            LEFT JOIN palavras p ON fp.palavra_id = p.id
             WHERE c.nome = ?
-            GROUP BY lf.id, lf.titulo, lf.img
+            GROUP BY lf.id, lf.palavra, lf.img
         ";
          */
         $stmt = $conn->prepare($query);
@@ -29,16 +27,14 @@ function getFiguras($categoria = '') {
         $stmt->execute();
         $resultado = $stmt->get_result();
     } else {
-        $query = "SELECT titulo, img FROM lista_figuras";
+        $query = "SELECT palavra, img FROM lista_figuras";
         /*
         $query = "
-            SELECT lf.id, lf.titulo, lf.img, GROUP_CONCAT(DISTINCT c.nome SEPARATOR ', ') AS categorias, GROUP_CONCAT(DISTINCT p.palavra SEPARATOR ', ') AS palavras
+            SELECT lf.id, lf.palavra, lf.img, GROUP_CONCAT(c.nome SEPARATOR ', ') AS categorias
             FROM lista_figuras lf
             LEFT JOIN figura_categoria fc ON lf.id = fc.figura_id
             LEFT JOIN categorias c ON fc.categoria_id = c.id
-            LEFT JOIN figura_palavra fp ON lf.id = fp.figura_id
-            LEFT JOIN palavras p ON fp.palavra_id = p.id
-            GROUP BY lf.id, lf.titulo, lf.img
+            GROUP BY lf.id, lf.palavra, lf.img
         ";
         */
         $resultado = $conn->query($query);

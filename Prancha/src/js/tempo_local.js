@@ -14,38 +14,55 @@ function getPeriodoDia() {
 // Função para obter a localização do usuário com base no endereço IP usando a API do Geoapify
 function getLocalizacaoUsuario() {
   return new Promise((resolve, reject) => {
-    fetch('https://api.geoapify.com/v1/ipinfo?apiKey=afaaa54c319a4dba81f57014b11ffb57')
-      .then(response => response.json())
-      .then(data => {
+    fetch(
+      'https://api.geoapify.com/v1/ipinfo?apiKey=afaaa54c319a4dba81f57014b11ffb57'
+    )
+      .then((response) => response.json())
+      .then((data) => {
         // Verifica se os dados de localização foram retornados corretamente
-        if (data && data.city && data.city.name && data.country && data.country.name_native) {
+        if (
+          data &&
+          data.city &&
+          data.city.name &&
+          data.country &&
+          data.country.name_native
+          ) {
           const cidade = data.city.name;
           const estado = data.state.name;
           const pais = data.country.name_native;
-          const latitude = data.location.latitude;
-          const longitude = data.location.longitude;
+          var latitude = data.location.latitude;
+          var longitude = data.location.longitude;
 
           // Obter detalhes do local do usuário
-          return fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
-            .then(response => response.json())
-            .then(localData => {
+          navigator.geolocation.getCurrentPosition((position) => {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+        });
+          return fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+          )
+            .then((response) => response.json())
+            .then((localData) => {
               // Extrair informações relevantes do endereço detalhado
               const numeroRua = localData.address.house_number;
               const rua = localData.address.road;
               const bairro = localData.address.suburb;
               const type = localData.type;
+              const city = localData.address.city;
+              const state = localData.address.state;
+              const country = localData.address.country;
 
-              const detalhes = `${numeroRua}, ${rua}, ${bairro}, ${type}`;
-              resolve({ cidade, estado, pais, detalhes, type });
+              const detalhes = `${numeroRua}, ${rua}, ${bairro}, ${type}, ${city}, ${state}, ${country}`;
+              resolve({ cidade, estado, pais, detalhes, type, city, state, country });
             })
-            .catch(error => {
+            .catch((error) => {
               reject('Erro ao obter detalhes do local:', error);
             });
         } else {
           reject('Dados de localização incompletos ou inválidos.');
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Erro ao obter localização:', error);
         reject(error);
       });
@@ -57,51 +74,48 @@ function fazerPredicao() {
   const periodoDia = getPeriodoDia();
 
   getLocalizacaoUsuario()
-    .then(localizacao => {
-      // Saída da predição com base no contexto
-      const predicao = `Usuário está numa ${localizacao.type} na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais}; e no local ${localizacao.detalhes} durante a ${periodoDia}.`;
+  .then((localizacao) => {
+    // Saída da predição com base no contexto
+    //const predicao = `Usuário está na cidade de ${localizacao.city}, ${localizacao.state}, ${localizacao.country}; e no local ${localizacao.detalhes} durante a ${periodoDia}.`;
+    const predicao = `Usuário está a ${periodoDia}.`;
 
-      // Atualizar o conteúdo do elemento HTML com a predição
-      const predicaoTextoElement = document.getElementById('predicao-texto');
-      predicaoTextoElement.textContent = predicao;
+    // Atualizar o conteúdo do elemento HTML com a predição
+    const predicaoTextoElement = document.getElementById('predicao-texto');
+    predicaoTextoElement.textContent = predicao;
 
-      // Limpar o conteúdo anterior das ações comuns
-      const acoesComunsElement = document.getElementById('acoes-comuns');
-      acoesComunsElement.innerHTML = '';
+    // Limpar o conteúdo anterior das ações comuns
+    const acoesComunsElement = document.getElementById('acoes-comuns');
+    acoesComunsElement.innerHTML = '';
 
-
-      if (periodoDia === 'manhã') {
-
-        // Adicionar mensagem sobre ações comuns durante a manhã
-        const mensagem = document.createElement('p');
-        mensagem.textContent = 'Ações comuns durante a manhã: Café da manhã, preparativos para o dia.';
-        acoesComunsElement.appendChild(mensagem);
-
-      } else if (periodoDia === 'tarde') {
-
-        // Adicionar mensagem sobre ações comuns durante a tarde
-        const mensagem = document.createElement('p');
-        mensagem.textContent = 'Ações comuns durante a tarde: Almoço, trabalho ou estudos.';
-        acoesComunsElement.appendChild(mensagem);
-        
-      } else {
-
-        // Adicionar mensagem sobre ações comuns durante a noite
-        const mensagem = document.createElement('p');
-        mensagem.textContent = 'Ações comuns durante a noite: Jantar, relaxamento, sono.';
-        acoesComunsElement.appendChild(mensagem);
-      }
-    });
+    if (periodoDia === 'manhã') {
+      // Adicionar mensagem sobre ações comuns durante a manhã
+      const mensagem = document.createElement('p');
+      mensagem.textContent ='Ações comuns durante a manhã: Café da manhã, preparativos para o dia.';
+      acoesComunsElement.appendChild(mensagem);
+    } else if (periodoDia === 'tarde') {
+      // Adicionar mensagem sobre ações comuns durante a tarde
+      const mensagem = document.createElement('p');
+      mensagem.textContent =
+        'Ações comuns durante a tarde: Almoço, trabalho ou estudos.';
+      acoesComunsElement.appendChild(mensagem);
+    } else {
+      // Adicionar mensagem sobre ações comuns durante a noite
+      const mensagem = document.createElement('p');
+      mensagem.textContent =
+        'Ações comuns durante a noite: Jantar, relaxamento, sono.';
+      acoesComunsElement.appendChild(mensagem);
+    }
+  });
 }
-
 
 // Função para atualizar o texto da predição no HTML
 function atualizarPredicaoTexto(texto) {
   document.getElementById('predicao-texto').value = texto;
 }
 
-  // Adicionar evento de clique ao botão para fazer a predição manualmente
-  document.getElementById('btn-fazer-predicao').addEventListener('click', function(){
-  fazerPredicao();
-});
-
+// Adicionar evento de clique ao botão para fazer a predição manualmente
+document
+  .getElementById('btn-fazer-predicao')
+  .addEventListener('click', function () {
+    fazerPredicao();
+  });
