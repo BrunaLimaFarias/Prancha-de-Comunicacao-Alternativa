@@ -116,6 +116,14 @@ h1 {
     margin-top: 20px;
 }
 
+.category-selector {
+    text-align: center;
+    margin: 0px;
+    display: inline;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 
 footer {
     background-color: #378CE7;

@@ -32,7 +32,8 @@ function atualizarFraseFormada() {
                 <img src="${figura.img}" alt="${figura.palavra}">
                 <div class="card-body">
                     <h5 class="card-title">${figura.palavra}</h5>
-                </div>`;
+                </div>
+                `;
             fraseListaElement.appendChild(li);
         });
     } catch (error) {
@@ -114,18 +115,13 @@ async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
             const cardDiv = document.createElement('div');
             cardDiv.classList.add('card');
 
-            const imagePath = `./img/figuras/${encodeURIComponent(figura.imageFileName)}`;
-            const fallbackImage = './img/figuras/'; // Caminho da imagem padrão para fallback
-
-            const imgElement = loadImage(imagePath, fallbackImage);
-            cardDiv.appendChild(imgElement);
-
             cardDiv.innerHTML += `
+            <img src="${figura.img}" alt="${figura.palavra}">
             <div class="card-body">
                 <h5 class="card-title">${figura.palavra}</h5>
-                <p>Categorias: ${figura.categorias || 'Nenhuma'}</p>
                 <p>Predição: ${prediction.join(', ')}</p> <!-- Exibir as predições -->
-            </div>`;
+            </div>
+            `;
                 
             // Adiciona evento para chamar a função de adicionar a figura à frase
             cardDiv.addEventListener('click', () => {
@@ -144,7 +140,7 @@ async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
 }
 
 async function init() {
-    const markovChain = new markovChain();
+    const markovChain = new MarkovChain();
     const wordImageMap = {};
     const categorias = await carregarCategorias();
     criarBotoesDeCategoria(categorias, markovChain, wordImageMap);
