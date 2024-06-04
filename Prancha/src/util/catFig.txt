@@ -336,7 +336,7 @@ broto - Natureza
 bruxa - Personagens e Folclores
 budista - Religião e Espiritualidade
 bum bum - Partes do corpo
-Bumbo - Diversão e Jogos
+Bumbo - Diversão e jogos
 Burgo - Lugares
 C - Alfabetização e Numerais
 cabeça cor - Partes do corpo
@@ -417,7 +417,7 @@ cartão ponto - Objetos
 cartaz - Símbolos
 carteira escolar - Escola e aprendizagem
 carteira - Objetos
-casa de bonecas - Diversão e Jogos
+casa de bonecas - Diversão e jogos
 casa de polacos - Lugares
 Casa - Lugares
 casaco - Objetos
@@ -529,7 +529,7 @@ comida - Alimentos
 comigo - Gramática e Funções
 compadre - Pessoas
 compasso - Escola e aprendizagem
-competição - Diversão e Jogos
+competição - Diversão e jogos
 comprar - Ações
 comprimidos remédios - Saúde e higiene
 computador - Objetos
@@ -602,8 +602,8 @@ custar - Economia e Finanças
 D - Alfabetização e Numerais
 Dado - Objetos
 danado - Sentimentos
-Dança flamenca - Diversão e Jogos
-dança indígena - Diversão e Jogos
+Dança flamenca - Diversão e jogos
+dança indígena - Diversão e jogos
 dançar - Ações
 dar_receber - Ações
 data - Tempo e datas
@@ -617,7 +617,7 @@ dele - Gramática e Funções
 delicioso - Sentimentos
 dengosa - Sentimentos
 dengoso - Sentimentos
-dengue - Saúde e Higiene
+dengue - Saúde e higiene
 Dente - Partes do corpo
 dentista - Pessoas
 Dentro (1) - Lugares
@@ -628,7 +628,7 @@ desajeitado - Sentimentos
 desaparecer - Ações
 Desarrumado - Sentimentos
 desastrado - Sentimentos
-desastre - Saúde e Higiene
+desastre - Saúde e higiene
 descer - Ações
 Descobrimento do Brasil - Escola e aprendizagem
 descobrir - Ações
@@ -638,7 +638,7 @@ destruir - Ações
 detetive - Ações
 devagar - Ações
 dez - Alfabetização e Numerais
-Dezembro (1) - Eventos e celebrações
+Dezembro (1) - Eventos e Celebrações
 Dezembro - Tempo e datas
 Dia da Abolição da Escravidão dos índios - Tempo e datas
 dia da alfabetização - Tempo e datas
@@ -743,7 +743,7 @@ ele (1) - Gramática e Funções
 ele - Gramática e Funções
 elefante - Animais
 elegante - Pessoas
-Eleições - Eventos e celebrações
+Eleições - Eventos e Celebrações
 eles - Gramática e Funções
 elétrico - Objetos
 elevador - Transporte
@@ -880,3 +880,31 @@ fazenda - Lugares
 fazer buraco - Ações
 fazer de bobo - Saudações e Expressões
 fazer exercício - Saúde e higiene
+Fazer - Ações
+febre amarela - Saúde e higiene
+Febre - Saúde e higiene
+fechadura - Objetos
+Feijão - Alimentos
+Feijoada - Alimentos
+Feira - Lugares
+feliz - Sentimentos
+Fera - Animais
+férias - Diversão e jogos
+ferradura - Objetos
+ferramentas - Objetos
+ferro de passar - Objetos
+Ferro - Objetos
+festa cor - Eventos e Celebrações
+Festa Junina - Eventos e Celebrações
+fevereiro carnaval - Tempo e datas
+figo - Alimentos
+fila - Lugares
+filha cor - Pessoas
+filho - Pessoas
+Filhote - Animais
+fino - Gramática e Funções
+fio - Objetos
+Fiscal - Pessoas
+fisioterapia cor - Saúde e higiene
+fisioterapia - Saúde e higiene
+fita cassete - Objetos
