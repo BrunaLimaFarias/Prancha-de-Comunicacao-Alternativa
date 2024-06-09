@@ -42,7 +42,7 @@
 29 romano - Alfabetização e Numerais
 30 romano - Alfabetização e Numerais
 31 romano - Alfabetização e Numerais
-32 romano  - Alfabetização e Numerais
+32 romano - Alfabetização e Numerais
 33 romano - Alfabetização e Numerais
 34 romano - Alfabetização e Numerais
 35 romano - Alfabetização e Numerais
@@ -199,8 +199,8 @@ asno - Animais
 áspero - Sentimentos
 Assado - Alimentos
 Assento - Objetos
-Assimetria 2 - Natureza
-Assimetria - Natureza
+Assimetria 2 - Escola e aprendizagem
+Assimetria - Escola e aprendizagem
 assine aqui - Ações
 Assobio - Ações
 Astronauta - Pessoas
@@ -277,7 +277,7 @@ beringela - Alimentos
 besouro - Animais
 besteira - Pessoas, Comportamento
 Bezerro - Animais
-Bíblia - Objetos ou Religião e Espiritualidade
+Bíblia - Religião e Espiritualidade
 Bica - Lugares
 bicho - Animais
 bicicleta - Transporte
@@ -285,10 +285,10 @@ Bife - Carne
 bigode - Partes do corpo
 bilhete ingresso - Eventos e Celebrações
 Biscoito - Alimentos
-bispo - Pessoas ou Religião e Espiritualidade
+bispo - Religião e Espiritualidade
 bloco de notas - Objetos
-bloco EVA - Objetos ou Escola e aprendizagem
-blocos - Objetos ou Escola e aprendizagem
+bloco EVA - Objetos 
+blocos - Objetos
 blusa - Objetos
 boca - Partes do corpo
 Bochecha - Partes do corpo
@@ -301,8 +301,8 @@ bolha de sabão - Diversão e jogos
 bolinha de terapia - Saúde e higiene
 bolo - Alimentos
 bolsa - Objetos
-Bom dia - Tempo e datas ou Saudações e Expressões
-Bom trabalho (1) - Saudações e Expressões
+Bom dia - Expressões de comunicação
+Bom trabalho (1) - Expressões de comunicação
 bombom - Alimentos
 boné - Objetos
 boneca - Objetos
@@ -320,7 +320,7 @@ botijão de gás - Objetos
 braço - Partes do corpo
 Branco (1) - Cores
 Branco (pessoa) - Pessoas
-Branco - Alimentos ou Cores
+Branco - Cores
 Brasa - Natureza
 brava - Sentimentos
 Brejo - Natureza
@@ -361,7 +361,7 @@ cadeira de rodas - Objetos
 cadeira - Objetos
 Cadela - Animais
 caderno - Escola e aprendizagem
-café cor - Alimentos ou Cores
+café cor - Alimentos 
 cafuzo - Pessoas
 caiobá - Lugares
 caipira - Pessoas
@@ -372,7 +372,7 @@ caju - Alimentos
 calar - Ações
 calça - Objetos
 calcinha - Objetos
-calculadora - Objetos ou Escola e aprendizagem
+calculadora - Objetos 
 calendario - Tempo e datas 
 Calendário - Tempo e datas
 calor - Sentimentos
@@ -381,7 +381,7 @@ Câmara de Vereadores - Lugares
 Camelo - Animais
 caminhão - Transporte
 caminhoneiro - Pessoas
-campo - Natureza ou Lugares
+campo - Natureza 
 Camponês - Pessoas
 cana de açucar - Alimentos
 Candomblé - Religião e Espiritualidade
@@ -411,7 +411,7 @@ caroço - Alimentos
 carpinteiro - Pessoas
 carrapato - Animais
 carregar - Ações
-carro - Transportes
+carro - Transporte
 carta - Objetos
 cartão ponto - Objetos
 cartaz - Símbolos
@@ -506,7 +506,7 @@ coceira - Sentimentos
 coco - Saúde e higiene
 côco - Alimentos
 coelho - Animais
-cola - Objetos ou Escola e aprendizagem
+cola - Objetos
 colar 1 - Ações
 colar - Ações
 Colega - Pessoas
@@ -514,16 +514,16 @@ Colher (1) - Objetos
 colher curva - Objetos
 Colher - Ações
 colina - Natureza
-colo - Partes do Corpo
+colo - Partes do corpo
 colocar símbolo - Ações
 colocar - Ações
 colorir - Ações
-coluna - Partes do Corpo
-com licença - Saudações e Expressões
+coluna - Partes do corpo
+com licença - Expressões de comunicação
 comadre - Pessoas
 comer - Ações
 comércio - Lugares
-cometi um engano - Saudações e Expressões 
+cometi um engano - Expressões de comunicação
 comício - Eventos e Celebrações
 comida - Alimentos
 comigo - Gramática e Funções
@@ -545,7 +545,7 @@ construir - Ações
 conta de luz - Economia e Finanças
 conta - Escola e aprendizagem
 contar histórias - Ações
-contar uma coisa - Ações ou Saudações e Expressões
+contar uma coisa - Ações
 contar - Alfabetização e Numerais
 contas - Economia e Finanças
 contigo - Gramática e Funções
@@ -557,7 +557,7 @@ coordenador - Pessoas
 copo - Objetos
 coqueiro - Natureza
 cor - Cores
-coração cor - Partes do Corpo
+coração cor - Partes do corpo
 corda cor - Objetos
 cores - Cores
 Corneta - Diversão e jogos
@@ -573,7 +573,7 @@ cortar - Ações
 Cortina - Objetos
 coruja - Animais
 Costas - Lugares
-costas1 - Partes do Corpo
+costas1 - Partes do corpo
 couve flor - Alimentos
 couve - Alimentos
 cozido - Alimentos
@@ -611,7 +611,7 @@ dedal - Objetos
 dedão - Partes do corpo
 dedinho - Partes do corpo
 dedo - Partes do corpo
-deixe-me - Saudações e Expressões
+deixe-me - Expressões de comunicação
 dela - Gramática e Funções
 dele - Gramática e Funções
 delicioso - Sentimentos
@@ -715,7 +715,7 @@ doente - Saúde e higiene
 doido - Sentimentos
 Dois - Alfabetização e Numerais
 domar - Ações
-DOMINGO - Tempo e datas
+DOMINGO - Tempo e datas, Dias da semana
 dominó - Diversão e jogos
 Dormindo - Sentimentos
 dorminhoco - Sentimentos
@@ -753,7 +753,7 @@ em cima - Lugares
 Email - Tecnologia e Comunicação
 embaixo (1) - Lugares
 embaixo - Lugares
-emblema - Símbolos e Identidade
+emblema - Símbolos
 empacotar - Ações
 empada - Alimentos
 empadão - Alimentos
@@ -780,7 +780,7 @@ entregar - Ações
 enxada - Objetos
 enxoval - Objetos
 enxurrada - Natureza
-escada rolante - transporte
+escada rolante - Transporte
 escada - Objetos
 escala ascendente 2 - Alfabetização e Numerais
 escala ascendente 5 - Alfabetização e Numerais
@@ -806,8 +806,8 @@ escritório - Lugares
 Escuta - Ações
 Escutar música - Ações
 esfera - Objetos
-Espaço (1) - Lugares
-Espaço - Lugares
+Espaço (1) - Astronomia
+Espaço - Astronomia
 espada - Objetos
 espantada - Sentimentos
 esperar - Ações
@@ -825,7 +825,7 @@ espuma 2 - Saúde e higiene
 espuma - Saúde e higiene
 esquadro - Escola e aprendizagem
 esqueci - Gramática e Funções
-esqueleto - Partes do Corpo
+esqueleto - Partes do corpo
 esquentar - Ações
 Esquerda - Lugares
 esquilo - Animais
@@ -848,7 +848,7 @@ estudioso - Escola e aprendizagem
 etiqueta de preço - Economia e Finanças
 etiqueta - Objetos
 eu (1) - Gramática e Funções
-eu estou bem - Gramática e Funções
+eu estou bem - Expressões de comunicação
 eu menina - Gramática e Funções, Identidade e Gênero
 eu - Gramática e Funções
 exame - Saúde e higiene
@@ -878,7 +878,7 @@ favo - Alimentos
 fax - Tecnologia e Comunicação
 fazenda - Lugares
 fazer buraco - Ações
-fazer de bobo - Saudações e Expressões
+fazer de bobo - Expressões de comunicação
 fazer exercício - Saúde e higiene
 Fazer - Ações
 febre amarela - Saúde e higiene
@@ -908,3 +908,1081 @@ Fiscal - Pessoas
 fisioterapia cor - Saúde e higiene
 fisioterapia - Saúde e higiene
 fita cassete - Objetos
+fita métrica - Objetos
+Flauta Doce - Objetos
+Flautista - Pessoas
+flor - Natureza
+Floresta - Natureza
+foca - Animais
+fofoqueiro - Sentimentos
+fogão - Objetos
+fogo - Natureza
+Folclore - Eventos e Celebrações
+Folha 2 - Escola e aprendizagem
+folha - Natureza
+folia de reis - Eventos e Celebrações
+Fome - Sentimentos
+fone de ouvido - Objetos
+fonoaudiologia - Saúde e higiene
+Fora (1) - Lugares, Direções e posições
+Fora - Lugares, Direções e posições
+formiga - Animais
+formigueiro - Animais
+forno - Objetos
+Forró - Diversão e jogos
+forte - Sentimentos
+fósforo - Objetos
+Frango 2 - Animais
+frango assado - Alimentos
+Frango - Animais
+freio - Transporte
+freira - Pessoas
+frente - Lugares, Direções e posições
+Frevo - Diversão e jogos
+Frio - Sentimentos
+frutas - Alimentos
+fruteira - Objetos
+fubá - Alimentos
+fumaça - Natureza
+funeral - Eventos e Cerimônias
+furador de papel - Objetos
+futebol - Diversão e jogos
+futuro - Tempo e datas
+G - Alfabetização e Numerais
+gado - Animais
+gafanhoto - Animais
+gaiola - Objetos
+Galho - Natureza
+galinha - Animais
+Galinheiro - Animais
+galo - Animais
+Ganhar - Ações
+ganso - Animais
+garagalhada - Sentimentos
+garagem - Lugares
+garapa - Alimentos
+garfo - Objetos
+garganta - Partes do corpo
+garoa - Natureza
+garra - Objetos
+garrafa térmica - Objetos
+Garrafa - Objetos
+garrafas - Objetos
+gás - Natureza
+gasolina - Transporte
+gasosa - Alimentos
+gastrite - Saúde e higiene
+gata - Animais
+gato - Animais
+gaveta - Objetos
+gavião - Animais
+gaze - Saúde e higiene
+geada - Natureza
+geladeira - Objetos
+gelado - Alimentos
+gelatina - Alimentos
+geleia - Alimentos
+geléia - Alimentos
+gelo - Objetos
+Gema - Alimentos
+gemada - Alimentos
+Gemer - Ações
+generoso - Sentimentos
+gengiva - Partes do corpo
+gênio - Pessoas 
+gente - Pessoas
+Gentil - Sentimentos
+Geólogo - Pessoas
+gesso - Objetos
+gestante - Pessoas
+gigante - Pessoas
+ginásio de esportes - Lugares
+Ginásio - Lugares
+girafa - Animais
+girar - Ações
+girassol - Natureza
+giz de cera - Escola e aprendizagem
+giz - Escola e aprendizagem
+glicerina - Saúde e higiene
+globo - Natureza
+goela - Partes do corpo
+goiaba - Alimentos
+goiabada - Alimentos
+gol - Diversão e jogos
+gola - Objetos
+Gole - Ações
+golfe - Diversão e jogos
+Golpe militar - Eventos históricos
+goma - Alimentos
+gordo - Pessoas
+gorro - Objetos
+gostar - Ações
+gostoso - Sentimentos
+gota - Objetos
+goteira - Objetos
+gotinha - Objetos
+grade - Objetos
+grama - Natureza
+gramado - Natureza
+grampeador - Objetos
+grampo 2 - Objetos
+grampo de cabelo - Objetos
+grampo - Objetos
+grande - Objetos, itens de medição
+Granja - Lugares
+grãos - Alimentos
+grato_agradecer - Ações
+gravata - Objetos
+graxa - Objetos
+greve - Eventos, Situações Sociais
+grilo - Animais
+gripe - Saúde e higiene
+gritar - Ações
+grosso - Objetos, itens de medição
+grudado - Sentimentos
+grude - Objetos
+grupo - Pessoas
+gruta - Lugares
+guaraná 2 - Alimentos
+guaraná - Alimentos
+guaratuba - Lugares
+guarda chuva - Objetos
+guarda- roupa - Objetos
+guarda - Pessoas
+guardanapo - Objetos
+guardar arquivar - Ações
+guardar - Ações
+guerra - Eventos históricos
+guerreiro - Pessoas
+guia - Pessoas
+guitarra - Diversão e jogos
+gulosa - Pessoas
+guloso - Pessoas
+guri - Pessoas
+H - Alfabetização e Numerais
+hálito - Saúde e higiene
+Harpa (1) - Objetos
+Harpa - Objetos
+hein - Interjeições
+hélice - Objetos
+helicoptero - Transporte
+herói - Pessoas
+hidroterapia - Saúde e higiene
+hiena - Animais
+hindu - Religião e Espiritualidade
+hipopótamo - Animais
+holandês - Pessoas
+holandesa - Pessoas
+holofote - Objetos
+homem - Pessoas
+hora - Tempo e datas
+horário - Tempo e datas
+horizonte - Natureza
+horta - Lugares
+hortaliça - Alimentos
+hortelã - Alimentos
+Hóspede - Pessoas
+hospício - Saúde e higiene
+hospital - Saúde e higiene
+hotel - Lugares
+hum - Interjeições
+humilde - Sentimentos
+I - Alfabetização e Numerais
+idade antiga - Escola e aprendizagem
+Idade Moderna - Escola e aprendizagem
+idéia - Sentimentos
+identificação - Documentos
+Ignorar - Ações
+Igreja Ortodoxa - Religião e Espiritualidade
+Igreja - Religião e Espiritualidade
+Igual - Conceitos 
+Ih - Interjeições
+Ilha - Natureza
+ilustração - Escola e aprendizagem
+imã - Objetos
+imagem - Objetos
+imitar - Ações
+imoral - Conceitos
+impossível - Conceitos
+impressora - Objetos
+Imprimir - Ações
+inalação - Saúde e higiene
+índio - Pessoas
+indo - Lugares, Direções e posições
+Infância - Tempo e datas
+infeliz - Sentimentos
+injeção - Saúde e higiene
+inserir disco - Ações 
+inserir símbolo - Ações
+inserir - Ações
+inspetor - Pessoas
+interessante - Conceitos
+interior - Lugares
+Internet - Tecnologia e Comunicação
+interruptor - Objetos
+Intratável - Pessoas
+invasão - Ações
+inverno - Tempo e datas, estações do ano 
+iogurte - Alimentos
+ipê amarelo - Natureza
+ipê roxo - Natureza
+ir ao banheiro - Ações
+ir - Ações
+Irmã - Pessoas
+irmão religioso - Religião e Espiritualidade
+Irmão - Pessoas
+isca - Objetos
+isqueiro - Objetos
+isso - Gramática e Funções
+J - Alfabetização e Numerais
+jabuti - Animais
+jaca - Alimentação
+jacaré - Animais
+janeiro verão - Tempo e datas
+janela - Objetos
+jangada - Transporte
+Janta - Alimentos
+japonês - Pessoas
+japonesa - Pessoas
+jaqueta - Objetos
+jardim - Natureza
+jardinagem - Ações
+jardineiro - Pessoas
+Jarra - Objetos
+jasmin - Natureza
+jato - Transporte
+jaula - Lugares
+javali - Animais
+jeca - Personagens e Folclores
+jegue - Animais
+jejum - Ações
+Jesus - Religião e Espiritualidade
+joão de barro - Animais
+joelho - Partes do corpo
+jogar - Ações
+jogo da velha - Diversão e jogos
+jogo de cartas - Diversão e jogos
+jogo de dados - Diversão e jogos
+jogo de taco bets - Diversão e jogos
+jogo de tênis - Diversão e jogos
+jogo de xadrez - Diversão e jogos
+jogo tênis - Diversão e jogos
+jogo - Diversão e jogos
+jogos - Diversão e jogos
+Jóia - Objetos
+jornal - Objetos
+jovem-ela - Pessoas
+jovem-ele - Pessoas
+Jovens - Pessoas
+juba - Animais
+judeu - Religião e Espiritualidade
+JUiz - Pessoas
+julho férias - Tempo e datas
+junho - Tempo e datas
+juntar - Ações
+jurar - Ações
+K - Alfabetização e Numerais
+L - Alfabetização e Numerais
+lá - Lugares, Direções e posições
+lã - Objetos
+laço 2 - Objetos
+laço - Diversão e jogos
+lado - Lugares, Direções e posições
+Lagartixa - Animais
+lagarto - Animais
+lagoa - Natureza
+Lama - Natureza
+lamentar - Ações
+lâmpada - Objetos
+lanche merenda - Alimentos
+Lancheira - Objetos
+lapis e caneta - Escola e aprendizagem
+lápis - Objetos 
+lapiseira - Objetos
+lar - Lugares
+laranja - Alimentos
+largada - Diversão e jogos
+larva - Animais
+Lasanha - Alimentos
+lata - Objetos
+lata1 - Objetos
+lata2 - Objetos
+latir - Ações
+lavar - Ações
+lavrador - Pessoas
+lazer - Diversão e jogos 
+leão - Animais
+Legumes - Alimentos
+Leite - Alimentos
+leitura de horas ponteiro - Tempo e datas
+leitura de relógio digital - Tempo e datas
+Leitura - Escola e aprendizagem
+lembrar - Ações
+lente de contato - Saúde e higiene
+lento - Movimento e velocidade
+Leptospirose - Saúde e higiene
+leque - Objetos
+ler - Ações
+Lesma - Animais
+letras - Alfabetização e Numerais
+Letras1 - Alfabetização e Numerais
+Levantar - Ações
+Levar - Ações
+leve - Objetos, itens de medição
+lhama - Animais
+libertar - Ações
+lição - Escola e aprendizagem
+Ligar - Ações
+limão - Alimentos
+Limonada - Alimentos
+limpar - Ações
+língua - Partes do corpo
+LInguiça cópia - Alimentos
+linha de ônibus - Transporte
+linha - Objetos
+líquido - Natureza
+lista - Objetos
+LIvre - Conceitos
+livro de bolso - Objetos
+livro - Objetos
+lixa - Objetos
+lixeira - Objetos
+lixeira1 - Objetos
+lixo - Objetos
+lobo - Animais
+Lodo - Natureza
+loira - Pessoas
+loiro - Pessoas
+Loja - Lugares
+Longe - Lugares, Distância/Espaço
+louça 2 - Objetos
+louça - Objetos
+louco - Pessoas, Comportamento
+lousa - Objetos
+louvar - Religião e Espiritualidade
+lua - Astronomia
+lugar - Lugares
+Lula - Animais
+lutador - Pessoas
+luvas - Objetos
+M - Alfabetização e Numerais
+Má - Pessoas, Comportamento
+maçã - Alimentos
+macaco - Animais
+maçaneta - Objetos
+macarrão - Alimentos
+machado - Objetos
+macho - Identidade e Gênero
+Machucar - Ações
+madeira - Natureza
+mãe de santo - Religião e Espiritualidade
+Mágico - Diversão e jogos
+Magnata - Pessoas
+magro - Pessoas
+maio noivas - Tempo e datas
+maiô - Objetos
+maionese - Alimentos
+maior que 2 - Escola e aprendizagem
+maior que símbolo - Escola e aprendizagem
+Maior que - Escola e aprendizagem
+mais - Escola e aprendizagem
+mala bolsa - Objetos
+mala - Objetos
+malhada vaquinha - Animais
+malhada - Pessoas
+malhado - Pessoas
+mamadeira - Objetos
+mamão - Alimentos
+mamar - Ações
+mameluco - Pessoas
+Mamífero - Animais
+mandar - Ações
+manga - Alimentos
+mangueira - Objetos
+manha - Sentimentos
+Mansão - Lugares
+manteiga - Alimentos
+mão direita - Partes do corpo
+mão esquerda - Partes do corpo
+mão - Partes do corpo 
+Mapa Mundi - Escola e aprendizagem
+Mapa - Objetos
+máquina de escrever - Objetos
+máquina - Objetos
+maquinista - Pessoas
+março dia da mulher - Tempo e datas
+maré - Natureza
+maria - Religião e Espiritualidade
+marido - Pessoas
+Marionete - Objetos
+martelar - Ações
+martelo - Objetos
+máscara - Objetos
+mascavo - Alimentos
+mecânico - Pessoas
+medalha - Objetos
+medir - Ações
+medo 2 - Sentimentos
+Medo - Sentimentos
+Meias - Objetos
+mel - Alimentos
+melancia - Alimentos
+melão - Alimentos
+melodia - música
+membros - Partes do corpo
+Menina1 - Pessoas 
+Menina2 - Pessoas 
+Menina3 - Pessoas 
+Menina4 - Pessoas 
+Menina5 - Pessoas 
+Menina6 - Pessoas 
+menino - Pessoas
+Menino1 - Pessoas
+Menino2 - Pessoas
+Menino3 - Pessoas
+Menino4 - Pessoas
+Menino5 - Pessoas
+Menino6 - Pessoas
+menor que 2 - Escola e aprendizagem
+menor que símbolo - Escola e aprendizagem
+menor que - Escola e aprendizagem
+Menos - Escola e aprendizagem
+Mês - Tempo e datas
+mesa - Objetos
+Metro - unidades de medidas
+Meu - Gramática e Funções
+micróbio - Escola e aprendizagem
+microscópio - Escola e aprendizagem
+milho - Alimentos
+Mimosa - Animais
+Minerais - Escola e aprendizagem
+mingau - Alimentos
+minha - Gramática e Funções
+mochila - Objetos
+moeda 1 centavo - Economia e Finanças
+moeda 5 centavos - Economia e Finanças
+moeda 10 centavos - Economia e Finanças
+moeda 25 centavos - Economia e Finanças
+moeda 50 centavos - Economia e Finanças
+mofo - Natureza
+moleque - Pessoas
+moletom - Objetos
+Molho - Alimentos
+monge - Pessoas
+monitor - Objetos
+montanha - Natureza
+monte 2 - Natureza
+monte - Natureza
+monteiro lobato - Pessoas
+morango - Alimentos
+morro - Natureza
+Morte - Eventos
+mosca - Animais
+mosquito - Animais
+mostarda - Alimentos
+mostarda1 - Alimentos
+Motorista - Pessoas
+mouse - Objetos
+muçulmano - Religião e Espiritualidade
+mula sem cabeça - Personagens e Folclores
+muleta cor - Objetos
+mulher - Pessoas
+Mulher1 - Pessoas
+Mulher2 - Pessoas
+Mulher3 - Pessoas
+Mulher4 - Pessoas
+Mulher5 - Pessoas
+Mulher6 - Pessoas
+Mulher7 - Pessoas
+música cor - música
+música2 - música
+musicoterapia - Saúde e higiene
+N - Alfabetização e Numerais
+nabo - Alimentos
+nada disso - Sentimentos
+nadar - Ações
+namorada - Pessoas
+namorado - Pessoas
+namorados - Pessoas
+namorar - Ações
+não cópia - Gestos
+não entendi - Expressões de comunicação
+não estou bem - Sentimentos
+não interrompa - Expressões de comunicação
+não quero - Expressões de comunicação
+não sei - Expressões de comunicação
+naquele - Gramática e Funções
+nariz COR - Partes do corpo
+nascer - Ações
+nata - Alimentos
+natação - Diversão e jogos
+natal - Tempo e datas
+natureza - Natureza
+Navio - Transporte
+neblina - Natureza
+nenê - Pessoas
+neve - Natureza
+nhoque - Alimentos
+nocivo - Saúde e higiene
+Noite - Tempo e datas, Partes do dia
+noiva - Pessoas
+NOme - Conceitos
+nós - Gramática e Funções
+Nosso (1) - Gramática e Funções
+Nosso - Gramática e Funções
+notícia - Expressões de comunicação
+nove - Alfabetização e Numerais
+novela - Diversão e jogos
+Novembro - Tempo e datas
+noventa - Alfabetização e Numerais
+Novo - Conceitos
+Nu - Pessoas
+Nua - Pessoas
+Nublado - Natureza
+número - Escola e aprendizagem
+nuvens - Natureza
+O - Alfabetização e Numerais
+Obrigado (1) - Expressões de comunicação
+Obrigado - Expressões de comunicação
+observar - Ações
+oca - Lugares
+ôco - Objetos
+oculos - Objetos
+óculos - Objetos
+OI cópia - Expressões de comunicação
+oitenta - Alfabetização e Numerais
+oito - Alfabetização e Numerais
+olá - Expressões de comunicação
+óleo - Alimentos
+olhar - Ações
+olhos - Partes do corpo
+ombro-1 - Partes do corpo
+ombro - Partes do corpo
+onça COR - Animais
+onda - Natureza
+opa - Interjeições
+Operário - Pessoas
+orar - Religião e Espiritualidade
+orelha COR - Partes do corpo
+orelhudo - Partes do corpo
+Ortopedista - Pessoas
+osso - Partes do corpo
+otoscópio - Saúde e higiene
+ouro - Objetos
+outono - Tempo e datas, estações do ano
+outubro - Tempo e datas
+Ouvido - Partes do corpo
+ouvir música - Ações
+ouvir - Ações
+Ovo frito - Alimentos
+ovo - Alimentos
+ovos fritos - Alimentos
+ovos - Alimentos
+oxigênio - Natureza
+P - Alfabetização e Numerais
+pá - Objetos
+paca - Animais
+paçoca - Alimentos
+pacote - Objetos
+Padeiro - Pessoas
+padre ortodoxo - Religião e Espiritualidade
+padre-1 - Religião e Espiritualidade
+pães - Alimentos
+pagar - Ações
+página - Objetos
+Pai1 - Pessoas
+Pai2 - Pessoas
+Pai3 - Pessoas
+Pai4 - Pessoas
+Pai5 - Pessoas
+Pai6 - Pessoas
+Paisagem - Natureza
+Pajé - Pessoas
+palácio - Lugares
+paladar - Saúde e higiene
+paletó - Objetos
+palhaço - Pessoas
+palito - Objetos
+palma - Partes do corpo
+pamonha - Alimentos
+pandeiro - Objetos
+panela de pressão - Objetos
+panela - Objetos
+pano - Objetos
+pão caseiro - Alimentos
+pão com queijo - Alimentos
+pão com queijo - Alimentos
+pão de forma - Alimentos
+pão de fôrma - Alimentos
+pão - Alimentos
+papa - Religião e Espiritualidade
+papagaio - Animais
+papel - Objetos
+para - Gramática e Funções
+parafuso - Objetos
+paralelepípedo 1 - Escola e aprendizagem
+paralelepípedo 2 - Escola e aprendizagem
+Paraná - Lugares
+parede - Lugares
+Parque - Lugares
+parquinho - Diversão e jogos
+partir - Ações
+passa fácil - Objetos
+passado presente futuro - Tempo e datas
+passado - Tempo e datas
+passageiro - Pessoas
+passagem - Objetos
+passar o cartão - Ações
+passar roupa - Ações
+passarinho - Animais
+passaro voando - Animais
+passaro - Animais
+passe - Ações
+passear - Ações
+pasta - Objetos
+pastel - Alimentos
+pastor de ovelhas - Pessoas
+pastor - Religião e Espiritualidade
+pata - Animais
+pato - Animais
+paz - Sentimentos
+pé - Partes do corpo
+peão de boiadeiro - Pessoas
+Peça Teatral - Eventos e Celebrações
+pegar - Ações
+peixe COR - Animais
+peixe - Animais
+pelourinho - Escola e aprendizagem
+peludo - Natureza
+pena - Natureza
+penico - Objetos
+pensar - Ações
+pepino - Alimentos
+pequeno - Objetos, itens de medição
+Pêra - Alimentos
+perfume - Objetos
+pergunta - Ações
+perigo veneno - Símbolos
+periquito - Animais
+perna - Partes do corpo 
+Perto - Lugares, Distância/Espaço
+Peru - Animais
+pesca com lança - Diversão e jogos 
+pesca com rede - Diversão e jogos
+pescar - Ações
+pescoço - partes do corpo
+peso - Objetos, itens de medição
+Pessoas - Pessoas
+peteca - Diversão e jogos
+petiscos - Alimentos
+piá - Pessoas
+Piano - Diversão e jogos
+pião - Diversão e jogos
+picada - Saúde e higiene
+Picadeiro - Diversão e jogos
+pimenta - Alimentos
+Pimentão - Alimentos
+pincel - Objetos
+pinga - Alimentos
+pingar - Ações
+pinhão - Alimentos 
+Pinta - Partes do corpo
+Pintar - Ações
+pintinho - Animais
+pintor - Pessoas
+pintura - Objetos
+pipa - Diversão e jogos
+pipoca - Alimentos
+piquenique - Eventos e Celebrações
+pirâmide 2 - Objetos
+Pirâmide - Objetos
+piscina - Lugares
+pizza - Alimentos
+placa de carro - Documentos
+Placas - Símbolos
+planejar - Ações
+planeta - Astronomia
+planta - Natureza
+Plantação - Natureza
+plantar - Ações
+Platéia - Pessoas
+pobre - Pessoas
+poço - Lugares
+polegar - Partes do corpo
+polenta - Alimentos
+polichinelo - Saúde e higiene
+Poluição - Natureza
+pomada - Saúde e higiene
+pombo - Animais
+ponte - Lugares
+pontos - Diversão e jogos
+por favor - Expressões de comunicação
+por quê - Gramática e Funções
+Pôr - Ações
+porco - Animais
+Porque - Gramática e Funções
+porta cd - Objetos
+porta - Objetos
+portão - Objetos
+porteiro - Pessoas
+pose f - Ações
+pose m - Ações
+posso perguntar - Expressões de comunicação
+posto de gasolina - Lugares
+pouco - Objetos, itens de medição
+poupança - Economia e Finanças
+Praça - Lugares
+praia - Lugares
+Pranto - Sentimentos
+praticar - Ações
+prato - Objetos
+prazer - Sentimentos
+Pré-história - Eventos históricos
+prefeitura - Lugares
+preferir - Sentimentos
+prego - Objetos
+prender - Ações
+presente cor - Objetos
+presente hoje - Tempo e datas
+presidente - Pessoas
+preso - Conceitos
+Preto (1) - Cores
+Preto - Cores
+primavera - Tempo e datas, estações do ano
+princesa - Pessoas
+príncipe - Pessoas
+prisma - Escola e aprendizagem
+problema - Sentimentos
+procurar arquivar - Ações 
+procucar - Ações
+professora - Pessoas
+pronto - Ações
+proprietário - Pessoas
+prova - Escola e aprendizagem
+pudim cor - Alimentos
+pular corda - Diversão e jogos
+pular - Ações
+pulga - Animais
+pulso - Partes do corpo
+puxar - Ações
+Q - Alfabetização e Numerais
+quadrado - Escola e aprendizagem
+quadrilha - Pessoas
+quadro-1 - Escola e aprendizagem
+quadro - Objetos
+quando irei te ver - Expressões de comunicação
+quarenta - Alfabetização e Numerais
+QUARTA - Tempo e datas, Dias da semana
+quarto - Lugares
+quatro - Alfabetização e Numerais
+Que droga - Expressões de comunicação
+que susto - Expressões de comunicação
+quebra cabeça - Diversão e jogos
+quebrar - Ações
+queijo - Alimentos
+queimada - Natureza
+queixo - Partes do corpo
+querer - Ações
+quiabo - Alimentos
+quibe - Alimentos
+quindim - Alimentos
+QUINTA - Tempo e datas, Dias da semana
+R - Alfabetização e Numerais
+rã - Animais
+rabino - Religião e Espiritualidade
+rádio - Tecnologia e Comunicação
+raio cor - Natureza
+raio x cor - Saúde e higiene
+RAiz - Natureza
+ralar - Ações
+rampa - Objetos
+raposa - Animais 
+rasgar - Ações
+rastelo - Objetos
+rato - Animais
+Receito - Sentimentos
+recompensar - Ações
+recusar não quero - Ações
+refeição comida - Alimentos
+refeitório - Lugares
+refrigerante - Alimentos
+regador - Objetos
+Regime - Ações
+régua - Objetos, itens de medição
+regular - Ações
+relógio ponto - Objetos
+relógio - Objetos
+Remar - Ações
+resfriado - Saúde e higiene
+resolver - Ações
+Responder - Ações
+Resposta - Escola e aprendizagem
+retângulo - Escola e aprendizagem
+reunião - Pessoas
+revista - Objetos
+revistas - Objetos
+Revolução - Eventos históricos
+rezar - Religião e Espiritualidade
+Riacho - Natureza
+Rico - Pessoas
+Rio de Janeiro - Lugares
+rir - Ações
+riscador - Objetos
+Roda - Transporte
+rolar - Ações
+romã - Alimentos
+Roncar - Ações
+rosário - Natureza
+rosas - Natureza
+rosto - Partes do corpo
+roubar - Ações
+roupa - Objetos
+Roxo - Cores
+Rua - Lugares
+S - Alfabetização e Numerais
+SÁBADO - Tempo e datas, Dias da semana
+sabonete - Saúde e higiene
+Saci - Personagens e Folclores
+saco de feijão - Alimentos
+sair - Ações
+sal e pimenta - Alimentos
+sal - Alimentos
+sala de aula - Escola e aprendizagem
+sala de estar - Lugares
+Salada - Alimentos
+salgadinho - Alimentos
+salgado - Alimentos
+sanduíche - Alimentos
+santa maria - Religião e Espiritualidade
+santo - Religião e Espiritualidade 
+Sapato - Objetos
+Sapeca - Pessoas
+sapo rã - Animais
+sardas - Partes do corpo
+saudades - Sentimentos
+Sêca - Natureza
+Sede - Sentimentos
+SEGUNDA - Tempo e datas, Dias da semana
+segurar - Ações
+seis - Alfabetização e Numerais
+sejam bem vindos - Expressões de comunicação
+Selo postal - Símbolos
+semáforo - Transporte
+semear - Ações
+Semente - Natureza
+Sementes - Natureza
+sentimentos - Sentimentos
+sentir toque - Sentimentos
+separar sílabas - Escola e aprendizagem
+Sério - Sentimentos
+serra - Objetos
+serrote - Objetos
+sesenta - Alfabetização e Numerais
+sete - Alfabetização e Numerais
+setembro - Tempo e datas
+setenta - Alfabetização e Numerais
+SEXTA - Tempo e datas, Dias da semana
+Sílaba - Escola e aprendizagem
+Sílabas - Escola e aprendizagem
+Silêncio - Ações
+Silo - Lugares
+Sim cópia - Gestos
+Símbolo - Símbolos
+simetria - Escola e aprendizagem
+Sinagoga - Religião e Espiritualidade
+sinceridade - Sentimentos
+Sindicato - Pessoas
+Sino - Objetos
+skate - Diversão e jogos
+sob cópia (1) - Lugares
+sob - Lugares, Direções e posições
+sobre - Lugares, Direções e posições
+sobremesa sorvete - Alimentos
+socialismo - Eventos históricos
+socorro - Sentimentos
+sofá - Objetos
+sol - Astronomia
+Soletrar - Escola e aprendizagem
+solidão - Sentimentos
+solução idéia cor - Sentimentos
+Som - Natureza
+sombra - Natureza
+sonegação - Ações
+sonho - Alimentos
+sons  - Natureza
+sons - Natureza
+sopa - Alimentos
+soprar - Ações
+sorrir - Ações
+sorvete - Alimentos
+Suas - Gramática e Funções
+subir - Ações
+suco refrigerante - Alimentos
+suco - Alimentos
+sufocar-1 - Ações
+sujo - Saúde e higiene
+Suor (1) - Partes do corpo
+Suor - Partes do corpo
+super-herói - Personagens e Folclores
+surpresa - Sentimentos
+T - Alfabetização e Numerais
+taba - Lugares
+taça - Objetos
+tachinha precevejo - Objetos
+tala - Objetos
+talvez - Conceitos
+tanto faz - Sentimentos
+Tanto - Objetos, itens de medição
+Tarde - Tempo e datas
+tartaruga - Animais
+tato - sentimentos
+tatu - Animais
+táxi - Transporte
+Tchau - Expressões de comunicação
+tédio - Sentimentos
+teia - Natureza
+Telefone (1) - Objetos
+Telefone - Objetos
+Telegrama - Tecnologia e Comunicação
+televisão - Tecnologia e Comunicação
+tempestade - Natureza
+tenho - Conceitos
+tênis cor - Diversão e jogos
+tênis - Objetos
+tenista - Pessoas
+Terça (1) - Tempo e datas, dias da semana
+Terça -  Tempo e datas, dias da semana
+termômetro - Objetos, itens de medição
+Terra - Natureza
+Terremoto - Natureza
+Tesoura - Objetos
+testa - Partes do corpo
+teus - Conceitos
+Texto - Escola e aprendizagem
+tia - Pessoas
+tigre - Animais
+tijolos - Objetos
+time - Diversão e jogos
+tinta - Objetos
+tintura - Objetos
+tio - Pessoas
+Tipografia - Escola e aprendizagem
+tipóia - Saúde e higiene
+tirar - Ações
+tive uma idéia - Sentimentos
+tocador de CD - Objetos
+todos - Pessoas
+tomar banho - Saúde e higiene
+Tonta - Saúde e higiene
+torcer - Ações
+torta caseira - Alimentos 
+toxoplasmose - Saúde e higiene
+Trabalhador - Pessoas
+trabalhar - Ações 
+trabalho - Ações
+Transgênico - Natureza
+travesseiro - Objetos
+trazer - Ações
+três - Alfabetização e Numerais
+trevo - Natureza
+Triângulo música - Diversão	e jogos
+triângulo - Escola e aprendizagem
+tricô e crochê - Ações
+tricô - Ações
+trigo - Alimentos
+trinta - Alfabetização e Numerais
+triste - Sentimentos
+Troca - Ações
+trocar - Ações
+Trombone - Diversão e jogos
+trovoada - Natureza
+Tu (1) - Gramática e Funções
+Tu - Gramática e Funções
+Tuba - Diversão e jogos
+Tubaina - Alimentos
+tubarão - Animais
+Tucano - Animais
+tv - Tecnologia e Comunicação
+U - Alfabetização e Numerais
+uau - Interjeições
+ué - Interjeições
+ufa - Interjeições
+Uh - Interjeições
+um - Alfabetização e Numerais
+Uma - Objetos, itens de medição
+umbanda - Religião e Espiritualidade
+umbigo - Partes do corpo
+unha - Partes do corpo
+unha2 - Partes do corpo
+único - Conceitos
+Uniforme - Objetos
+uns - Gramática e Funções
+upa - Saúde e higiene
+urso - Animais
+urubu - Animais
+uti cor - Saúde e higiene
+uva - Alimentos
+uvas - Alimentos
+V - Alfabetização e Numerais
+vaca - Animais
+vacina cópia (1) - Saúde e higiene
+vacina - Saúde e higiene
+Vacinação - Saúde e higiene
+vai - Ações
+valeu - Expressões de comunicação
+valsa - Diversão e jogos
+Vamos - Ações
+vaqueiro - Pessoas
+varal - Objetos 
+vaso - Objetos
+vegetais - Alimentos
+velha - Pessoas
+velho - Pessoas
+velocípede - Diversão e jogos
+vem venha - Ações
+vencer - Ações
+ventilador - Objetos
+vento - Natureza
+verão - Tempo e datas, estações do ano
+verbos - Gramática e Funções
+Verde - Cores
+verdura - Alimentos
+vergonha - Sentimentos
+Vermelho - Cores
+verruga - Saúde e higiene
+vestir - Ações 
+vezes - Escola e aprendizagem
+viagem - Transporte
+vidro de conserva - Objetos
+Vidro - Objetos
+vinte - Alfabetização e Numerais
+violão - Diversão e jogos
+violino - Diversão e jogos
+virar - Ações
+visitar - Ações
+vizinho - Pessoas
+Você (1) - Gramática e Funções
+você está maluco - Expressões de comunicação
+Você - Gramática e Funções
+Vocês - Gramática e Funções
+Vogais - Escola e aprendizagem
+volta - Ações
+volume - Objetos, itens de medição 
+Voluntário - Pessoas
+vomitar - Ações
+vontade - Sentimentos
+Vós - Gramática e Funções
+Voto - Ações
+vou pegar você - Expressões de Comunicação
+vovó - Pessoas
+vovô - Pessoas
+W - Alfabetização e Numerais
+walkman - Objetos
+X - Alfabetização e Numerais
+xarope - Saúde e higiene
+Xerife - Pessoas
+xícara - Objetos
+Y - Alfabetização e Numerais
+Z - Alfabetização e Numerais
+zangado - Sentimentos
+zebra - Animais
