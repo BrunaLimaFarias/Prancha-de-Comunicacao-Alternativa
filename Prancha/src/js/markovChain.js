@@ -37,6 +37,8 @@ class MarkovChain {
 
     // Método para dividir o texto em tokens (palavras)
     getListTokens(txt) {
+        txt = txt.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"]/g, "");
+        txt = txt.toLowerCase();
         return txt.split(" "); // Divisão do texto em tokens usando o espaço como delimitador
     }
 
@@ -96,6 +98,9 @@ class MarkovChain {
 
     // Método para prever a próxima palavra com base na palavra anterior
     Predict(previousWord) {
+        // Conversão para letras minúsculas
+        previousWord = previousWord.toLowerCase();
+        
         if (!this.Words.has(previousWord)) {
             // Se a palavra anterior não estiver na cadeia de Markov, retornar uma lista vazia
             return [];
