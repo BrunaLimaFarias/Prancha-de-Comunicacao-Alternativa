@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="./css/index.css">
     <script type="module" src="./js/index.js" defer></script>
     <link rel="manifest" href="manifest.json"> <!-- PWA -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
-            <div class="header-left">
+            <div class="header">
                 <h2>Prancha de Comunicação - Amplisoft</h2>
             </div>
         </nav>
@@ -20,25 +24,26 @@
 
     <div class="container">
         <main>
-            <section id="frase-formada">
-                <h2>Frase Formada:</h2>
+            <section class="section">
+                <div class="frase-header">
+                    <h2>Frase Formada:</h2>
+                    <section class="btn-container">
+                        <button id="btn-limpar-frase" aria-label="Limpar toda a frase"><img src="./img/assets/LimparTudo.png" alt="LimparTudo"></button>
+                        <button id="btn-excluir-ultima" aria-label="Excluir a última figura da frase"><img src="./img/assets/ApagarUltima.png" alt="ApagarUltima"></button>
+                    </section>
+                </div>
                 <ul id="frase-lista"></ul>
             </section>
-
-            <section class="btn-container">
-                <button id="btn-limpar-frase" aria-label="Limpar toda a frase"><img src="./img/assets/LimparTudo.png" alt="LimparTudo"></button>
-                <button id="btn-excluir-ultima" aria-label="Excluir a última figura da frase"><img src="./img/assets/ApagarUltima.png" alt="ApagarUltima"></button>
-            </section>
-
-            <section id="predicao-container">
+            <section class="section">
                 <h2>Predição Tempo e Local:</h2>
                 <p id="predicao-texto"></p>
                 <div id="acoes-comuns"></div>
                 <button id="btn-fazer-predicao">Fazer Predição</button>
             </section>
             <br>
-            <h2>Categorias:</h2>
-            <section class="category-selector">
+            <section class="section">
+                <h2>Categorias:</h2>
+                <div class="category-selector"></div>
             </section>
             
             <section class="cards-container" id="cards-container"></section>

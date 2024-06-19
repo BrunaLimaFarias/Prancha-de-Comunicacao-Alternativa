@@ -29,7 +29,7 @@ function atualizarFraseFormada() {
         figurasSelecionadas.forEach(figura => {
             const li = document.createElement('li');
             li.innerHTML = `
-                <img src="${figura.img}" alt="${figura.palavra}">
+                <img src="${figura.img}" alt="${figura.palavra}" onerror="this.src='./img/assets/image-notfound.jpg';">
                 <div class="card-body">
                     <h5 class="card-title">${figura.palavra}</h5>
                 </div>
@@ -116,10 +116,9 @@ async function buscaFigura(categoriaDesejada = '', markovChain, wordImageMap) {
             cardDiv.classList.add('card');
 
             cardDiv.innerHTML += `
-            <img src="${figura.img}" alt="${figura.palavra}">
+            <img src="${figura.img}" alt="${figura.palavra}"  onerror="this.src='./img/assets/image-notfound.jpg';">
             <div class="card-body">
                 <h5 class="card-title">${figura.palavra}</h5>
-                <p>Predição: ${prediction.join(', ')}</p> <!-- Exibir as predições -->
             </div>
             `;
                 
