@@ -1,72 +1,69 @@
+const apiKey = 'afaaa54c319a4dba81f57014b11ffb57';
+const cityToStateMap = {
+    "Curitiba": "Paraná",
+    "São Paulo": "São Paulo",
+    "Rio de Janeiro": "Rio de Janeiro",
+    // Adicionar mais mapeamentos de cidade para estado conforme necessário
+};
+
 // Função para obter o período do dia com base no horário atual
 function getPeriodoDia() {
-  const horaAtual = new Date().getHours();
-  // Verifica o período do dia com base na hora atual
-  if (horaAtual >= 5 && horaAtual < 12) {
-    return 'manhã'; // Retorna 'manhã' se estiver entre 5h e 12h
-  } else if (horaAtual >= 12 && horaAtual < 18) {
-    return 'tarde'; // Retorna 'tarde' se estiver entre 12h e 18h
-  } else {
-    return 'noite'; // Retorna 'noite' caso contrário
-  }
+    const horaAtual = new Date().getHours();
+    if (horaAtual >= 5 && horaAtual < 12) {
+        return 'manhã';
+    } else if (horaAtual >= 12 && horaAtual < 18) {
+        return 'tarde';
+    } else {
+        return 'noite';
+    }
+}
+
+// Função provisória para traduzir termos para português
+function traduzirTermo(termo) {
+    const translations = {
+        house: 'casa',
+        apartment: 'apartamento',
+        'Federal District': 'Distrito Federal',
+        'New York': 'Nova Iorque',
+        'United States': 'Estados Unidos',
+        // Adicionar outras traduções conforme necessário
+    };
+    return translations[termo] || termo;
 }
 
 // Função para obter a localização do usuário com base no endereço IP usando a API do Geoapify
-function getLocalizacaoUsuario() {
-  return new Promise((resolve, reject) => {
-    fetch(
-      'https://api.geoapify.com/v1/ipinfo?apiKey=afaaa54c319a4dba81f57014b11ffb57'
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        // Verifica se os dados de localização foram retornados corretamente
-        if (
-          data &&
-          data.city &&
-          data.city.name &&
-          data.country &&
-          data.country.name_native
-          ) {
-          const cidade = data.city.name;
-          const estado = data.state.name;
-          const pais = data.country.name_native;
-          var latitude = data.location.latitude;
-          var longitude = data.location.longitude;
+async function getLocalizacaoUsuario() {
+    try {
+        const response = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${apiKey}`);
+        const data = await response.json();
 
-          // Obter detalhes do local do usuário
-          navigator.geolocation.getCurrentPosition((position) => {
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-        });
-          return fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
-          )
-            .then((response) => response.json())
-            .then((localData) => {
-              // Extrair informações relevantes do endereço detalhado
-              const numeroRua = localData.address.house_number;
-              const rua = localData.address.road;
-              const bairro = localData.address.suburb;
-              const type = localData.type;
-              const city = localData.address.city;
-              const state = localData.address.state;
-              const country = localData.address.country;
+        if (data && data.city && data.city.name && data.country && data.country.name_native) {
+            const cidade = traduzirTermo(data.city.name);
+            let estado = traduzirTermo(data.state.name);
+            const pais = traduzirTermo(data.country.name_native);
+            const latitude = data.location.latitude;
+            const longitude = data.location.longitude;
 
-              const detalhes = `${numeroRua}, ${rua}, ${bairro}, ${type}, ${city}, ${state}, ${country}`;
-              resolve({ cidade, estado, pais, detalhes, type, city, state, country });
-            })
-            .catch((error) => {
-              reject('Erro ao obter detalhes do local:', error);
-            });
+            // Correção do estado com base no mapeamento de cidades
+            if (cityToStateMap[cidade]) {
+                estado = cityToStateMap[cidade];
+            }
+
+            const localData = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`);
+            const localJson = await localData.json();
+
+            const type = traduzirTermo(localJson.type);
+            const endereco = localJson.address.road || 'Desconhecido';
+            const bairro = localJson.address.suburb || 'Desconhecido';
+
+            return { cidade, estado, pais, type, endereco, bairro };
         } else {
-          reject('Dados de localização incompletos ou inválidos.');
+            throw new Error('Dados de localização incompletos ou inválidos.');
         }
-      })
-      .catch((error) => {
+    } catch (error) {
         console.error('Erro ao obter localização:', error);
-        reject(error);
-      });
-  });
+        throw error;
+    }
 }
 
 // Função para fazer a predição com base no contexto de tempo e geolocalização
@@ -76,8 +73,7 @@ function fazerPredicao() {
   getLocalizacaoUsuario()
   .then((localizacao) => {
     // Saída da predição com base no contexto
-    //const predicao = `Usuário está na cidade de ${localizacao.city}, ${localizacao.state}, ${localizacao.country}; e no local ${localizacao.detalhes} durante a ${periodoDia}.`;
-    const predicao = `Usuário está a ${periodoDia}.`;
+    const predicao = `Usuário está numa ${localizacao.type} na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais}, no bairro ${localizacao.bairro}, endereço ${localizacao.endereco}, durante a ${periodoDia}.`;
 
     // Atualizar o conteúdo do elemento HTML com a predição
     const predicaoTextoElement = document.getElementById('predicao-texto');
