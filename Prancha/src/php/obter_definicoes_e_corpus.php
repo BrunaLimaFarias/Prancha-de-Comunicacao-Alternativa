@@ -7,6 +7,158 @@ header('Content-Type: application/json');
 function carregarCorpus() {
     $corpus = <<<EOD
     Bom dia! Dormiu bem?
+    Os balões coloridos enfeitavam o céu azul durante a festa.
+    A bala de morango estava escondida entre os doces da mesa.
+    A bala chiclete era a preferida das crianças por seu sabor duradouro.
+    As crianças adoravam balançar no parquinho perto de casa.
+    O balde estava cheio de água para regar as plantas do jardim.
+    Ela comprou uma balinha de hortelã na loja de conveniência.
+    O bambu gigante servia de apoio para diversas plantas no jardim.
+    Ele comeu uma deliciosa banana no café da manhã.
+    Sentaram-se no banco de praça para descansar após a caminhada.
+    A bandeira do Brasil tremulava orgulhosamente no mastro.
+    Ela adorava banhar-se no mar durante as férias de verão.
+    O banheiro do restaurante estava impecavelmente limpo.
+    Ele colocou um pequeno banquinho para alcançar o armário alto.
+    Uma barata assustou todos na cozinha durante a noite.
+    O barato do dia era um desconto imperdível na loja.
+    Espero que essas frases sejam úteis para o que você precisa!
+    Os balões coloridos enfeitavam o céu azul durante a festa.
+    A bala de morango estava escondida entre os doces da mesa.
+    A bala chiclete era a preferida das crianças por seu sabor duradouro.
+    As crianças adoravam balançar no parquinho perto de casa.
+    O balde estava cheio de água para regar as plantas do jardim.
+    Ela comprou uma deliciosa balinha na loja de doces.
+    O bambu era usado para fazer móveis e objetos decorativos.
+    Ela comeu uma deliciosa banana no café da manhã.
+    Sentaram-se no banco de praça para descansar após a caminhada.
+    A bandeira do Brasil tremulava orgulhosamente no mastro.
+    Ela adorava banhar-se no mar durante as férias de verão.
+    O banheiro do restaurante estava impecavelmente limpo.
+    Ele colocou um pequeno banquinho para alcançar o armário alto.
+    Uma barata assustou todos na cozinha durante a noite.
+    Ele encontrou um barco à deriva no lago e decidiu explorá-lo.
+    A bar lanchonete era o ponto de encontro dos amigos aos finais de semana.
+    Ele estava com barriga cheia depois do jantar farto.
+    O barrigudo não cabia mais na cadeira apertada.
+    Ele jogava basquete todos os dias no parque.
+    Tinha bastante comida para a festa de aniversário.
+    Ela colheu algumas batatas para fazer purê no jantar.
+    A batedeira facilitava muito na hora de preparar bolos e doces.
+    Ele começou a bater palmas quando viu o resultado do jogo.
+    Ela experimentou um novo batom vermelho que comprou na loja.
+    O bebê adorava brincar com seu bichinho de pelúcia.
+    Ele estava bebado e precisava de ajuda para voltar para casa.
+    Eles decidiram beber um vinho tinto para comemorar a promoção.
+    Eles adoravam se beijar à luz do luar.
+    Ela era conhecida por sua beleza fenomenal.
+    Ele tinha uma beleza natural que encantava a todos.
+    Ele adorava beliscar petiscos durante a tarde.
+    Ele usava uma bengala para caminhar com mais segurança.
+    Ela preparou uma deliciosa beringela recheada para o almoço.
+    Ele plantou algumas mudas de beringela_45g no jardim.
+    Um besouro pousou suavemente na flor do jardim.
+    Ela disse uma besteira sem querer durante a reunião.
+    O bicho de estimação dele era um cachorro muito brincalhão.
+    Ele andava de bicicleta todos os dias para ir ao trabalho.
+    Ele tinha um grande bigode que chamava a atenção de todos.
+    O bilhete ingresso era a sua entrada para o show tão esperado.
+    O bispo de sua igreja era muito querido pela comunidade.
+    Ela cortou um bloco EVA para fazer artesanato com as crianças.
+    Ele anotou o número do telefone no bloco de notas.
+    Eles brincavam com blocos de montar na sala de estar.
+    Ela usava uma linda blusa azul para o evento.
+    Ele machucou a boca ao morder a maçã com força.
+    O bode subiu na pedra para observar o pasto.
+    O boi pastava tranquilamente no campo aberto.
+    Eles jogaram uma partida de bola no parque.
+    Ele colecionava bolas de gude desde criança.
+    As crianças brincavam com várias bolas coloridas no pátio da escola.
+    Ele soprou uma enorme bolha de sabão que flutuou pelo ar.
+    Ela usava uma bolinha de terapia para fortalecer as mãos.
+    Ela fez um delicioso bolo de chocolate para a sobremesa.
+    Ela segurava uma elegante bolsa de couro preto.
+    Ele comprou um bombom para presentear sua mãe.
+    Ele usava um boné para se proteger do sol forte.
+    Ela brincava com sua boneca favorita no quarto.
+    Ela era tão bonita quanto uma bonita_branca.
+    Ele tinha um sorriso tão encantador quanto um bonito_branco.
+    Ele viu uma linda borboleta (1) pousada na flor do jardim.
+    Ela estudou sobre a vida da borboleta para a escola.
+    Ele pisou em uma bosta de cachorro sem perceber.
+    Ele calçou suas botas de couro para a caminhada na trilha.
+    Ele trocou o botijão de gás da cozinha sem problemas.
+    Ele levantou os braços para comemorar a vitória.
+    Ela estava brava com ele por ter esquecido o aniversário.
+    Eles comeram brigadeiro até se sentirem enjoados.
+    Eles decidiram brigar por causa da disputa no jogo.
+    Ela fez uma brincadeirinha para animar a festa.
+    Ela ganhou um lindo brinco de presente de aniversário.
+    Eles doaram vários brinquedos para a campanha de Natal.
+    Ela deu uma bronca-1 no filho por ter quebrado o vaso.
+    Ele levou uma bronca do chefe por ter se atrasado novamente.
+    Ela passou bronzeador para se proteger do sol na praia.
+    O broto da planta começou a crescer no vaso.
+    Ela se vestiu de bruxa para a festa de Halloween.
+    Ele estudava os ensinamentos de um mestre budista.
+    Ela dançava ao som do bum bum da música.
+    Ele guardava uma cédula de 2 reais como lembrança.
+    Ele guardava uma cédula de 10 reais para emergências.
+    Ele tinha uma cédula de 20 reais na carteira.
+    Ele encontrou uma cédula de 50 reais perdida na rua.
+    Ela economizou uma cédula de 100 reais para comprar um presente.
+    Ele pagou com uma cédula de cinco reais pela passagem de ônibus.
+    O céu estava limpo e o sol brilhava intensamente.
+    Ele desenhou um círculo perfeito no papel.
+    Eles passearam às margens do córrego nos fins de semana.
+    Ele quebrou o côco para beber a água de dentro.
+    O caçador seguia as pegadas do animal na floresta.
+    Ela pintou a cabeça cor de rosa para a festa à fantasia.
+    Ele viu um inseto cabeçudo no jardim do vizinho.
+    Ela era uma excelente cabeleireira e sempre tinha clientes.
+    Ele cortou o cabelo com seu cabeleireiro de confiança.
+    Ele usava um boné para se proteger do sol forte.
+    Ele cortou o cabelo mais curto para o verão.
+    Ele não sabia se a caixa caberia no carro.
+    A criança ficou surpresa com a caixa surpresa que ganhou da avó.
+    Ele colheu um caju do pé para saborear.
+    Ela vestiu uma camisa de manga curta para o passeio.
+    Ele deitou na cama para descansar depois do trabalho.
+    Ele escreveu um lindo cartão para sua namorada.
+    Ela comprou um novo carro para a família.
+    Ele andava de carroça pelas ruas da cidade.
+    Ele estava cansado depois de um dia longo de trabalho.
+    Ela usava uma saia capa_de_sol para se proteger do sol.
+    Ele cortou a capa-de-sol com cuidado para não estragar.
+    Ele viu um capitão navegando o barco pelo rio.
+    Ela adorava brincar de capturar as bandeirinhas no campo.
+    Ele preparou um carneiro assado para o almoço de domingo.
+    Ela assistiu ao pôr do sol sentada na cadeira de praia.
+    Ele usou uma cadeira de rodas temporariamente após o acidente.
+    Ele cortou a grama usando um cado.
+    Ele cafezinho todas as manhãs para começar bem o dia.
+    Ele derrubou o café na mesa e manchou a toalha.
+    Ele viu um caipira tocando viola na praça.
+    Ela plantou algumas mudas de caju no quintal.
+    Ele ganhou um caju como presente do amigo.
+    Ele limpou a cama e trocou os lençóis.
+    Ele precisava de uma câmera nova para o trabalho.
+    Ela foi ao circo pela primeira vez na vida.
+    Mediu a circunferência da roda com precisão.
+    O cisne nadava graciosamente no lago.
+    A cisticercose é uma doença causada por parasitas.
+    Frequentava o clube todos os fins de semana.
+    O chão estava molhado após a chuva.
+    O chaveiro consertou a chave de fenda.
+    O chefe e o empregado trabalhavam lado a lado.
+    Anunciaram a chegada do novo produto.
+    Ele vai chegar mais tarde por causa do trânsito.
+    O balde estava cheio de água limpa.
+    Ela foi ao circo pela primeira vez na vida.
+    Mediu a circunferência da roda com precisão.
+    O cisne nadava graciosamente no lago.
+    A cisticercose é uma doença causada por parasitas.
+    Frequentava o clube todos os fins de semana.
     Bom dia! Sim, dormi muito bem. E você?
     Também dormi bem. Vamos tomar café da manhã?
     Claro, o que temos para comer?
