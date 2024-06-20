@@ -46,15 +46,6 @@ button img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.scroll-menu {
-    background-color: #ffffff;
-    overflow-x: auto;
-    white-space: nowrap;
-    transition: top 0.3s;
-    width: 100%;
-    padding: 15px 0px;
-}
-
 h1 {
     text-align: center;
     color: #333;
@@ -67,13 +58,19 @@ h1 {
 }
 
 .card {
+    display: flex;
     border: 1px solid #ccc;
     border-radius: 8px;
     margin: 10px;
+    max-width: 130px;
     overflow: hidden;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 3;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .card:hover {
@@ -130,37 +127,63 @@ h2 {
 }
 
 #frase-lista {
+    margin: 0;
+    padding: 5px;
     display: flex;
-    flex-direction: row;
     gap: 12px;
-    flex-wrap: nowrap;
-    width: auto;
-    max-width: 100%;
-    z-index: 99;
-    position: fixed;
-    background: white;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: top 0.3s ease;
+    position: relative;
     overflow-x: auto;
     overflow-y: hidden;
-    white-space: nowrap;
+    flex-direction: row;
 }
 
-#frase-lista.show {
-    top: -16px;
+.scroll-menu {
+    position: relative;
+    transition: top 0.5s ease;
+    display: flex;
+    width: 100%;
+    overflow: auto;
+    background-color: #ffffff;
+}
+
+.scroll-menu.show h4 {
+    display: block;
+    width: auto;
+    margin: 0;
+    text-align: center;
+}
+
+.scroll-menu h4 {
+    display: none;
+}
+
+.scroll-menu.show {
+    display: flex;
+    top: 0;
+    left: 0;
+    padding: 5px 20px;
+    position: fixed;
+    z-index: 100;
+    max-width: 97%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: top 0.5s ease;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 #frase-lista li {
     float: left;
     width: 100px;
+    min-width: 100px;
     height: 139px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
-    /*overflow: hidden;*/
+    overflow: hidden;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 

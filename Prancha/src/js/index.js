@@ -30,8 +30,8 @@ window.onload = async function() {
 };
 
 window.addEventListener('scroll', function() {
-    const fraseLista = document.getElementById('frase-lista');
-    if (window.scrollY > 100) { // Ajuste o valor conforme necessário
+    const fraseLista = document.querySelector('.scroll-menu');
+    if (window.scrollY > 400) { // Ajuste o valor conforme necessário
         fraseLista.classList.add('show');
     } else {
         fraseLista.classList.remove('show');
