@@ -29,6 +29,15 @@ window.onload = async function() {
     }
 };
 
+window.addEventListener('scroll', function() {
+    const fraseLista = document.getElementById('frase-lista');
+    if (window.scrollY > 100) { // Ajuste o valor conforme necessário
+        fraseLista.classList.add('show');
+    } else {
+        fraseLista.classList.remove('show');
+    }
+});
+
 // Event listener para clicar no botão de exclusão da última figura
 document.getElementById('btn-excluir-ultima').addEventListener('click', () => {
     removerUltimaFigura();
