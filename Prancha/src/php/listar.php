@@ -23,6 +23,9 @@ function getFiguras($categoria = '') {
         ";
          */
         $stmt = $conn->prepare($query);
+        if ($stmt === false) {
+            die("Erro na preparação da consulta: " . $conn->error);
+        }
         $stmt->bind_param("s", $categoria);
         $stmt->execute();
         $resultado = $stmt->get_result();
@@ -55,9 +58,12 @@ function getFiguras($categoria = '') {
 $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
 $figuras = getFiguras($categoria);
 
-// Logs de depuração
+// Logs de depuração detalhados
 error_log("Categoria: $categoria");
-error_log("Figuras retornadas: " . json_encode($figuras));
+error_log("Número de figuras retornadas: " . count($figuras));
+foreach ($figuras as $figura) {
+    error_log("Figura: " . json_encode($figura));
+}
 
 header('Content-Type: application/json');
 echo json_encode($figuras);

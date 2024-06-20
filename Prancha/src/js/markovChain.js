@@ -44,6 +44,7 @@ class MarkovChain {
 
     // Método para carregar o texto na cadeia de Markov
     Load(text, wordImageMap = {}) {
+        console.log('Iniciando carregamento da cadeia de Markov...');
         this.Words.clear();
         this.Tokens = this.getListTokens(text); // Divide o texto em tokens
 
@@ -100,15 +101,18 @@ class MarkovChain {
     Predict(previousWord) {
         // Conversão para letras minúsculas
         previousWord = previousWord.toLowerCase();
+        console.log('Previsão solicitada para a palavra:', previousWord);
         
         if (!this.Words.has(previousWord)) {
             // Se a palavra anterior não estiver na cadeia de Markov, retornar uma lista vazia
+            console.warn('Palavra não encontrada na cadeia:', previousWord);
             return [];
         }
 
         const rootWord = this.Words.get(previousWord);
         if (!rootWord || rootWord.ChildCount === 0) {
             // Se a palavra anterior não existir ou não tiver filhos, retornar uma lista vazia
+            console.warn('Nenhum filho encontrado para a palavra:', previousWord);
             return [];
         }
 
@@ -123,6 +127,7 @@ class MarkovChain {
             predictions.push(child.Word);
         }
 
+        console.log('Previsões geradas:', predictions);
         return predictions;
     }
 
