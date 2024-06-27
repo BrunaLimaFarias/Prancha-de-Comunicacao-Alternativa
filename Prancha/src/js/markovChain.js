@@ -1,136 +1,119 @@
-class Child {
-    constructor(word = '', occurrence = 0, imagePath = '') {
-        this.Occurrence = occurrence; // Número de ocorrências da palavra associada ao Child
-        this.Word = word; // Palavra associada ao Child
-        this.ImagePath = imagePath; // Caminho da imagem associada à palavra
+const fs = require('fs'); // Importa o módulo de sistema de arquivos
+
+let trainData = 'Prancha/src/util/corpus.txt'; // Caminho atualizado para o arquivo de texto contendo o corpus de treinamento
+
+let firstPossibleWords = {}; // Dicionário para armazenar palavras possíveis no início das sentenças
+let secondPossibleWords = {}; // Dicionário para armazenar as palavras que podem seguir a primeira palavra
+let transitions = {}; // Dicionário para armazenar as transições de palavras (pares de palavras para a próxima palavra)
+
+function expandDict(dictionary, key, value) {
+    // Adiciona o valor ao array associado à chave no dicionário
+    if (!(key in dictionary)) {
+        dictionary[key] = [];
     }
+    dictionary[key].push(value);
 }
 
-class RootWord {
-    constructor(word = '', imagePath = '') {
-        this.StartWord = false; // Indica se a palavra é o início de uma sentença
-        this.EndWord = false; // Indica se a palavra é o final de uma sentença
-        this.Word = word; // A própria palavra
-        this.Occurrence = 0; // Número de ocorrências da palavra na cadeia de Markov
-        this.ChildCount = 0; // Número de filhos da palavra na cadeia de Markov
-        this.Childs = new Map(); // Mapa de filhos da palavra, onde as chaves são as palavras e os valores são instâncias da classe Child
-        this.ImagePath = imagePath;
+function getNextProbability(givenList) {
+    // Calcula a probabilidade das palavras na lista fornecida
+    let probabilityDict = {};
+    let givenListLength = givenList.length;
+    for (let item of givenList) {
+        probabilityDict[item] = (probabilityDict[item] || 0) + 1;
     }
+    for (let [key, value] of Object.entries(probabilityDict)) {
+        probabilityDict[key] = value / givenListLength;
+    }
+    return probabilityDict;
 }
 
-class MarkovChain {
-    // Inicialização das propriedades da cadeia de Markov
-    constructor() {
-        this.NextIsStart = false; // Flag para indicar se a próxima palavra é o início de uma sentença
-        this.Tokens = []; // Array para armazenar os tokens (palavras) do texto  
-        this.startindex = []; // Array para armazenar os índices das palavras de início de sentença
-        this.FSortWordsByFrequence = false; // Flag para indicar se as palavras devem ser classificadas por frequência
-        this.Words = new Map(); // Mapa para armazenar as palavras e suas informações associadas 
-    }
-
-    // Método para obter os filhos de uma palavra
-    getChilds(rootWord) {
-        let listChilds = [...rootWord.Childs.values()]; // Obtenção dos filhos da palavra raiz
-        listChilds.sort((x, y) => y.Occurrence - x.Occurrence); // Ordenação dos filhos com base na ocorrência (decrescente)
-        return listChilds; // Retorno da lista de filhos ordenada
-    }
-
-    // Método para dividir o texto em tokens (palavras)
-    getListTokens(txt) {
-        txt = txt.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"]/g, "");
-        txt = txt.toLowerCase();
-        return txt.split(" "); // Divisão do texto em tokens usando o espaço como delimitador
-    }
-
-    // Método para carregar o texto na cadeia de Markov
-    Load(text, wordImageMap = {}) {
-        console.log('Iniciando carregamento da cadeia de Markov...');
-        this.Words.clear();
-        this.Tokens = this.getListTokens(text); // Divide o texto em tokens
-
-        // Iteração sobre os tokens
-        for (let i = 0; i < this.Tokens.length; i++) {
-            let s1 = this.Tokens[i];
-            if (s1 === "") continue; // Verificação se o token é vazio
-
-            // Verificação se a imagem já existe no mapa de imagens
-            let imagePath = wordImageMap[s1] || '';
-            if (!this.Words.has(s1)) {
-                this.Words.set(s1, new RootWord(s1, imagePath));
-            }
-
-            let w = this.Words.get(s1);
-            w.Occurrence += 1; // Atualização da ocorrência da img
-
-            // Se houver uma próxima imagem
-            if (i < this.Tokens.length - 1) {
-                
-                let nextToken = this.Tokens[i + 1];
-                let nextImagePath = wordImageMap[nextToken] || '';
-                if (!w.Childs.has(nextToken)) {
-                    w.Childs.set(nextToken, new Child(nextToken, 0, nextImagePath)); // Adiciona o próximo token como um novo filho
-                }
-                let c = w.Childs.get(nextToken);
-                c.Occurrence += 1; // Incrementa a ocorrência do filho
-                w.ChildCount += 1; // Incrementa o contador de filhos
-
-                // Verificação se a próxima palavra é o início de uma sentença
-                if (this.NextIsStart) {
-                    w.StartWord = true;
-                    this.NextIsStart = false;
-                    this.startindex.push(s1);
-                }
-
-                // Verificação se a palavra termina com um ponto final
-                if (s1.endsWith(".")) {
-                    w.EndWord = true;
-                    this.NextIsStart = true;
-                }
-
-            // Verificação se a palavra é o final de uma sentença
+function trainMarkovModel(data) {
+    // Função que treina o modelo de Markov usando os dados fornecidos
+    let lines = data.split('\n'); // Divide os dados em linhas
+    for (let line of lines) {
+        let tokens = line.trim().toLowerCase().split(/\s+/); // Divide a linha em tokens (palavras)
+        let tokensLength = tokens.length;
+        for (let i = 0; i < tokensLength; i++) {
+            let token = tokens[i];
+            if (i === 0) {
+                firstPossibleWords[token] = (firstPossibleWords[token] || 0) + 1; // Conta palavras iniciais
             } else {
-                w.EndWord = true;
+                let prevToken = tokens[i - 1];
+                if (i === tokensLength - 1) {
+                    expandDict(transitions, [prevToken, token].join(','), 'END'); // Marca fim da sentença
+                }
+                if (i === 1) {
+                    expandDict(secondPossibleWords, prevToken, token); // Conta transições de primeira para segunda palavra
+                } else {
+                    let prevPrevToken = tokens[i - 2];
+                    expandDict(transitions, [prevPrevToken, prevToken].join(','), token); // Conta transições de palavras subsequentes
+                }
             }
-
-            // Atualiza a palavra no mapa
-            this.Words.set(s1, w);
         }
     }
 
-    // Método para prever a próxima palavra com base na palavra anterior
-    Predict(previousWord) {
-        // Conversão para letras minúsculas
-        previousWord = previousWord.toLowerCase();
-        console.log('Previsão solicitada para a palavra:', previousWord);
-        
-        if (!this.Words.has(previousWord)) {
-            // Se a palavra anterior não estiver na cadeia de Markov, retornar uma lista vazia
-            console.warn('Palavra não encontrada na cadeia:', previousWord);
-            return [];
-        }
-
-        const rootWord = this.Words.get(previousWord);
-        if (!rootWord || rootWord.ChildCount === 0) {
-            // Se a palavra anterior não existir ou não tiver filhos, retornar uma lista vazia
-            console.warn('Nenhum filho encontrado para a palavra:', previousWord);
-            return [];
-        }
-
-        // Obter os filhos da palavra anterior
-        const childs = this.getChilds(rootWord);
-        
-        // Criar uma lista para armazenar as previsões
-        const predictions = [];
-
-        // Adicionar os filhos à lista de previsões
-        for (const child of childs) {
-            predictions.push(child.Word);
-        }
-
-        console.log('Previsões geradas:', predictions);
-        return predictions;
+    let firstPossibleWordsTotal = Object.values(firstPossibleWords).reduce((a, b) => a + b, 0);
+    for (let [key, value] of Object.entries(firstPossibleWords)) {
+        firstPossibleWords[key] = value / firstPossibleWordsTotal; // Normaliza as probabilidades das primeiras palavras
     }
 
+    for (let [prevWord, nextWordList] of Object.entries(secondPossibleWords)) {
+        secondPossibleWords[prevWord] = getNextProbability(nextWordList); // Calcula probabilidades de transições de segunda palavra
+    }
+
+    for (let [wordPair, nextWordList] of Object.entries(transitions)) {
+        transitions[wordPair] = getNextProbability(nextWordList); // Calcula probabilidades de transições subsequentes
+    }
 }
 
-export { MarkovChain };
+function nextWord(tpl) {
+    // Função que sugere a próxima palavra com base no template fornecido (string ou array)
+    if (typeof tpl === 'string') {
+        let d = secondPossibleWords[tpl];
+        if (d !== undefined) {
+            return Object.keys(d); // Retorna as palavras possíveis que podem seguir a palavra dada
+        }
+    } else if (Array.isArray(tpl)) {
+        let d = transitions[tpl.join(',')];
+        if (d !== undefined) {
+            return Object.keys(d); // Retorna as palavras possíveis que podem seguir o par de palavras dado
+        }
+    }
+    return [];
+}
+
+// Lê o arquivo de texto e treina o modelo
+fs.readFile(trainData, 'utf8', (err, data) => {
+    if (err) {
+        console.error("Erro ao ler o arquivo:", err);
+        return;
+    }
+    trainMarkovModel(data); // Treina o modelo com os dados lidos
+
+    console.log("Uso: comece a digitar.. o programa irá sugerir palavras.\n");
+
+    const readline = require('readline');
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    let sent = '';
+    let lastSuggestion = [];
+
+    rl.on('line', (line) => {
+        sent += ' ' + line;
+        let tokens = sent.trim().split(/\s+/);
+        if (tokens.length < 2) {
+            lastSuggestion = nextWord(tokens[0].toLowerCase());
+            console.log(lastSuggestion);
+        } else {
+            lastSuggestion = nextWord([tokens[tokens.length - 2].toLowerCase(), tokens[tokens.length - 1].toLowerCase()]);
+            console.log(lastSuggestion);
+        }
+    });
+
+    rl.on('close', () => {
+        console.log('Programa terminado.');
+    });
+});
