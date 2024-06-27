@@ -128,6 +128,11 @@ async function fazerPredicao() {
     }
 }
 
+// Função para atualizar o texto da predição no HTML
+function atualizarPredicaoTexto(texto) {
+  document.getElementById('predicao-texto').value = texto;
+}
+
 // Adicionar evento de clique ao botão para fazer a predição manualmente
 document
     .getElementById('btn-fazer-predicao')
