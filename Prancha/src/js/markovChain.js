@@ -2,99 +2,105 @@ const fs = require('fs');
 
 class MarkovChain {
     constructor() {
-        this.firstPossibleWords = {};
-        this.secondPossibleWords = {};
-        this.transitions = {};
+        this.firstPossibleWords = new Map();
+        this.secondPossibleWords = new Map();
+        this.transitions = new Map();
     }
 
-    // Método para treinar o modelo de Markov com os dados fornecidos
     train(data) {
-        let lines = data.split('\n');
+        const lines = data.split('\n');
 
-        for (let line of lines) {
-            let tokens = line.trim().toLowerCase().split(/\s+/);
-            let tokensLength = tokens.length;
-            
-            for (let i = 0; i < tokensLength; i++) {
-                let token = tokens[i];
-                
-                if (i === 0) {
-                    this.firstPossibleWords[token] = (this.firstPossibleWords[token] || 0) + 1; // Contagem de palavras iniciais
+        for (const line of lines) {
+            const tokens = this.preprocessText(line);
+            this.processTokens(tokens);
+        }
+
+        this.normalizeProbabilities();
+    }
+
+    preprocessText(text) {
+        return text.trim()
+            .toLowerCase()
+            .replace(/[^\w\s]/g, '')  // Remove pontuação
+            .split(/\s+/);
+    }
+
+    processTokens(tokens) {
+        tokens.forEach((token, i) => {
+            if (i === 0) {
+                this.incrementMap(this.firstPossibleWords, token);
+            } else {
+                const prevToken = tokens[i - 1];
+                if (i === tokens.length - 1) {
+                    this.incrementMap(this.transitions, `${prevToken},${token}`, 'END');
+                }
+                if (i === 1) {
+                    this.incrementMap(this.secondPossibleWords, prevToken, token);
                 } else {
-                    let prevToken = tokens[i - 1];
-                    
-                    if (i === tokensLength - 1) {
-                        this.expandDict(this.transitions, [prevToken, token].join(','), 'END'); // Marca o fim da sentença
-                    }
-                    
-                    if (i === 1) {
-                        this.expandDict(this.secondPossibleWords, prevToken, token); // Contagem de transições de primeira para segunda palavra
-                    } else {
-                        let prevPrevToken = tokens[i - 2];
-                        this.expandDict(this.transitions, [prevPrevToken, prevToken].join(','), token); // Contagem de transições de palavras subsequentes
-                    }
+                    const prevPrevToken = tokens[i - 2];
+                    this.incrementMap(this.transitions, `${prevPrevToken},${prevToken}`, token);
                 }
             }
-        }
-
-        // Normalização das probabilidades
-        let firstPossibleWordsTotal = Object.values(this.firstPossibleWords).reduce((a, b) => a + b, 0);
-        for (let [key, value] of Object.entries(this.firstPossibleWords)) {
-            this.firstPossibleWords[key] = value / firstPossibleWordsTotal;
-        }
-
-        for (let [prevWord, nextWordList] of Object.entries(this.secondPossibleWords)) {
-            this.secondPossibleWords[prevWord] = this.getNextProbability(nextWordList);
-        }
-
-        for (let [wordPair, nextWordList] of Object.entries(this.transitions)) {
-            this.transitions[wordPair] = this.getNextProbability(nextWordList);
-        }
+        });
     }
 
-    // Método auxiliar para expandir o dicionário com novos itens
-    expandDict(dictionary, key, value) {
-        if (!(key in dictionary)) {
-            dictionary[key] = [];
+    incrementMap(map, key, value = 1) {
+        if (!map.has(key)) {
+            map.set(key, []);
         }
-        dictionary[key].push(value);
+        map.get(key).push(value);
     }
 
-    // Método para calcular as probabilidades das palavras seguintes
-    getNextProbability(givenList) {
-        let probabilityDict = {};
-        let givenListLength = givenList.length;
-        
-        for (let item of givenList) {
-            probabilityDict[item] = (probabilityDict[item] || 0) + 1;
-        }
-        
-        for (let [key, value] of Object.entries(probabilityDict)) {
-            probabilityDict[key] = value / givenListLength;
-        }
-        
-        return probabilityDict;
+    normalizeProbabilities() {
+        this.firstPossibleWords = this.calculateProbabilities(this.firstPossibleWords);
+        this.secondPossibleWords = this.mapValues(this.secondPossibleWords, this.calculateProbabilities);
+        this.transitions = this.mapValues(this.transitions, this.calculateProbabilities);
     }
 
-    // Método para prever a próxima palavra com base no contexto fornecido
-    nextWord(tpl) {
-        if (typeof tpl === 'string') {
-            let d = this.secondPossibleWords[tpl];
-            if (d !== undefined) {
-                return Object.keys(d); // Retorna as palavras possíveis que podem seguir a palavra dada
-            }
-        } else if (Array.isArray(tpl)) {
-            let d = this.transitions[tpl.join(',')];
-            if (d !== undefined) {
-                return Object.keys(d); // Retorna as palavras possíveis que podem seguir o par de palavras dado
-            }
+    calculateProbabilities(map) {
+        const total = Array.from(map.values()).reduce((sum, val) => sum + val.length, 0);
+        return new Map(Array.from(map.entries()).map(([key, val]) => [key, val.length / total]));
+    }
+
+    mapValues(map, fn) {
+        return new Map(Array.from(map.entries()).map(([key, val]) => [key, fn(new Map(val.map(v => [v, 1])))]));
+    }
+
+    nextWord(context) {
+        if (typeof context === 'string') {
+            return this.secondPossibleWords.get(context) || [];
+        } else if (Array.isArray(context)) {
+            return this.transitions.get(context.join(',')) || [];
         }
         return [];
     }
 }
 
+// Correspondência palavra-imagem
+const wordToImage = {
+    "gato": "Prancha/src/util/img/figuras/gato.jpg",
+    "cachorro": "Prancha/src/util/img/figuras/cachorro.jpg",
+    "peixe":"Prancha/src/util/img/figuras/peixe.jpg",
+    "urso":"Prancha/src/util/img/figuras/urso.jpg",
+    "boi":"Prancha/src/util/img/figuras/boi.jpg",
+    "aceitar":"Prancha/src/util/img/figuras/aceitar.jpg",
+    "comer": "Prancha/src/util/img/figuras/comer.jpg",
+    "beber": "Prancha/src/util/img/figuras/beber.jpg",
+    "abraçar":"Prancha/src/util/img/figuras/abraçar.jpg",
+    "aproximar":"Prancha/src/util/img/figuras/aproximar.jpg",
+    "visitar":"Prancha/src/util/img/figuras/visitar.jpg",
+    "amarrar":"Prancha/src/util/img/figuras/amarrar.jpg",
+    "abacaxi":"Prancha/src/util/img/figuras/abacaxi.jpg",
+    "uva":"Prancha/src/util/img/figuras/uva.jpg",
+    "banana":"Prancha/src/util/img/figuras/banana.jpg",
+    "caju":"Prancha/src/util/img/figuras/caju.jpg",
+    "laranja":"Prancha/src/util/img/figuras/laranja.jpg",
+    "azul":"Prancha/src/util/img/figuras/azul.jpg",
+    "branco":"Prancha/src/util/img/figuras/branco.jpg",
+};
+
 // Caminho para o arquivo de treinamento
-let trainData = './src/util/corpus.txt';
+const trainData = 'Prancha/src/util/corpus.txt';
 
 // Leitura do arquivo e treinamento do modelo
 fs.readFile(trainData, 'utf8', (err, data) => {
@@ -116,19 +122,17 @@ fs.readFile(trainData, 'utf8', (err, data) => {
     });
 
     let sent = '';
-    let lastSuggestion = [];
 
     rl.on('line', (line) => {
         sent += ' ' + line;
-        let tokens = sent.trim().split(/\s+/);
-        
+        const tokens = markovChain.preprocessText(sent);
+        let suggestions;
         if (tokens.length < 2) {
-            lastSuggestion = markovChain.nextWord(tokens[0].toLowerCase());
-            console.log(lastSuggestion);
+            suggestions = markovChain.nextWord(tokens[0]);
         } else {
-            lastSuggestion = markovChain.nextWord([tokens[tokens.length - 2].toLowerCase(), tokens[tokens.length - 1].toLowerCase()]);
-            console.log(lastSuggestion);
+            suggestions = markovChain.nextWord([tokens[tokens.length - 2], tokens[tokens.length - 1]]);
         }
+        console.log(suggestions);
     });
 
     rl.on('close', () => {
