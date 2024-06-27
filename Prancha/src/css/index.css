@@ -68,6 +68,7 @@ h1 {
 
 .card {
     display: flex;
+    background-color: white;
     border: 1px solid #ccc;
     border-radius: 8px;
     margin: 3px;
@@ -132,7 +133,6 @@ section.pred-tempo {
     padding: 20px 0;
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: center;
     border: 2px solid #3c91e6;
     border-radius: 8px;
@@ -150,15 +150,38 @@ section.category {
     background-color: #fff;
 }
 
+section.section-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.fixed-category-container {
+    display: flex;
+    flex-direction: column;
+    width: 434px;
+    border: 2px solid #3c91e6;
+    border-radius: 8px;
+}
+
+.dinamic-category-container {
+    display: flex;
+    flex-direction: column;
+    width: 434px;
+    border: 2px solid #3c91e6;
+    border-radius: 8px;
+}
+
 .frase-header {
     /* width: 100%; */
     display: flex;
+    background-color: white;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
     /* padding: 10px; */
-    /*height: 178px;*/
-    border: 1px solid #3c91e6;
+    /* height: 178px; */
+    border: 2px solid #3c91e6;
     border-radius: 8px;
 }
 
@@ -179,6 +202,8 @@ h2 {
     overflow-y: hidden;
     flex-direction: row;
     height: 139px;
+    border: 2px ;
+    border-radius: 8px;
 }
 
 .scroll-menu {
@@ -189,9 +214,7 @@ h2 {
     overflow: auto;
     background-color: #ffffff;
     flex-direction: column;
-    border: 1px solid #3c91e6;;
-    border-bottom-left-radius: 6px;
-    border-top-left-radius: 6px;
+    border-radius: 15px;
 }
 
 .scroll-menu.show h4 {
@@ -241,22 +264,9 @@ h2 {
     justify-content: flex-end;
     gap: 12px;
     flex-direction: column;
-    border: 1px solid #3c91e6;
-    .btn-container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 12px;
-        flex-direction: column;
-        border: 1px solid #3c91e6;
-        padding: 12px;
-        height: 125px;
-        border-bottom-right-radius: 6px;
-        border-top-right-radius: 6px;
-    }
+    border-left: 2px solid #3c91e6;
     padding: 12px;
     height: 125px;
-
 }
 
 .category-selector {

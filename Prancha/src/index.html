@@ -39,12 +39,6 @@
                         <button id="btn-excluir-ultima" aria-label="Excluir a última figura da frase"><img src="./img/assets/ApagarUltima.png" alt="ApagarUltima"></button>
                     </section>
                 </div>
-                <!--
-                <div class="scroll-menu">
-                    <h4>Frase Formada:</h4>
-                    <ul id="frase-lista" class="frase-formada-horizontal"></ul>
-                </div>
-                -->
             </section>
             <br>
             <section class="section-mid">
@@ -55,18 +49,19 @@
                     <button id="btn-fazer-predicao">Fazer Predição</button>
                 </section>
                 <section class="category">
-                    <h2>Categorias:</h2>
                     <div class="category-selector"></div>
                 </section>
             </section>
             <br>
-            <div class="section-cards-container">
+            <section class="section-cards">
                 <div class="fixed-category-container">
-                    <div id="fixed-cards-container"></div>
+                    <div id="fixed-cards-container" class="cards-container"></div>
                 </div>
                 <br>
-                <section class="cards-container" id="cards-container"></section>
-            </div>
+                <div class="dinamic-category-container">
+                    <section class="cards-container" id="cards-container"></section>
+                </div>
+            </section>
             
         </main>
     </div>

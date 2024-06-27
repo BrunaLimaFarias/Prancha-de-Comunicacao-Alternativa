@@ -1,7 +1,6 @@
-import { MarkovChain } from './markovChain.js';
+import { loadAndTrain, nextWord } from './markovChainBrowser.js';
 import { removerUltimaFigura, limparFrase, buscaFigura, criarBotoesDeCategoria } from './figuras.js';
 
-let markovChain = new MarkovChain();
 let wordImageMap = {};
 
 window.onload = async function() {
@@ -14,13 +13,21 @@ window.onload = async function() {
         console.log('Categorias recebidas:', categorias);
 
         // Chama a função para criar os botões de categoria dinamicamente
-        criarBotoesDeCategoria(categorias, markovChain, wordImageMap);
+        criarBotoesDeCategoria(categorias, nextWord, wordImageMap);
+
+        // Carrega e treina o modelo de Markov
+        const corpusResponse = await fetch('path/to/corpus.txt'); // Atualize o caminho do corpus
+        const corpusData = await corpusResponse.text();
+        loadAndTrain(corpusData);
+
+        // Carrega a categoria fixa "Ações"
+        await buscaFigura('Ações');
 
         // Chamada inicial para buscar as figuras da primeira categoria se houver
-        if (categorias.length > 0) {
-            const primeiraCategoria = categorias[0];
+        if (Object.keys(categorias).length > 0) {
+            const primeiraCategoria = Object.keys(categorias)[0];
             console.log(`Buscando figuras para a categoria inicial: ${primeiraCategoria}`);
-            await buscaFigura(primeiraCategoria, markovChain, wordImageMap);
+            await buscaFigura(primeiraCategoria);
         } else {
             console.warn('Nenhuma categoria disponível.');
         }
