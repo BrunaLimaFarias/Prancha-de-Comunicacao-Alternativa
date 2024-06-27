@@ -31,7 +31,7 @@ window.onload = async function() {
 
 window.addEventListener('scroll', function() {
     const fraseLista = document.querySelector('.scroll-menu');
-    if (window.scrollY > 400) { // Ajuste o valor conforme necessário
+    if (window.scrollY > 400) {
         fraseLista.classList.add('show');
     } else {
         fraseLista.classList.remove('show');
