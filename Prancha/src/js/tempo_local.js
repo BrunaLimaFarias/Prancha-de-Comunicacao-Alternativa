@@ -1,4 +1,5 @@
-const apiKey = 'afaaa54c319a4dba81f57014b11ffb57';
+const googleApiKey = 'AIzaSyA25TyRbuYauUv9XylAv-e_yUzbSedJ0Tg';
+
 const cityToStateMap = {
     "Curitiba": "Paraná",
     "São Paulo": "São Paulo",
@@ -6,15 +7,31 @@ const cityToStateMap = {
     // Adicionar mais mapeamentos de cidade para estado conforme necessário
 };
 
-// Função para obter o período do dia com base no horário atual
-function getPeriodoDia() {
-    const horaAtual = new Date().getHours();
-    if (horaAtual >= 5 && horaAtual < 12) {
-        return 'manhã';
-    } else if (horaAtual >= 12 && horaAtual < 18) {
-        return 'tarde';
-    } else {
-        return 'noite';
+// Função para obter a localização do usuário usando a API de Geolocalização do Google
+async function getGeolocationFromGoogle() {
+    try {
+        const geolocationUrl = `https://www.googleapis.com/geolocation/v1/geolocate?key=${googleApiKey}`;
+
+        const response = await fetch(geolocationUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        });
+
+        const data = await response.json();
+        if (data && data.location) {
+            return {
+                latitude: data.location.lat,
+                longitude: data.location.lng
+            };
+        } else {
+            throw new Error('Não foi possível obter coordenadas do Google Geolocation API.');
+        }
+    } catch (error) {
+        console.error('Erro ao obter localização do Google Geolocation API:', error);
+        throw error;
     }
 }
 
@@ -31,87 +48,89 @@ function traduzirTermo(termo) {
     return translations[termo] || termo;
 }
 
-// Função para obter a localização do usuário com base no endereço IP usando a API do Geoapify
-async function getLocalizacaoUsuario() {
-    try {
-        const response = await fetch(`https://api.geoapify.com/v1/ipinfo?apiKey=${apiKey}`);
-        const data = await response.json();
+// Função para obter o endereço detalhado usando a API de Reverse Geocoding do OpenStreetMap
+async function getEnderecoDetalhado(latitude, longitude) {
+  try {
+    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&addressdetails=1`);
+    const data = await response.json();
 
-        if (data && data.city && data.city.name && data.country && data.country.name_native) {
-            const cidade = traduzirTermo(data.city.name);
-            let estado = traduzirTermo(data.state.name);
-            const pais = traduzirTermo(data.country.name_native);
-            const latitude = data.location.latitude;
-            const longitude = data.location.longitude;
+    if (data && data.address) {
+      const endereco = traduzirTermo(data.address.road) || 'Desconhecido';
+      const bairro = traduzirTermo(data.address.suburb) || 'Desconhecido';
+      const cidade = traduzirTermo(data.address.city) || data.address.town || 'Desconhecido';
+      const estado = traduzirTermo(data.address.state) || 'Desconhecido';
+      const pais = traduzirTermo(data.address.country) || 'Desconhecido';
+      const type = traduzirTermo(data.type) || 'Desconhecido';
 
-            // Correção do estado com base no mapeamento de cidades
-            if (cityToStateMap[cidade]) {
-                estado = cityToStateMap[cidade];
-            }
+      return { type, endereco, bairro, cidade, estado, pais };
+    } else {
+      throw new Error('Dados de endereço incompletos ou inválidos.');
+    }
+  } catch (error) {
+    console.error('Erro ao obter endereço detalhado do OpenStreetMap:', error);
+    throw error;
+  }
+}
 
-            const localData = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`);
-            const localJson = await localData.json();
-
-            const type = traduzirTermo(localJson.type);
-            const endereco = localJson.address.road || 'Desconhecido';
-            const bairro = localJson.address.suburb || 'Desconhecido';
-
-            return { cidade, estado, pais, type, endereco, bairro };
-        } else {
-            throw new Error('Dados de localização incompletos ou inválidos.');
-        }
-    } catch (error) {
-        console.error('Erro ao obter localização:', error);
-        throw error;
+// Função para obter o período do dia com base no horário atual
+function getPeriodoDia() {
+    const horaAtual = new Date().getHours();
+    if (horaAtual >= 5 && horaAtual < 12) {
+        return 'manhã';
+    } else if (horaAtual >= 12 && horaAtual < 18) {
+        return 'tarde';
+    } else {
+        return 'noite';
     }
 }
 
 // Função para fazer a predição com base no contexto de tempo e geolocalização
-function fazerPredicao() {
-  const periodoDia = getPeriodoDia();
+async function fazerPredicao() {
+    try {
+        const periodoDia = getPeriodoDia();
 
-  getLocalizacaoUsuario()
-  .then((localizacao) => {
-    // Saída da predição com base no contexto
-    const predicao = `Usuário está numa ${localizacao.type} na cidade de ${localizacao.cidade}, ${localizacao.estado}, ${localizacao.pais}, no bairro ${localizacao.bairro}, endereço ${localizacao.endereco}, durante a ${periodoDia}.`;
+        // Obtém a localização inicial do Google Geolocation API
+        const coordenadas = await getGeolocationFromGoogle();
+        const enderecoDetalhado = await getEnderecoDetalhado(coordenadas.latitude, coordenadas.longitude);
 
-    // Atualizar o conteúdo do elemento HTML com a predição
-    const predicaoTextoElement = document.getElementById('predicao-texto');
-    predicaoTextoElement.textContent = predicao;
+        // Saída da predição com base no contexto
+        const predicao = `Usuário está num(a) ${enderecoDetalhado.type} na cidade de ${enderecoDetalhado.cidade}, ${enderecoDetalhado.estado}, ${enderecoDetalhado.pais}, no bairro ${enderecoDetalhado.bairro}, endereço ${enderecoDetalhado.endereco}, durante a ${periodoDia}.`;
 
-    // Limpar o conteúdo anterior das ações comuns
-    const acoesComunsElement = document.getElementById('acoes-comuns');
-    acoesComunsElement.innerHTML = '';
+        // Atualizar o conteúdo do elemento HTML com a predição
+        const predicaoTextoElement = document.getElementById('predicao-texto');
+        predicaoTextoElement.textContent = predicao;
 
-    if (periodoDia === 'manhã') {
-      // Adicionar mensagem sobre ações comuns durante a manhã
-      const mensagem = document.createElement('p');
-      mensagem.textContent ='Ações comuns durante a manhã: Café da manhã, preparativos para o dia.';
-      acoesComunsElement.appendChild(mensagem);
-    } else if (periodoDia === 'tarde') {
-      // Adicionar mensagem sobre ações comuns durante a tarde
-      const mensagem = document.createElement('p');
-      mensagem.textContent =
-        'Ações comuns durante a tarde: Almoço, trabalho ou estudos.';
-      acoesComunsElement.appendChild(mensagem);
-    } else {
-      // Adicionar mensagem sobre ações comuns durante a noite
-      const mensagem = document.createElement('p');
-      mensagem.textContent =
-        'Ações comuns durante a noite: Jantar, relaxamento, sono.';
-      acoesComunsElement.appendChild(mensagem);
+        // Limpar o conteúdo anterior das ações comuns
+        const acoesComunsElement = document.getElementById('acoes-comuns');
+        acoesComunsElement.innerHTML = '';
+
+        if (periodoDia === 'manhã') {
+            // Adicionar mensagem sobre ações comuns durante a manhã
+            const mensagem = document.createElement('p');
+            mensagem.textContent ='Ações comuns durante a manhã: Café da manhã, preparativos para o dia.';
+            acoesComunsElement.appendChild(mensagem);
+        } else if (periodoDia === 'tarde') {
+            // Adicionar mensagem sobre ações comuns durante a tarde
+            const mensagem = document.createElement('p');
+            mensagem.textContent =
+                'Ações comuns durante a tarde: Almoço, trabalho ou estudos.';
+            acoesComunsElement.appendChild(mensagem);
+        } else {
+            // Adicionar mensagem sobre ações comuns durante a noite
+            const mensagem = document.createElement('p');
+            mensagem.textContent =
+                'Ações comuns durante a noite: Jantar, relaxamento, sono.';
+            acoesComunsElement.appendChild(mensagem);
+        }
+    } catch (error) {
+        console.error('Erro ao fazer predição:', error);
+        throw error;
     }
-  });
-}
-
-// Função para atualizar o texto da predição no HTML
-function atualizarPredicaoTexto(texto) {
-  document.getElementById('predicao-texto').value = texto;
 }
 
 // Adicionar evento de clique ao botão para fazer a predição manualmente
 document
-  .getElementById('btn-fazer-predicao')
-  .addEventListener('click', function () {
-    fazerPredicao();
-  });
+    .getElementById('btn-fazer-predicao')
+    .addEventListener('click', function () {
+        fazerPredicao();
+    });
