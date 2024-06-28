@@ -16,7 +16,7 @@ window.onload = async function() {
         criarBotoesDeCategoria(categorias, nextWord, wordImageMap);
 
         // Carrega e treina o modelo de Markov
-        const corpusResponse = await fetch('path/to/corpus.txt'); // Atualize o caminho do corpus
+        const corpusResponse = await fetch('util/corpus.txt');
         const corpusData = await corpusResponse.text();
         loadAndTrain(corpusData);
 
