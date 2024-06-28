@@ -1,4 +1,4 @@
-const googleApiKey = 'AIzaSyA25TyRbuYauUv9XylAv-e_yUzbSedJ0Tg'; 
+const googleApiKey = 'AIzaSyA25TyRbuYauUv9XylAv-e_yUzbSedJ0Tg';
 
 // Mapeamento de cidade para estado 
 const cityToStateMap = {
@@ -21,11 +21,54 @@ function adicionarPerfil(nome) {
         return;
     }
 
-    // Cria um novo perfil e o adiciona à lista de perfis
-    const novoPerfil = {
-        nome: nome.trim(),
-    };
+    // Definindo perfis diferentes
+    let novoPerfil;
+    if (nome.trim().toLowerCase() === "criança") {
+        novoPerfil = {
+            nome: nome.trim(),
+            categorias: ["Animais", "Escola", "Alimentos"],
+            imagens: {
+                "Animais": ["gato", "cachorro", "passarinho"],
+                "Escola": ["ler", "escrever", "desenhar"],
+                "Alimentos": ["maçã", "banana", "biscoito"]
+            }
+        };
+    } else if (nome.trim().toLowerCase() === "adolescente") {
+        novoPerfil = {
+            nome: nome.trim(),
+            categorias: ["Esportes", "Música", "Amigos"],
+            imagens: {
+                "Esportes": ["futebol", "basquete", "natação"],
+                "Música": ["guitarra", "violino", "bateria"],
+                "Amigos": ["sair", "conversar", "esporte"]
+            }
+        };
+    } else if (nome.trim().toLowerCase() === "adulto") {
+        novoPerfil = {
+            nome: nome.trim(),
+            categorias: ["Casa", "Trabalho", "Viagens"],
+            imagens: {
+                "Casa": ["cozinhar", "limpar", "relaxar"],
+                "Trabalho": ["reunião", "computador", "telefone"],
+                "Viagens": ["avião", "praia", "montanha"]
+            }
+        };
+    } else {
+        // Perfil personalizado ou padrão
+        novoPerfil = {
+            nome: nome.trim(),
+            categorias: config.categorias || [],
+            imagens: config.imagens || {}
+        };
+    }
 
+/* 
+    // Adiciona categorias e imagens específicas para cada perfil
+    categorias.forEach((categoria, index) => {
+        novoPerfil.categorias[categoria] = imagens[categoria];
+        novoPerfil.imagens[categoria] = imagens[categoria];
+    });
+*/
     perfisUsuarios.push(novoPerfil);
 
     // Define o novo perfil como ativo se nenhum perfil estiver ativo
@@ -173,21 +216,25 @@ async function fazerPredicao() {
         const coordenadas = await getGeolocationFromGoogle();
         const enderecoDetalhado = await getEnderecoDetalhado(coordenadas.latitude, coordenadas.longitude);
 
-        // Saída da predição com base no contexto e perfil do usuário
-        const predicao = `Usuário está num(a) ${enderecoDetalhado.type} na cidade de ${enderecoDetalhado.cidade}, ${enderecoDetalhado.estado}, ${enderecoDetalhado.pais}, no bairro ${enderecoDetalhado.bairro}, endereço ${enderecoDetalhado.endereco}, durante a ${periodoDia}. Perfil: ${perfilAtivo ? perfilAtivo.nome : 'Nenhum'}`;
+        // Monta a predição com base no contexto e perfil do usuário
+        let predicao = `Usuário está num(a) ${enderecoDetalhado.type} na cidade de ${enderecoDetalhado.cidade}, ${enderecoDetalhado.estado}, ${enderecoDetalhado.pais}, no bairro ${enderecoDetalhado.bairro}, endereço ${enderecoDetalhado.endereco}, durante a ${periodoDia}. Perfil: ${perfilAtivo ? perfilAtivo.nome : 'Nenhum'}`;
 
         // Atualizar o conteúdo do elemento HTML com a predição
         const predicaoTextoElement = document.getElementById('predicao-texto');
         predicaoTextoElement.textContent = predicao;
 
+        // Exibe o perfil ativo
+        atualizarPredicaoTexto(predicao);
+
+
         // Limpar o conteúdo anterior das ações comuns
         const acoesComunsElement = document.getElementById('acoes-comuns');
         acoesComunsElement.innerHTML = '';
-
+        /*
         if (periodoDia === 'manhã') {
             // Adicionar mensagem sobre ações comuns durante a manhã
             const mensagem = document.createElement('p');
-            mensagem.textContent ='Ações comuns durante a manhã: Café da manhã, preparativos para o dia.';
+            mensagem.textContent = 'Ações comuns durante a manhã: Café da manhã, preparativos para o dia.';
             acoesComunsElement.appendChild(mensagem);
         } else if (periodoDia === 'tarde') {
             // Adicionar mensagem sobre ações comuns durante a tarde
@@ -202,11 +249,72 @@ async function fazerPredicao() {
                 'Ações comuns durante a noite: Jantar, relaxamento, sono.';
             acoesComunsElement.appendChild(mensagem);
         }
+             */
+
+        if (perfilAtivo) {
+            const categorias = Object.keys(perfilAtivo.imagens);
+    
+            // Loop para exibir imagens por categoria
+            categorias.forEach(categoria => {
+                const imagens = perfilAtivo.imagens[categoria];
+    
+                // Cria um container para a categoria
+                const categoriaElement = document.createElement('div');
+                categoriaElement.classList.add('categoria');
+                const tituloCategoria = document.createElement('h3');
+                tituloCategoria.textContent = categoria;
+                categoriaElement.appendChild(tituloCategoria);
+    
+                // Loop para exibir imagens
+                imagens.forEach(imagem => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = `./img/figuras/${imagem}.jpg`; // Substitua .jpg pelo formato real das suas imagens
+                    imgElement.alt = imagem;
+                    categoriaElement.appendChild(imgElement);
+                });
+    
+                acoesComunsElement.appendChild(categoriaElement);
+            });
+        }
+
     } catch (error) {
         console.error('Erro ao fazer predição:', error);
         throw error;
     }
 }
+
+// Função para atualizar as imagens com base no perfil ativo
+function atualizarImagensPerfil() {
+    const acoesComunsElement = document.getElementById('acoes-comuns');
+    acoesComunsElement.innerHTML = '';
+
+    if (perfilAtivo) {
+        const categorias = perfilAtivo.categorias;
+
+        // Loop para exibir imagens por categoria
+        for (let categoria of categorias) {
+            const imagens = perfilAtivo.imagens[categoria];
+
+            // Cria um container para a categoria
+            const categoriaElement = document.createElement('div');
+            categoriaElement.classList.add('categoria');
+            const tituloCategoria = document.createElement('h3');
+            tituloCategoria.textContent = categoria;
+            categoriaElement.appendChild(tituloCategoria);
+
+            // Loop para exibir imagens
+            for (let imagem of imagens) {
+                const imgElement = document.createElement('img');
+                imgElement.src = `./img/figuras/${imagem}.jpg`; // Substitua .jpg pelo formato real das suas imagens
+                imgElement.alt = imagem;
+                categoriaElement.appendChild(imgElement);
+            }
+
+            acoesComunsElement.appendChild(categoriaElement);
+        }
+    }
+}
+
 
 // Função para atualizar o texto da predição no HTML
 function atualizarPredicaoTexto(texto) {
@@ -242,5 +350,35 @@ function inicializar() {
     atualizarPerfisSalvos();
 }
 
-// Chamada da função de inicialização ao carregar a página
-document.addEventListener('DOMContentLoaded', inicializar);
+// Evento de carregamento da página
+document.addEventListener('DOMContentLoaded', function() {
+    inicializar();
+
+    // Inicializa alguns perfis de exemplo
+adicionarPerfil("Criança", {
+    categorias: ["Animais", "Escola", "Alimentos"],
+    imagens: {
+        "Animais": ["cachorro", "gato", "passarinho"],
+        "Escola": ["ler", "escrever", "desenhar"],
+        "Alimentos": ["maçã", "banana", "biscoito"]
+    }
+});
+
+adicionarPerfil("Adolescente", {
+    categorias: ["Esportes", "Música", "Amigos"],
+    imagens: {
+        "Esportes": ["futebol", "basquete", "natação"],
+        "Música": ["guitarra", "violino", "bateria"],
+        "Amigos": ["sair", "conversar", "esporte"]
+    }
+});
+
+adicionarPerfil("Adulto", {
+    categorias: ["Casa", "Trabalho", "Viagens"],
+    imagens: {
+        "Casa": ["cozinhar", "limpar", "relaxar"],
+        "Trabalho": ["reunião", "computador", "telefone"],
+        "Viagens": ["avião", "praia", "montanha"]
+    }
+});
+});
