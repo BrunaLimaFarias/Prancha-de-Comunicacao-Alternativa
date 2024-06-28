@@ -104,7 +104,7 @@ Agrotóxico - Objetos
 agua_copo - Objetos
 agua_tanque - Objetos
 aguardar - Ações
-ajudar - Ações, Importante
+ajudar - Ações
 ajude-me - Ações
 ajustar para baixo - Ações
 ajustar para cima - Ações
@@ -313,7 +313,7 @@ bonito_negro - Pessoas
 borboleta - Animais
 borboleta (1) - Animais
 Borracha - Escola e aprendizagem
-bosta - Pessoas
+fezes - Pessoas
 bota - Objetos
 Botar - Ações
 botijão de gás - Objetos
@@ -481,7 +481,7 @@ cilindro 2 - Escola e aprendizagem
 cilindro - Escola e aprendizagem
 cinco - Alfabetização e Numerais
 cinema tela cor - Diversão e jogos
-cinema - Diversão e jogos
+cinema - Diversão e jogos, Tarde, Adolescente
 cinquenta - Alfabetização e Numerais
 cinto de segurança - Transporte
 cinto - Objetos
@@ -521,7 +521,7 @@ colorir - Ações
 coluna - Partes do corpo
 com licença - Expressões de comunicação
 comadre - Pessoas
-comer - Ações
+comer - Ações, Café da Manhã, Almoço, Manhã
 comércio - Lugares
 cometi um engano - Expressões de comunicação
 comício - Eventos e Celebrações
@@ -797,7 +797,7 @@ escorregar - Ações
 escoteiro copy - Pessoas
 escoteiro - Pessoas
 escova de cabelo - Objetos
-escova de dentes - Saúde e higiene
+escova de dentes - Saúde e higiene, Manhã
 escova - Objetos
 escovar os dentes - Saúde e higiene
 escravo - Pessoas
@@ -843,14 +843,14 @@ estrada - Lugares
 estragado - Saúde e higiene
 estrela - Natureza
 estudante - Pessoas
-estudar - Escola e aprendizagem
+estudar - Escola e aprendizagem, Manhã, Adolescente
 estudioso - Escola e aprendizagem
 etiqueta de preço - Economia e Finanças
 etiqueta - Objetos
-eu (1) - Gramática e Funções
+eu - Gramática e Funções, Importante
 eu estou bem - Expressões de comunicação
 eu menina - Gramática e Funções, Identidade e Gênero
-eu - Gramática e Funções
+eu 2 - Gramática e Funções
 exame - Saúde e higiene
 Exclamação (1) - Gramática e Funções
 Exclamação - Ações
@@ -1462,7 +1462,7 @@ onça COR - Animais
 onda - Natureza
 opa - Interjeições
 Operário - Pessoas
-orar - Religião e Espiritualidade
+orar - Religião e Espiritualidade, Manhã
 orelha COR - Partes do corpo
 orelhudo - Partes do corpo
 Ortopedista - Pessoas
@@ -1616,7 +1616,7 @@ pomada - Saúde e higiene
 pombo - Animais
 ponte - Lugares
 pontos - Diversão e jogos
-por favor - Expressões de comunicação
+por favor - Expressões de comunicação, Importante
 por quê - Gramática e Funções
 Pôr - Ações
 porco - Animais
@@ -1872,14 +1872,14 @@ tirar - Ações
 tive uma idéia - Sentimentos
 tocador de CD - Objetos
 todos - Pessoas
-tomar banho - Saúde e higiene
+tomar banho - Saúde e higiene, Manhã, Adolescente
 Tonta - Saúde e higiene
 torcer - Ações
 torta caseira - Alimentos 
 toxoplasmose - Saúde e higiene
 Trabalhador - Pessoas
 trabalhar - Ações 
-trabalho - Ações
+trabalho - Ações, Manhã, Adulto
 Transgênico - Natureza
 travesseiro - Objetos
 trazer - Ações
@@ -1963,7 +1963,7 @@ visitar - Ações
 vizinho - Pessoas
 Você (1) - Gramática e Funções
 você está maluco - Expressões de comunicação
-Você - Gramática e Funções
+Você - Gramática e Funções, Importante
 Vocês - Gramática e Funções
 Vogais - Escola e aprendizagem
 volta - Ações

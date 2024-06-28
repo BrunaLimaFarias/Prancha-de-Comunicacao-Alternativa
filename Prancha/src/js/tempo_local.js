@@ -226,7 +226,6 @@ async function fazerPredicao() {
         // Limpar o conteúdo anterior das ações comuns
         const acoesComunsElement = document.getElementById('acoes-comuns');
         acoesComunsElement.innerHTML = '';
-        /*
         if (periodoDia === 'manhã') {
             // Adicionar mensagem sobre ações comuns durante a manhã
             const mensagem = document.createElement('p');
@@ -245,49 +244,13 @@ async function fazerPredicao() {
                 'Ações comuns durante a noite: Jantar, relaxamento, sono.';
             acoesComunsElement.appendChild(mensagem);
         }
-             */
+ 
 
         if (perfilAtivo) {
             const categorias = Object.keys(perfilAtivo.imagens);
     
             // Loop para exibir imagens por categoria
             // Loop para exibir imagens por categoria
-for (let categoria in perfilAtivo.imagens) {
-    const imagens = perfilAtivo.imagens[categoria];
-
-    // Cria um container para a categoria
-    const categoriaElement = document.createElement('div');
-    categoriaElement.classList.add('categoria');
-    const tituloCategoria = document.createElement('h3');
-    //tituloCategoria.textContent = categoria;
-    categoriaElement.appendChild(tituloCategoria);
-
-    // Loop para exibir imagens
-    imagens.forEach(figura => {
-        const cardDiv = document.createElement('div');
-        cardDiv.classList.add('card');
-
-        cardDiv.innerHTML += `
-            <img src="./img/figuras/${figura}.jpg" alt="${figura}" onerror="this.src='./img/assets/image-notfound.jpg';">
-            <div class="card-body">
-                <h5 class="card-title">${figura}</h5>
-            </div>
-        `;
-
-        // Adiciona evento para chamar a função de adicionar a figura à frase
-        cardDiv.addEventListener('click', () => {
-            adicionarFiguraAFrase({ img: `./img/figuras/${figura}.jpg`, palavra: figura });
-            cardDiv.classList.add('selected');
-            setTimeout(() => {
-                cardDiv.classList.remove('selected'); // Cria efeito visual para indicar que o card foi selecionado
-            }, 300);
-        });
-
-        categoriaElement.appendChild(cardDiv);
-    });
-
-    acoesComunsElement.appendChild(categoriaElement);
-}
 
         }
 

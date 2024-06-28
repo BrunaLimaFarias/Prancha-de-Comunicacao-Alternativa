@@ -25,7 +25,7 @@ $conteudo = @file_get_contents($url_diretorio_imagens);
 // Verifica se a solicitação foi bem sucedida
 if ($conteudo !== false) {
     // Extrai os links das imagens do conteúdo HTML
-    preg_match_all('/<a[^>]+href=([\'"])(?<url>.+?)\1[^>]*>/i', $conteudo, $matches);
+    preg_match_all('/<a[^>]+href=([\'" ])(?<url>.+?)\1[^>]*>/i', $conteudo, $matches);
 
     // Loop pelos links encontrados
     foreach ($matches['url'] as $url) {

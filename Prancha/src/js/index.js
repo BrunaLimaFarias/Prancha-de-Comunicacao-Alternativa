@@ -21,7 +21,7 @@ window.onload = async function() {
         loadAndTrain(corpusData);
 
         // Carrega a categoria fixa "Ações"
-        await buscaFigura('Ações');
+        await buscaFigura('Importante');
 
         // Chamada inicial para buscar as figuras da primeira categoria se houver
         if (Object.keys(categorias).length > 0) {
