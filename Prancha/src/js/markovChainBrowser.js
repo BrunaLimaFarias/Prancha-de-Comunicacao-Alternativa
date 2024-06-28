@@ -3,13 +3,19 @@ let secondPossibleWords = {};
 let transitions = {};
 
 function expandDict(dictionary, key, value) {
-    if (!(key in dictionary)) {
+    if (!Array.isArray(dictionary[key])) {
         dictionary[key] = [];
     }
     dictionary[key].push(value);
 }
 
 function getNextProbability(givenList) {
+    if (!Array.isArray(givenList)) {
+        console.error('givenList não é um array:', givenList);
+        givenList = Object.entries(givenList); // Converter objeto em array de pares chave-valor
+        return {};
+    }
+
     let probabilityDict = {};
     let givenListLength = givenList.length;
     for (let item of givenList) {
@@ -44,6 +50,7 @@ function trainMarkovModel(data) {
             }
         }
     }
+}
 
     let firstPossibleWordsTotal = Object.values(firstPossibleWords).reduce((a, b) => a + b, 0);
     for (let [key, value] of Object.entries(firstPossibleWords)) {
@@ -57,7 +64,7 @@ function trainMarkovModel(data) {
     for (let [wordPair, nextWordList] of Object.entries(transitions)) {
         transitions[wordPair] = getNextProbability(nextWordList);
     }
-}
+
 
 function nextWord(tpl) {
     if (typeof tpl === 'string') {
@@ -74,8 +81,13 @@ function nextWord(tpl) {
     return [];
 }
 
+// Função para treinar o modelo com dados fornecidos como string
 function loadAndTrain(data) {
     trainMarkovModel(data);
 }
 
 export { loadAndTrain, nextWord };
+
+console.log(firstPossibleWords);
+console.log(secondPossibleWords);
+console.log(transitions);
