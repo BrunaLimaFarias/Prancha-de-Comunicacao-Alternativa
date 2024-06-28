@@ -3,7 +3,7 @@ import { loadAndTrain, nextWord } from './markovChainBrowser.js';
 let figurasSelecionadas = [];
 
 // Função para adicionar uma figura à lista ao clicar
-function adicionarFiguraAFrase(figura) {
+export function adicionarFiguraAFrase(figura) {
     figurasSelecionadas.push(figura);
     atualizarFraseFormada();
 }
@@ -61,10 +61,12 @@ function criarBotoesDeCategoria(categorias) {
 
     const macrosCategorias = {
         'Educação e Alfabetização': ['Alfabetização e Numerais', 'Escola e Aprendizagem', 'Gramática e Funções'],
-        'Alimentação e Saúde': ['Alimentação', 'Alimentos', 'Saúde e Higiene'],
+        'Alimentação': ['Alimentação', 'Alimentos'],
+        'Saúde': ['Saúde e Higiene'],
         'Natureza e Animais': ['Animais', 'Natureza'],
         'Ações e Comportamentos': ['Ações', 'Comportamento'],
-        'Objetos e Tecnologia': ['Objetos', 'Tecnologia e Comunicação'],
+        'Tecnologia': ['Tecnologia e Comunicação'],
+        'Objetos': ['Objetos'],
         'Pessoas e Identidade': ['Pessoas', 'Identidade e Gênero', 'Partes do Corpo'],
         'Sentimentos e Expressões': ['Sentimentos', 'Expressões de Comunicação', 'Gestos'],
         'Tempo e Eventos': ['Tempo e Datas', 'Eventos e Celebrações', 'Estações do Ano']
@@ -76,7 +78,7 @@ function criarBotoesDeCategoria(categorias) {
         'Alimentação e Saúde': '#1565c0',
         'Natureza e Animais': '#009688',
         'Ações e Comportamentos': '#8bc34a',
-        'Objetos e Tecnologia': '#ffc107',
+        'Objetos': '#ffc107',
         'Pessoas e Identidade': '#ff9800',
         'Sentimentos e Expressões': '#f44336',
         'Tempo e Eventos': '#ad1457'
@@ -87,7 +89,7 @@ function criarBotoesDeCategoria(categorias) {
         const countA = a[1].reduce((sum, cat) => sum + (categorias[cat] || 0), 0);
         const countB = b[1].reduce((sum, cat) => sum + (categorias[cat] || 0), 0);
         return countB - countA;
-    }).slice(0, 8);
+    }).slice(0, 10);
 
     // Cria botões para categorias macros
     macrosCategoriasOrdenadas.forEach(([macroCategoria, subCategorias]) => {
@@ -97,6 +99,14 @@ function criarBotoesDeCategoria(categorias) {
         button.textContent = macroCategoria;
         button.setAttribute('aria-label', `Selecionar categoria ${macroCategoria}`);
         button.style.backgroundColor = cores[macroCategoria]; // Aplica a cor correspondente
+        
+        // Adiciona a imagem à categoria (seguindo o exemplo de nome de arquivo padrão)
+        const img = document.createElement('img');
+        img.src = `./img/macros/${macroCategoria.replace(/\s+/g, '-').toLowerCase()}.png`; // Ajuste o caminho e nome conforme necessário
+        img.alt = macroCategoria;
+        img.classList.add('categoria-img');
+        button.appendChild(img);
+
         categorySelector.appendChild(button);
 
         // Adiciona o evento de clique para chamar buscaFigura com as categorias correspondentes
@@ -161,7 +171,7 @@ async function buscaFigura(categoriaDesejada = '') {
 // Função para buscar e exibir figuras da categoria fixa
 async function buscaFiguraFixa() {
     try {
-        const categoriaFixa = 'Ações';
+        const categoriaFixa = 'Importante';
         const response = await fetch(`php/listar.php?categoria=${encodeURIComponent(categoriaFixa)}`);
         const data = await response.json();
         console.log('Dados recebidos:', data);

@@ -1,3 +1,5 @@
+//import { adicionarFiguraAFrase } from './figuras.js';
+
 const googleApiKey = 'AIzaSyA25TyRbuYauUv9XylAv-e_yUzbSedJ0Tg';
 
 // Mapeamento de cidade para estado 
@@ -13,7 +15,8 @@ let perfisUsuarios = []; // Lista de perfis de usuários salvos
 let perfilAtivo = null; // Perfil de usuário atualmente ativo
 
 // Função para adicionar um novo perfil de usuário
-function adicionarPerfil(nome) {
+// Função para adicionar um novo perfil de usuário
+function adicionarPerfil(nome, config = {}) {
     // Verifica se o perfil já existe
     const perfilExistente = perfisUsuarios.find(perfil => perfil.nome === nome);
     if (perfilExistente) {
@@ -62,13 +65,6 @@ function adicionarPerfil(nome) {
         };
     }
 
-/* 
-    // Adiciona categorias e imagens específicas para cada perfil
-    categorias.forEach((categoria, index) => {
-        novoPerfil.categorias[categoria] = imagens[categoria];
-        novoPerfil.imagens[categoria] = imagens[categoria];
-    });
-*/
     perfisUsuarios.push(novoPerfil);
 
     // Define o novo perfil como ativo se nenhum perfil estiver ativo
@@ -255,26 +251,44 @@ async function fazerPredicao() {
             const categorias = Object.keys(perfilAtivo.imagens);
     
             // Loop para exibir imagens por categoria
-            categorias.forEach(categoria => {
-                const imagens = perfilAtivo.imagens[categoria];
-    
-                // Cria um container para a categoria
-                const categoriaElement = document.createElement('div');
-                categoriaElement.classList.add('categoria');
-                const tituloCategoria = document.createElement('h3');
-                tituloCategoria.textContent = categoria;
-                categoriaElement.appendChild(tituloCategoria);
-    
-                // Loop para exibir imagens
-                imagens.forEach(imagem => {
-                    const imgElement = document.createElement('img');
-                    imgElement.src = `./img/figuras/${imagem}.jpg`; // Substitua .jpg pelo formato real das suas imagens
-                    imgElement.alt = imagem;
-                    categoriaElement.appendChild(imgElement);
-                });
-    
-                acoesComunsElement.appendChild(categoriaElement);
-            });
+            // Loop para exibir imagens por categoria
+for (let categoria in perfilAtivo.imagens) {
+    const imagens = perfilAtivo.imagens[categoria];
+
+    // Cria um container para a categoria
+    const categoriaElement = document.createElement('div');
+    categoriaElement.classList.add('categoria');
+    const tituloCategoria = document.createElement('h3');
+    //tituloCategoria.textContent = categoria;
+    categoriaElement.appendChild(tituloCategoria);
+
+    // Loop para exibir imagens
+    imagens.forEach(figura => {
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('card');
+
+        cardDiv.innerHTML += `
+            <img src="./img/figuras/${figura}.jpg" alt="${figura}" onerror="this.src='./img/assets/image-notfound.jpg';">
+            <div class="card-body">
+                <h5 class="card-title">${figura}</h5>
+            </div>
+        `;
+
+        // Adiciona evento para chamar a função de adicionar a figura à frase
+        cardDiv.addEventListener('click', () => {
+            adicionarFiguraAFrase({ img: `./img/figuras/${figura}.jpg`, palavra: figura });
+            cardDiv.classList.add('selected');
+            setTimeout(() => {
+                cardDiv.classList.remove('selected'); // Cria efeito visual para indicar que o card foi selecionado
+            }, 300);
+        });
+
+        categoriaElement.appendChild(cardDiv);
+    });
+
+    acoesComunsElement.appendChild(categoriaElement);
+}
+
         }
 
     } catch (error) {

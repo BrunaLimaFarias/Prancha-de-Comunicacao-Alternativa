@@ -104,7 +104,7 @@ Agrotóxico - Objetos
 agua_copo - Objetos
 agua_tanque - Objetos
 aguardar - Ações
-ajudar - Ações
+ajudar - Ações, Importante
 ajude-me - Ações
 ajustar para baixo - Ações
 ajustar para cima - Ações
@@ -247,7 +247,7 @@ banco de praça - Objetos
 banco - Lugares
 bandeira do Brasil - Símbolos
 banhar-se - Ações
-banheiro - Lugares
+banheiro - Lugares, Importante
 banquinho - Objetos
 bar lanchonete - Lugares
 barata - Animais
@@ -525,7 +525,7 @@ comer - Ações
 comércio - Lugares
 cometi um engano - Expressões de comunicação
 comício - Eventos e Celebrações
-comida - Alimentos
+comida - Alimentos, Importante
 comigo - Gramática e Funções
 compadre - Pessoas
 compasso - Escola e aprendizagem
@@ -1405,8 +1405,8 @@ namorada - Pessoas
 namorado - Pessoas
 namorados - Pessoas
 namorar - Ações
-não cópia - Gestos
-não entendi - Expressões de comunicação
+não - Gestos, Importante
+não entendi - Expressões de comunicação, , Importante
 não estou bem - Sentimentos
 não interrompa - Expressões de comunicação
 não quero - Expressões de comunicação
@@ -1786,7 +1786,7 @@ Sílaba - Escola e aprendizagem
 Sílabas - Escola e aprendizagem
 Silêncio - Ações
 Silo - Lugares
-Sim cópia - Gestos
+Sim - Gestos, Importante
 Símbolo - Símbolos
 simetria - Escola e aprendizagem
 Sinagoga - Religião e Espiritualidade
@@ -1799,7 +1799,7 @@ sob - Lugares, Direções e posições
 sobre - Lugares, Direções e posições
 sobremesa sorvete - Alimentos
 socialismo - Eventos históricos
-socorro - Sentimentos
+socorro - Sentimentos, Importante
 sofá - Objetos
 sol - Astronomia
 Soletrar - Escola e aprendizagem
