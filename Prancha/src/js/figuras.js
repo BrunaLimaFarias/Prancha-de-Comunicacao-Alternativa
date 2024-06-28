@@ -70,7 +70,7 @@ function criarBotoesDeCategoria(categorias) {
         'Tempo e Eventos': ['Tempo e Datas', 'Eventos e Celebrações', 'Estações do Ano']
     };
 
-    // Define cores para cada macro 
+    // Define cores para cada macro
     const cores = {
         'Educação e Alfabetização': '#448aff',
         'Alimentação e Saúde': '#1565c0',
@@ -138,9 +138,8 @@ async function buscaFigura(categoriaDesejada = '') {
             cardDiv.innerHTML += `
             <img src="${figura.img}" alt="${figura.palavra}"  onerror="this.src='./img/assets/image-notfound.jpg';">
             <div class="card-body">
-                <h5 class="card-title
-                                    ${figura.palavra}</h5>
-                </div>
+                <h5 class="card-title">${figura.palavra}</h5>
+            </div>
             `;
 
             // Adiciona evento para chamar a função de adicionar a figura à frase
